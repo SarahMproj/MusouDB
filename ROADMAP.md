@@ -3,65 +3,65 @@
 ## Phase 0 — Foundation
 
 - Establish original branding and an asset-safe repository
-- Define game, character, battlefield, profile, session, challenge, and submission schemas
-- Publish contribution, moderation, privacy, and IP guidelines
+- Define schemas for games, characters, factions, battlefields, weapons, profiles, collections, and sessions
+- Publish contribution, provenance, privacy, and IP guidelines
 - Seed a small community-authored dataset
 - Launch a static explorer with no user accounts
 
-## Phase 1 — Warrior Records
+## Phase 1 — Franchise Explorer
+
+- Search and filter games, characters, factions, weapons, and battlefields
+- Spoiler-aware summaries and route information
+- Appearance timelines across games
+- Recurring battlefield and character comparisons
+- Personal checklists stored locally
+- Stable public data files and developer documentation
+
+## Phase 2 — Warrior Records
 
 - Account creation and authentication
 - Favorite games, characters, factions, weapons, and battlefields
+- Game library and currently-playing status
+- Completion, collection, and checklist tracking
 - Platform and gamertag fields with per-field privacy controls
-- Current game, playstyle, availability, and looking-for-group status
 - Public profile pages and shareable profile cards
 - Block and report controls
 
-## Phase 2 — Battle Rallies
+## Phase 3 — Friends and Discovery
+
+- Mutual friend requests
+- Find players by shared favorites, platform, game, and playstyle
+- Looking-for-group status
+- Optional Discord and streaming links
+- Clubs or circles around games, factions, characters, and platforms
+- Search-engine indexing of profiles only by opt-in
+
+## Phase 4 — Battle Rallies
 
 - Create and join scheduled sessions
 - Game, platform, mode, difficulty, objective, and party-size fields
 - Time-zone aware scheduling
-- Friends and invitation flow
-- Optional Discord identity and voice-room links
+- Public, friends-only, and invite-only visibility
+- Optional external voice-chat links
 - Attendance and post-session recaps
+- Community-organized themed events and replay nights
 
-## Phase 3 — Community Challenges
+## Phase 5 — Community Tools
 
-- Weekly and seasonal challenge definitions
-- Self-reported Chronicles
-- External YouTube or Twitch evidence links
-- Community witnessing and reputation
-- Separate casual, modded, and competitive boards
-- Transparent challenge rules and scoring formulas
+- Shareable collection and completion cards
+- Community-created lists and guides
+- Polls, favorites, and recommendation tools
+- Discord bot and embeddable profile widgets
+- Public API or packaged datasets
+- Translation and accessibility expansion
+- Import and export of personal data
 
-## Phase 4 — Certified League Beta
+## Later possibilities
 
-- Random challenge codes
-- Continuous-footage submission requirements
-- Moderator review queues
-- Appeals and audit logs
-- Divisions by game, platform, patch, difficulty, and ruleset
-- Regional clubs and global rankings
-- Invitational pilot season without cash prizes
-
-## Phase 5 — Machine-Assisted Verification
-
-- OCR extraction of timer, KO count, difficulty, and results
-- Duplicate-submission detection
-- Video discontinuity flags
-- Confidence scores for moderator prioritization
-- No fully automated disqualifications
-
-## Phase 6 — Licensed and Sanctioned Play
-
-- Publisher licensing proposal
-- Official marks and asset package under agreement
-- Sponsored seasonal challenges
-- First-party telemetry or replay verification
-- Official rewards, creator programs, and live events
-- Expansion across additional Warriors and Musou properties
+MusouDB may eventually support opt-in community challenges, richer accomplishment tracking, creator programs, or publisher collaborations. These are possibilities rather than commitments and should only be pursued when the core discovery, profile, and connection experience is healthy.
 
 ## Launch principle
 
-Build the community behavior before building expensive competitive infrastructure. Profiles and Battle Rallies validate identity and retention; challenges validate participation; certified rankings validate whether a formal league is warranted.
+Build the smallest useful loop first:
+
+**Discover something you love → add it to your Warrior Record → find someone who loves it too → play together.**
