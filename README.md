@@ -1,60 +1,86 @@
 # MusouDB
 
-> The open identity, coordination, and achievement network for Warriors players.
+> One database to unite the Three Kingdoms.
 
-MusouDB is an independent, community-built project for fans of Warriors and Musou-style games. It combines an open, structured game database with player profiles, session coordination, community challenges, and a transparent path toward verified competitive play.
+MusouDB is an open-source home for Warriors and Musou fandom: a structured game database, spoiler-aware reference, personal fan profile, and place to find people who love the same games, characters, and battlefields.
 
-## Vision
+The goal is simple: make the franchise easier to explore and the community easier to find.
 
-Most fan resources answer one question at a time: who an officer is, how an item unlocks, or where a battle appears. MusouDB connects the entire player journey:
+## The core experience
 
-1. **Discover** games, characters, weapons, factions, and battlefields.
-2. **Create a Warrior Record** showing favorites, platforms, gamertags, and accomplishments.
-3. **Find allies** and organize live sessions through Battle Rallies.
-4. **Complete challenges** and submit results with transparent verification.
-5. **Build a competitive community** capable of supporting sanctioned leagues and official partnerships.
+1. **Discover** games, characters, factions, weapons, battles, routes, and unlocks.
+2. **Personalize** a Warrior Record with favorites, collections, progress, platforms, and gamertags.
+3. **Connect** with friends and players who share the same interests.
+4. **Play together** by organizing co-op sessions, challenge runs, streams, and watch parties.
+5. **Contribute** knowledge, corrections, translations, tools, and original community work.
 
 ## Product pillars
 
 ### Open Musou data
 
-Versioned, contributor-friendly records for games, characters, battlefields, weapons, routes, unlocks, and relationships.
+Versioned, contributor-friendly records for games, characters, factions, battlefields, weapons, routes, unlocks, relationships, and appearances across the franchise.
+
+The data should be useful to fans and reusable by developers building bots, guides, visualizations, checklists, and other community tools.
+
+### Franchise explorer
+
+A fast, searchable, spoiler-aware interface for answering questions such as:
+
+- Which games does this character appear in?
+- Which battlefields recur across the series?
+- What do I need to unlock next?
+- Which route or faction should I play?
+- How did a character, weapon, or moveset change between games?
 
 ### Warrior Records
 
-Player profiles with favorites, game libraries, platforms, public or private gamertags, playstyles, availability, completion, badges, and looking-for-group status.
+Personal profiles where players can share:
 
-### Battle Rallies
+- Favorite games, characters, factions, weapons, and battlefields
+- Games owned, completed, or currently playing
+- Platforms and optional gamertags
+- Preferred modes, difficulty, and playstyle
+- Personal collections, checklists, and accomplishments
+- Looking-for-group status and typical availability
 
-Structured session listings for co-op, challenge runs, streams, watch parties, completion help, and community events.
+Every platform identity should have its own privacy setting.
 
-### Challenges and rankings
+### Friends and Battle Rallies
 
-A verification ladder that clearly distinguishes self-reported accomplishments, community-reviewed submissions, moderator-certified records, and future officially verified results.
+Players can connect with friends and organize a Battle Rally for:
 
-### League infrastructure
+- Co-op sessions
+- Completion help
+- Challenge runs
+- Streams and watch parties
+- Community events
+- Revisiting classic entries together
 
-Open rules, seasons, divisions, challenge formats, moderation processes, appeals, and auditability—built to become licensable rather than pretending to be official.
+MusouDB should coordinate play without trying to replace Discord or platform-native voice chat.
+
+### Community contributions
+
+MusouDB should be welcoming to developers and non-developers alike. Players can contribute structured data, original summaries, translations, accessibility improvements, corrections, historical context, and new community tools.
 
 ## Current status
 
-MusouDB is in **foundation phase**. Initial work focuses on:
+MusouDB is in its **foundation phase**. Initial work focuses on:
 
-- Product and data architecture
-- Community and privacy principles
-- League and verification design
-- Intellectual-property boundaries
-- Contribution workflows
-- A small, legally clean seed dataset
+- Game, character, battlefield, profile, collection, and session schemas
+- A legally clean seed dataset
+- A static franchise explorer
+- Contribution and provenance workflows
+- Privacy-safe profile and social design
+- Original branding and an asset-safe repository
 
-See [`ROADMAP.md`](ROADMAP.md) and the [`docs/`](docs/) directory.
+See [`ROADMAP.md`](ROADMAP.md) and [`docs/PRODUCT_SPEC.md`](docs/PRODUCT_SPEC.md).
 
 ## Repository map
 
 ```text
 MusouDB/
 ├── data/                         # Community-authored structured records
-├── docs/                         # Product, league, safety, and IP specifications
+├── docs/                         # Product, safety, data, and asset policies
 ├── packages/
 │   └── schema/                   # JSON Schema definitions
 ├── .github/
@@ -64,33 +90,21 @@ MusouDB/
 └── README.md
 ```
 
-## Verification ladder
-
-| Level | Label | Evidence | Competitive standing |
-|---|---|---|---|
-| 0 | Chronicle | Self-reported result | Personal record only |
-| 1 | Witnessed | Public VOD reviewed by trusted members | Community boards |
-| 2 | Certified | Continuous run, challenge code, moderator review | Official MusouDB boards |
-| 3 | Machine-assisted | OCR and integrity checks support human review | Faster certification |
-| 4 | Partner-verified | First-party telemetry or replay validation | Future sanctioned play |
-
-MusouDB will never present self-reported and certified results as equivalent.
-
 ## Intellectual-property principles
 
 MusouDB is unofficial and is not affiliated with or endorsed by KOEI TECMO GAMES CO., LTD. or any other publisher.
 
-The open repository must not contain:
+The public repository must not contain:
 
 - Extracted game files, models, textures, music, or voice recordings
-- Copied guide text or proprietary databases
+- Copied guide, wiki, or proprietary database text
 - Official logos used as MusouDB branding
-- Artwork without a documented license
+- Artwork without a documented compatible license
 - Rehosted gameplay footage
 
-Game and character names may appear as factual references. Community-authored metadata, original writing, schemas, rules, moderation systems, and original artwork should remain clearly separated from publisher-owned assets.
+Game and character names may appear as factual references. Community-authored metadata, original writing, schemas, software, and original artwork should remain clearly separated from publisher-owned assets.
 
-See [`docs/IP_AND_LICENSING.md`](docs/IP_AND_LICENSING.md).
+See [`docs/IP_AND_ASSET_POLICY.md`](docs/IP_AND_ASSET_POLICY.md).
 
 ## Contributing
 
@@ -98,11 +112,11 @@ You do not need to be a programmer. Useful contributions include:
 
 - Adding or correcting structured game data
 - Writing original, sourced officer summaries
-- Designing challenge formats
-- Testing schemas
+- Documenting recurring battles, routes, weapons, and unlocks
+- Testing schemas and developer tooling
 - Translating community-authored text
-- Improving accessibility
-- Reviewing public league rules
+- Improving accessibility and spoiler controls
+- Proposing profile, collection, and Battle Rally improvements
 
 Read [`CONTRIBUTING.md`](CONTRIBUTING.md) before opening a pull request.
 
