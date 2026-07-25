@@ -2,7 +2,9 @@
 
 ## Product thesis
 
-MusouDB begins as the open data and identity layer for Warriors fandom, then adds coordination and achievement systems. The hosted application may later support a licensed league, but the open repository must remain useful without publisher-owned assets or private user data.
+MusouDB is the open data, identity, and connection layer for Warriors fandom. It should help fans explore the franchise, express what they love, track their experience, and find people to play with.
+
+The open repository must remain useful on its own, without publisher-owned assets or private user data.
 
 ## Core entities
 
@@ -35,20 +37,40 @@ MusouDB begins as the open data and identity layer for Warriors fandom, then add
 - Mode and route
 - Playable sides
 - Objectives and tags
-- Challenge eligibility
+- Recurring appearances
+
+### Weapon
+
+- Stable internal ID
+- Display name
+- Weapon type
+- Character associations
+- Game appearances
+- Unlock or acquisition notes
+- Playstyle tags
 
 ### Warrior Record
 
 - Username and display name
 - Bio and time zone
 - Favorite games, characters, factions, weapons, and battlefields
-- Owned or currently played games
+- Owned, completed, wishlisted, or currently played games
 - Platform identities and gamertags
 - Privacy level for every platform identity
-- Playstyle, difficulty, availability, and LFG status
-- Completion and verified accomplishment summaries
+- Playstyle, difficulty, availability, and looking-for-group status
+- Collection, checklist, and accomplishment summaries
 
 No precise location, legal name, or date of birth should be required.
+
+### Collection Entry
+
+- Player
+- Entity type and stable entity ID
+- Status such as favorite, owned, completed, mastered, or wishlist
+- Optional progress value
+- Optional personal note
+- Visibility
+- Created and updated timestamps
 
 ### Friendship
 
@@ -57,6 +79,16 @@ No precise location, legal name, or date of birth should be required.
 - Created and updated timestamps
 
 Friendship must be mutual. Following may be considered later as a separate one-way relationship.
+
+### Circle
+
+- Name and description
+- Related game, character, faction, platform, or theme
+- Owner and moderators
+- Public, private, or invite-only visibility
+- Membership and community guidelines
+
+Circles are a later-stage feature and should not be required for the initial social experience.
 
 ### Battle Rally
 
@@ -67,34 +99,10 @@ Friendship must be mutual. Following may be considered later as a separate one-w
 - Start and expected end time
 - Time-zone normalization
 - Capacity and attendees
-- Difficulty and rules
-- Voice-chat link or instructions
+- Difficulty and preferences
+- External voice-chat link or instructions
 - Public, friends-only, or invite-only visibility
 - Status and recap
-
-### Challenge
-
-- Season
-- Eligible game, version, platform, and patch
-- Battlefield and objective
-- Permitted characters, weapons, items, and settings
-- Scoring formula
-- Evidence requirements
-- Mod policy
-- Opening and closing timestamps
-- Tie-breaking rules
-
-### Submission
-
-- Player
-- Challenge
-- Claimed score and run metadata
-- External evidence URL
-- Verification tier
-- Reviewer decisions
-- Integrity flags
-- Appeal status
-- Immutable audit history
 
 ## Privacy defaults
 
@@ -102,30 +110,47 @@ Friendship must be mutual. Following may be considered later as a separate one-w
 - Discord and streaming links are optional
 - Session visibility defaults to friends-only
 - Search-engine indexing of profiles requires opt-in
-- Local rankings use user-selected region labels, not GPS
+- Location discovery uses user-selected broad region labels, not GPS
 - Direct messaging is out of scope for the initial release
+- Every user should be able to export or delete their profile data
 
 ## MVP
 
 The first hosted MVP should include:
 
-1. Authentication
-2. Warrior Record creation
-3. Favorites and game library
-4. Platform identities with privacy controls
-5. Friend requests
-6. Battle Rally creation and joining
-7. Public game and character explorer
-8. Shareable profile cards
+1. Public game, character, weapon, and battlefield explorer
+2. Authentication
+3. Warrior Record creation
+4. Favorites and game library
+5. Collection and checklist tracking
+6. Platform identities with privacy controls
+7. Friend requests
+8. Battle Rally creation and joining
+9. Shareable profile cards
 
-Ranked video submissions are intentionally excluded from the MVP. A lightweight challenge beta may follow after moderation and legal procedures are operational.
+## Explicitly out of scope for MVP
+
+- Direct messaging
+- Native voice or video chat
+- Gameplay-video hosting
+- Competitive adjudication
+- Cash prizes or paid tournaments
+- Publisher-owned art or media without permission
 
 ## Success metrics
+
+### Discovery
+
+- Search-to-detail-view rate
+- Records viewed per visit
+- Checklist or favorite actions after discovery
+- Returning usage of reference pages
 
 ### Identity activation
 
 - Profile completion rate
 - Favorites selected per activated profile
+- Game library additions
 - Platform identity connection rate
 - Share-card generation rate
 
@@ -135,17 +160,15 @@ Ranked video submissions are intentionally excluded from the MVP. A lightweight 
 - Percentage of users with at least one friend
 - Battle Rallies created per active user
 - Join and attendance rates
+- Connections formed through shared interests
 
 ### Retention
 
 - Four-week returning profile rate
 - Repeat Rally participation
-- Favorite and status updates
+- Collection and status updates
+- Return visits to track progress or explore another game
 
-### League readiness
+## Product principle
 
-- Weekly challenge participation
-- Evidence submission completion
-- Review turnaround
-- Dispute and rejection rates
-- Percentage of submissions that can be consistently categorized
+MusouDB should feel like a fan-built home, not an esports operator, publisher impersonation, or generic social network with Warriors branding added on top.
