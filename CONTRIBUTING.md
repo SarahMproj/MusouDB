@@ -1,6 +1,6 @@
 # Contributing to MusouDB
 
-MusouDB welcomes developers, researchers, players, writers, translators, designers, moderators, and tournament organizers.
+MusouDB welcomes developers, researchers, players, writers, translators, designers, historians, and community organizers.
 
 ## Before contributing
 
@@ -15,12 +15,12 @@ Please make sure your contribution is:
 
 ## Good first contributions
 
-- Add a missing game, character, battlefield, or platform record
+- Add a missing game, character, faction, weapon, battlefield, or platform record
 - Correct a factual field and provide a source
 - Improve JSON Schema validation
+- Document a recurring battlefield or character appearance
 - Add tests or accessibility improvements
-- Propose a Battle Rally or challenge field
-- Review league rules for ambiguity
+- Propose a Warrior Record, collection, or Battle Rally field
 - Translate community-authored interface text
 
 ## Data contribution rules
@@ -44,8 +44,8 @@ Do not submit:
 - Official art without written permission or a compatible license
 - Copied wiki or guide text
 - Personal information about another player
-- Cheats intended for competitive deception
 - Harassment, impersonation, or inflammatory content
+- Tools intended to circumvent access controls
 
 ## Pull requests
 
@@ -65,10 +65,10 @@ Open an issue before implementing major changes to:
 - Authentication
 - User profiles or privacy
 - Friend and messaging systems
-- Rankings or scoring
-- Video handling
+- Collections and progress tracking
+- Battle Rallies and scheduling
 - Moderation
 - Monetization
-- Publisher branding or licensing
+- Publisher branding or licensed assets
 
 These areas require coordinated product, safety, legal, and technical decisions.
