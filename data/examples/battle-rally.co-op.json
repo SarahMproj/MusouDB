@@ -1,0 +1,47 @@
+{
+  "id": "rally:0197b1c4-chibi-chaos",
+  "organizer_handle": "sleepingdragon",
+  "title": "Chi Bi on Chaos — strategists welcome",
+  "description": "Two-player run of the historical route. Bring a ranged officer.",
+  "session_type": "co_op",
+  "game_id": "game:dynasty-warriors-8",
+  "battlefield_id": "battlefield:dynasty-warriors-8-chi-bi",
+  "objective": "Clear the fire attack phase without losing an ally officer.",
+  "platform": "pc",
+  "cross_platform": false,
+  "difficulty": "chaos",
+  "starts_at": "2026-08-08T23:00:00Z",
+  "expected_end_at": "2026-08-09T01:00:00Z",
+  "time_zone": "America/New_York",
+  "capacity": 2,
+  "spoiler_level": "minor",
+  "requirements": {
+    "min_progress_note": "Chapter 3 or later.",
+    "mic_required": false,
+    "friends_only_join": false
+  },
+  "voice_chat": {
+    "kind": "discord",
+    "url": "https://discord.gg/example",
+    "instructions": "Join the voice room ten minutes early."
+  },
+  "attendees": [
+    {
+      "handle": "sleepingdragon",
+      "rsvp": "going",
+      "joined_at": "2026-08-03T12:00:00Z"
+    },
+    {
+      "handle": "tigerofjiangdong",
+      "rsvp": "maybe",
+      "joined_at": "2026-08-03T13:20:00Z"
+    }
+  ],
+  "visibility": "public",
+  "status": "scheduled",
+  "meta": {
+    "schema_version": "0",
+    "created_at": "2026-08-03T00:00:00Z",
+    "updated_at": "2026-08-03T00:00:00Z"
+  }
+}

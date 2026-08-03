@@ -1,0 +1,303 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schema.musoudb.org/v0/warrior-record.public.schema.json",
+  "title": "Warrior Record (public projection)",
+  "description": "The ONLY fields a MusouDB server may serve to an unauthenticated visitor. Private fields live in warrior-record.private.schema.json and must never appear here.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "handle",
+    "meta"
+  ],
+  "$comment": "additionalProperties:false is the privacy boundary. Adding a field here is a privacy decision.",
+  "properties": {
+    "handle": {
+      "$ref": "common.schema.json#/$defs/UserHandle"
+    },
+    "display_name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 60,
+      "description": "Chosen alias. Must not be required to be a legal name."
+    },
+    "pronouns": {
+      "type": "string",
+      "maxLength": 40
+    },
+    "bio": {
+      "type": "string",
+      "maxLength": 500
+    },
+    "region_label": {
+      "$ref": "common.schema.json#/$defs/RegionLabel"
+    },
+    "time_zone": {
+      "$ref": "common.schema.json#/$defs/IanaTimeZone"
+    },
+    "avatar": {
+      "$ref": "common.schema.json#/$defs/AssetReference"
+    },
+    "favorites": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "game_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/$defs/GameId"
+          },
+          "uniqueItems": true,
+          "maxItems": 50
+        },
+        "character_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/$defs/CharacterId"
+          },
+          "uniqueItems": true,
+          "maxItems": 50
+        },
+        "faction_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/$defs/FactionId"
+          },
+          "uniqueItems": true,
+          "maxItems": 20
+        },
+        "weapon_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/$defs/WeaponId"
+          },
+          "uniqueItems": true,
+          "maxItems": 50
+        },
+        "battlefield_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/$defs/BattlefieldId"
+          },
+          "uniqueItems": true,
+          "maxItems": 50
+        }
+      }
+    },
+    "playstyle": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "preferred_modes": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "story",
+              "free",
+              "musou",
+              "empires",
+              "conquest",
+              "challenge",
+              "co_op",
+              "versus"
+            ]
+          }
+        },
+        "preferred_difficulty": {
+          "type": "string",
+          "enum": [
+            "easy",
+            "normal",
+            "hard",
+            "chaos",
+            "ultimate",
+            "varies"
+          ]
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/$defs/Tag"
+          },
+          "uniqueItems": true,
+          "maxItems": 20
+        }
+      }
+    },
+    "looking_for_group": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status"
+      ],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "open",
+            "friends_only",
+            "closed"
+          ],
+          "default": "closed"
+        },
+        "game_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/$defs/GameId"
+          },
+          "uniqueItems": true
+        },
+        "note": {
+          "type": "string",
+          "maxLength": 280
+        },
+        "availability_windows": {
+          "type": "array",
+          "description": "Coarse windows only. Never a precise calendar.",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "day",
+              "part_of_day"
+            ],
+            "properties": {
+              "day": {
+                "type": "string",
+                "enum": [
+                  "mon",
+                  "tue",
+                  "wed",
+                  "thu",
+                  "fri",
+                  "sat",
+                  "sun",
+                  "weekdays",
+                  "weekends"
+                ]
+              },
+              "part_of_day": {
+                "type": "string",
+                "enum": [
+                  "morning",
+                  "afternoon",
+                  "evening",
+                  "late_night"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "public_platform_identities": {
+      "type": "array",
+      "description": "Only identities the user explicitly set to visibility 'public'.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "platform",
+          "gamertag"
+        ],
+        "properties": {
+          "platform": {
+            "$ref": "common.schema.json#/$defs/Platform"
+          },
+          "gamertag": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "label": {
+            "type": "string",
+            "maxLength": 60
+          }
+        }
+      }
+    },
+    "public_links": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/ExternalLink"
+      },
+      "maxItems": 10
+    },
+    "counts": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Aggregates only. Never the underlying private rows.",
+      "properties": {
+        "games_owned": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "games_completed": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "friends": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "rallies_attended": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "search_engine_indexing": {
+      "type": "boolean",
+      "default": false,
+      "description": "Opt-in only. False means noindex."
+    },
+    "meta": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version"
+      ],
+      "properties": {
+        "schema_version": {
+          "type": "string",
+          "const": "0"
+        },
+        "created_at": {
+          "$ref": "common.schema.json#/$defs/Timestamp"
+        },
+        "updated_at": {
+          "$ref": "common.schema.json#/$defs/Timestamp"
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "$ref": "common.schema.json#/$defs/ForbiddenPersonalFields"
+    },
+    {
+      "$comment": "Fields that belong exclusively to the private record and must never be served in a public projection.",
+      "type": "object",
+      "propertyNames": {
+        "not": {
+          "enum": [
+            "email",
+            "account",
+            "auth_provider",
+            "auth_provider_id",
+            "auth_provider_subject",
+            "platform_identities",
+            "private_links",
+            "blocked_handles",
+            "muted_handles",
+            "safety",
+            "moderation_notes",
+            "notification_preferences",
+            "data_rights"
+          ]
+        }
+      }
+    }
+  ]
+}

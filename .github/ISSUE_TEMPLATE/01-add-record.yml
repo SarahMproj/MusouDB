@@ -1,0 +1,78 @@
+name: Add or correct a game record
+description: Add a missing game, character, faction, weapon, or battlefield, or fix a field that is wrong.
+title: "data: "
+labels: ["data"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        You do not need to write code. Fill this in and a maintainer can turn it into a record, or open a pull request yourself using `data/` as a template.
+
+        Please write summaries in your own words. Copied wiki, guide, or manual text cannot be accepted.
+  - type: dropdown
+    id: entity_type
+    attributes:
+      label: Record type
+      options: [series, game, faction, character, weapon, battlefield]
+    validations:
+      required: true
+  - type: input
+    id: display_name
+    attributes:
+      label: Display name
+      placeholder: Zhuge Liang
+    validations:
+      required: true
+  - type: input
+    id: games
+    attributes:
+      label: Which games does this apply to?
+      description: Use MusouDB IDs if you know them, otherwise plain titles.
+      placeholder: game:dynasty-warriors-8, Dynasty Warriors 9
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Fields to add or correct
+      description: One per line. For a correction, give the current value and the correct value.
+      placeholder: |
+        weapon_type: fan
+        playstyle_tags: ranged, zone-control
+        correction — release_year is 2013, currently says 2014
+    validations:
+      required: true
+  - type: dropdown
+    id: provenance
+    attributes:
+      label: How do you know this?
+      options:
+        - community_observation — I verified it while playing
+        - official_public_source — a public page, manual, or interview says so
+        - public_domain_history — a historical text says so
+        - contributor_original — this is my own writing or analysis
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Source
+      description: Required for official or historical claims. A citation and a link, never pasted text.
+      placeholder: |
+        Observed in Dynasty Warriors 8, Shu story chapter 3, PC version 1.02
+  - type: dropdown
+    id: spoiler
+    attributes:
+      label: Does any of this spoil a story?
+      options: ["no", "minor", "major", "ending"]
+    validations:
+      required: true
+  - type: checkboxes
+    id: policy
+    attributes:
+      label: Confirmation
+      options:
+        - label: This is my own writing, not copied from a wiki, guide, or manual.
+          required: true
+        - label: I am not attaching extracted game files, artwork, audio, or video.
+          required: true

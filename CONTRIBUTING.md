@@ -27,14 +27,28 @@ Please make sure your contribution is:
 
 Each record should include:
 
-- A stable, lowercase ID
+- A stable, lowercase ID following [`docs/ID_CONVENTIONS.md`](docs/ID_CONVENTIONS.md)
 - Human-readable display name
 - Game or series relationship
 - Provenance category
 - Source notes where applicable
 - Contributor-authored text only
 
-Do not scrape or bulk-import third-party databases without opening a licensing discussion issue first.
+Records live in [`data/`](data/README.md), one file per record, named after the record's ID slug. The schemas that define every field are in [`packages/schema/`](packages/schema/README.md).
+
+Do not collect or bulk-import third-party databases without opening a licensing discussion issue first.
+
+### Validate before you open a pull request
+
+```bash
+cd packages/schema
+npm install
+npm test
+```
+
+This checks three things: that every record matches its schema, that every cross-file reference resolves, and that project policy rules hold — spoiler-aware fields must include a spoiler-free block, battlefield IDs must be scoped to their game, filenames must match record IDs, and no record may carry the personal fields MusouDB refuses to store. The same checks run in CI on every pull request.
+
+If the validator rejects something you believe is correct, that is worth an issue. A rule that blocks good contributions is a bug in the rule.
 
 ## Prohibited contributions
 

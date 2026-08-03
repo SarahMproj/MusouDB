@@ -1,0 +1,193 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schema.musoudb.org/v0/character.schema.json",
+  "title": "Character",
+  "description": "A playable or non-playable officer.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "display_name",
+    "provenance",
+    "meta",
+    "historical_basis"
+  ],
+  "properties": {
+    "id": {
+      "$ref": "common.schema.json#/$defs/CharacterId"
+    },
+    "display_name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200,
+      "description": "Factual reference to a title or name. Community-authored."
+    },
+    "aliases": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 200
+      },
+      "description": "Alternate romanizations, regional titles, or common fan shorthand."
+    },
+    "sort_name": {
+      "type": "string",
+      "maxLength": 200
+    },
+    "summary": {
+      "$ref": "common.schema.json#/$defs/SpoileredText"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/Tag"
+      },
+      "uniqueItems": true
+    },
+    "provenance": {
+      "$ref": "common.schema.json#/$defs/Provenance"
+    },
+    "meta": {
+      "$ref": "common.schema.json#/$defs/RecordMeta"
+    },
+    "external_links": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/ExternalLink"
+      }
+    },
+    "images": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/AssetReference"
+      }
+    },
+    "given_name_romanization": {
+      "type": "string",
+      "maxLength": 120
+    },
+    "romanization_system": {
+      "type": "string",
+      "enum": [
+        "pinyin",
+        "wade-giles",
+        "romaji",
+        "hepburn",
+        "other"
+      ]
+    },
+    "primary_faction_id": {
+      "$ref": "common.schema.json#/$defs/FactionId"
+    },
+    "faction_ids": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/FactionId"
+      },
+      "uniqueItems": true
+    },
+    "historical_basis": {
+      "type": "string",
+      "enum": [
+        "historical",
+        "semi_historical",
+        "literary",
+        "original_to_series",
+        "unknown"
+      ],
+      "description": "Distinguishes record from romance-novel and original characters."
+    },
+    "appearances": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/Appearance"
+      }
+    },
+    "weapon_ids": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/WeaponId"
+      },
+      "uniqueItems": true
+    },
+    "playstyle_tags": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/Tag"
+      },
+      "uniqueItems": true
+    },
+    "relationships": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "character_id",
+          "relation"
+        ],
+        "properties": {
+          "character_id": {
+            "$ref": "common.schema.json#/$defs/CharacterId"
+          },
+          "relation": {
+            "type": "string",
+            "enum": [
+              "parent",
+              "child",
+              "sibling",
+              "spouse",
+              "sworn_brother",
+              "lord",
+              "retainer",
+              "rival",
+              "ally",
+              "mentor",
+              "student",
+              "other"
+            ]
+          },
+          "spoiler_level": {
+            "$ref": "common.schema.json#/$defs/SpoilerLevel"
+          },
+          "note": {
+            "type": "string",
+            "maxLength": 300
+          },
+          "provenance": {
+            "$ref": "common.schema.json#/$defs/Provenance"
+          }
+        }
+      }
+    },
+    "moveset_changes": {
+      "type": "array",
+      "description": "How the character changed between entries.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "game_id",
+          "change"
+        ],
+        "properties": {
+          "game_id": {
+            "$ref": "common.schema.json#/$defs/GameId"
+          },
+          "change": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 1000
+          },
+          "provenance": {
+            "$ref": "common.schema.json#/$defs/Provenance"
+          }
+        }
+      }
+    },
+    "unlock_notes": {
+      "$ref": "common.schema.json#/$defs/SpoileredText"
+    }
+  }
+}
