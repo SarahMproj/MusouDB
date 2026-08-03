@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schema.musoudb.org/v0/faction.schema.json",
+  "title": "Faction",
+  "description": "A kingdom, clan, army, or alliance.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "display_name",
+    "provenance",
+    "meta",
+    "kind"
+  ],
+  "properties": {
+    "id": {
+      "$ref": "common.schema.json#/$defs/FactionId"
+    },
+    "display_name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200,
+      "description": "Factual reference to a title or name. Community-authored."
+    },
+    "aliases": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 200
+      },
+      "description": "Alternate romanizations, regional titles, or common fan shorthand."
+    },
+    "sort_name": {
+      "type": "string",
+      "maxLength": 200
+    },
+    "summary": {
+      "$ref": "common.schema.json#/$defs/SpoileredText"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/Tag"
+      },
+      "uniqueItems": true
+    },
+    "provenance": {
+      "$ref": "common.schema.json#/$defs/Provenance"
+    },
+    "meta": {
+      "$ref": "common.schema.json#/$defs/RecordMeta"
+    },
+    "external_links": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/ExternalLink"
+      }
+    },
+    "images": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/AssetReference"
+      }
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "kingdom",
+        "clan",
+        "coalition",
+        "rebellion",
+        "independent",
+        "army",
+        "other"
+      ]
+    },
+    "era_label": {
+      "type": "string",
+      "maxLength": 120,
+      "description": "Community-authored era description, e.g. 'late Han'."
+    },
+    "historical_note": {
+      "$ref": "common.schema.json#/$defs/SpoileredText"
+    },
+    "appearances": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/Appearance"
+      }
+    },
+    "notable_character_ids": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/CharacterId"
+      },
+      "uniqueItems": true
+    },
+    "parent_faction_id": {
+      "$ref": "common.schema.json#/$defs/FactionId"
+    },
+    "color_hint": {
+      "type": "string",
+      "pattern": "^#[0-9a-f]{6}$",
+      "description": "MusouDB's own UI colour choice. Never sampled from official trade dress."
+    }
+  }
+}

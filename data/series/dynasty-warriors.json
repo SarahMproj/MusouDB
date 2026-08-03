@@ -1,0 +1,40 @@
+{
+  "id": "series:dynasty-warriors",
+  "display_name": "Dynasty Warriors",
+  "aliases": [
+    "Shin Sangokumusou"
+  ],
+  "family": "warriors",
+  "first_release_year": 1997,
+  "game_ids": [
+    "game:dynasty-warriors-3",
+    "game:dynasty-warriors-8",
+    "game:dynasty-warriors-9"
+  ],
+  "summary": {
+    "blocks": [
+      {
+        "spoiler_level": "none",
+        "text": "The long-running action series that popularized one-versus-many battlefield combat set during China's Three Kingdoms period. Seed records cover a small sample of entries so contributors have a working template.",
+        "language": "en"
+      }
+    ]
+  },
+  "tags": [
+    "three-kingdoms",
+    "action",
+    "flagship"
+  ],
+  "provenance": {
+    "category": "contributor_original",
+    "contributor": "musoudb_seed",
+    "contributed_at": "2026-08-03T00:00:00Z"
+  },
+  "meta": {
+    "schema_version": "0",
+    "revision": 1,
+    "created_at": "2026-08-03T00:00:00Z",
+    "updated_at": "2026-08-03T00:00:00Z",
+    "status": "accepted"
+  }
+}

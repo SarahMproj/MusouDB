@@ -1,0 +1,41 @@
+name: Report a data error
+description: A record in MusouDB says something that is wrong, misleading, or spoils a story it should not.
+title: "fix: "
+labels: ["data", "correction"]
+body:
+  - type: input
+    id: record
+    attributes:
+      label: Record ID or file path
+      placeholder: character:zhuge-liang or data/characters/zhuge-liang.json
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is wrong?
+    validations:
+      required: true
+  - type: textarea
+    id: correct
+    attributes:
+      label: What should it say?
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: How can a reviewer confirm this?
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind of problem
+      options:
+        - Factual error
+        - Broken or dangling reference
+        - Spoiler shown without a warning
+        - Wording that reads like copied text
+        - Possible rights or asset problem
+        - Something else
+    validations:
+      required: true

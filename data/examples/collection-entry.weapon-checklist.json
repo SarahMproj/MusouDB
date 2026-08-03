@@ -1,0 +1,16 @@
+{
+  "id": "collection:0197b1c4-checklist-fan",
+  "handle": "sleepingdragon",
+  "entity_type": "weapon",
+  "entity_id": "weapon:feather-fan",
+  "status": "checklist_done",
+  "checklist_group": "dw8-strategist-weapons",
+  "note": "Picked up on the first Chi Bi run.",
+  "completed_at": "2026-06-14T02:10:00Z",
+  "visibility": "friends_only",
+  "meta": {
+    "schema_version": "0",
+    "created_at": "2026-08-03T00:00:00Z",
+    "updated_at": "2026-08-03T00:00:00Z"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "id": "game:dynasty-warriors-9",
+  "display_name": "Dynasty Warriors 9",
+  "aliases": [
+    "DW9",
+    "Shin Sangokumusou 8"
+  ],
+  "series_id": "series:dynasty-warriors",
+  "release_year": 2018,
+  "platforms": [
+    "playstation",
+    "xbox",
+    "pc"
+  ],
+  "player_modes": [
+    "single_player",
+    "online_co_op"
+  ],
+  "max_online_players": 4,
+  "developer": "Omega Force",
+  "publisher": "Koei Tecmo",
+  "has_character_creation": false,
+  "spoiler_sensitive": true,
+  "summary": {
+    "blocks": [
+      {
+        "spoiler_level": "none",
+        "text": "Restructures the series around a single open world, replacing discrete stage select with travel between regions and objectives.",
+        "language": "en"
+      }
+    ]
+  },
+  "tags": [
+    "open-world",
+    "divisive"
+  ],
+  "provenance": {
+    "category": "community_observation",
+    "contributor": "musoudb_seed",
+    "contributed_at": "2026-08-03T00:00:00Z",
+    "sources": [
+      {
+        "kind": "in_game_observation",
+        "citation": "Verified by a contributor during play; see revision history."
+      }
+    ]
+  },
+  "meta": {
+    "schema_version": "0",
+    "revision": 1,
+    "created_at": "2026-08-03T00:00:00Z",
+    "updated_at": "2026-08-03T00:00:00Z",
+    "status": "accepted"
+  }
+}

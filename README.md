@@ -64,31 +64,58 @@ MusouDB should be welcoming to developers and non-developers alike. Players can 
 
 ## Current status
 
-MusouDB is in its **foundation phase**. Initial work focuses on:
+MusouDB is in its **foundation phase**.
 
-- Game, character, battlefield, profile, collection, and session schemas
+Done:
+
+- Game, character, faction, weapon, battlefield, profile, collection, friendship, and session schemas
+- Stable identifier conventions
 - A legally clean seed dataset
-- A static franchise explorer
-- Contribution and provenance workflows
-- Privacy-safe profile and social design
-- Original branding and an asset-safe repository
+- A validator covering schema conformance, cross-file references, and project policy
+- Contribution, provenance, and issue-template workflows
+- Privacy-safe profile design, with public and private data as separate schemas
 
-See [`ROADMAP.md`](ROADMAP.md) and [`docs/PRODUCT_SPEC.md`](docs/PRODUCT_SPEC.md).
+Next:
+
+- A static franchise explorer over the published data files
+- Growing the seed dataset beyond a sample
+- Original branding
+
+See [`ROADMAP.md`](ROADMAP.md), [`docs/PRODUCT_SPEC.md`](docs/PRODUCT_SPEC.md), and [`packages/schema/README.md`](packages/schema/README.md).
 
 ## Repository map
 
 ```text
 MusouDB/
 ├── data/                         # Community-authored structured records
-├── docs/                         # Product, safety, data, and asset policies
+│   ├── series/ games/ factions/
+│   ├── characters/ weapons/ battlefields/
+│   └── examples/                 # Synthetic user-scoped records, for schema testing
+├── docs/
+│   ├── PRODUCT_SPEC.md
+│   ├── ID_CONVENTIONS.md         # Stable identifier rules
+│   └── IP_AND_ASSET_POLICY.md
 ├── packages/
-│   └── schema/                   # JSON Schema definitions
+│   └── schema/                   # JSON Schema definitions and the data validator
+│       ├── schemas/
+│       └── bin/validate.mjs
 ├── .github/
-│   └── ISSUE_TEMPLATE/           # Contributor-friendly issue templates
+│   ├── ISSUE_TEMPLATE/           # Contributor-friendly issue templates
+│   └── workflows/validate-data.yml
 ├── CONTRIBUTING.md
 ├── ROADMAP.md
 └── README.md
 ```
+
+## Working with the data
+
+```bash
+cd packages/schema
+npm install
+npm test          # validate every record in data/
+```
+
+The validator runs three layers of checks: JSON Schema conformance, cross-file referential integrity, and project policy rules such as spoiler safety and identifier discipline. It runs on every pull request.
 
 ## Intellectual-property principles
 

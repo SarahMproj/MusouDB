@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Read the contribution guide first
+    url: https://github.com/SarahMproj/MusouDB/blob/main/CONTRIBUTING.md
+    about: What MusouDB accepts, what it cannot accept, and how to test a change.
+  - name: IP and asset policy
+    url: https://github.com/SarahMproj/MusouDB/blob/main/docs/IP_AND_ASSET_POLICY.md
+    about: Read this before submitting any text, data, or image.

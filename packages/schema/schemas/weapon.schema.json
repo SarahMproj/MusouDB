@@ -1,0 +1,132 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schema.musoudb.org/v0/weapon.schema.json",
+  "title": "Weapon",
+  "description": "A weapon or moveset type.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "display_name",
+    "provenance",
+    "meta",
+    "weapon_type"
+  ],
+  "properties": {
+    "id": {
+      "$ref": "common.schema.json#/$defs/WeaponId"
+    },
+    "display_name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200,
+      "description": "Factual reference to a title or name. Community-authored."
+    },
+    "aliases": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 200
+      },
+      "description": "Alternate romanizations, regional titles, or common fan shorthand."
+    },
+    "sort_name": {
+      "type": "string",
+      "maxLength": 200
+    },
+    "summary": {
+      "$ref": "common.schema.json#/$defs/SpoileredText"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/Tag"
+      },
+      "uniqueItems": true
+    },
+    "provenance": {
+      "$ref": "common.schema.json#/$defs/Provenance"
+    },
+    "meta": {
+      "$ref": "common.schema.json#/$defs/RecordMeta"
+    },
+    "external_links": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/ExternalLink"
+      }
+    },
+    "images": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/AssetReference"
+      }
+    },
+    "weapon_type": {
+      "type": "string",
+      "maxLength": 80,
+      "description": "Community-normalized type, e.g. 'polearm', 'twin-swords'."
+    },
+    "character_ids": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/CharacterId"
+      },
+      "uniqueItems": true
+    },
+    "appearances": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/Appearance"
+      }
+    },
+    "playstyle_tags": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/Tag"
+      },
+      "uniqueItems": true
+    },
+    "acquisition": {
+      "type": "array",
+      "description": "How the weapon is obtained, per game.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "game_id",
+          "method"
+        ],
+        "properties": {
+          "game_id": {
+            "$ref": "common.schema.json#/$defs/GameId"
+          },
+          "method": {
+            "type": "string",
+            "enum": [
+              "default",
+              "story_progress",
+              "battlefield_drop",
+              "shop",
+              "crafting",
+              "challenge",
+              "dlc",
+              "new_game_plus",
+              "other"
+            ]
+          },
+          "requirements": {
+            "$ref": "common.schema.json#/$defs/SpoileredText"
+          },
+          "battlefield_id": {
+            "$ref": "common.schema.json#/$defs/BattlefieldId"
+          },
+          "provenance": {
+            "$ref": "common.schema.json#/$defs/Provenance"
+          }
+        }
+      }
+    }
+  }
+}
