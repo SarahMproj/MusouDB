@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1786634916601,
+      "tag": "0000_odd_warbound",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1786636475241,
+      "tag": "0001_wide_darkhawk",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1786640009120,
+      "tag": "0002_peaceful_turbo",
+      "breakpoints": true
+    }
+  ]
+}
