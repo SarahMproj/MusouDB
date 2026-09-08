@@ -14,7 +14,8 @@
     "validate:artifact": "bash scripts/validate-artifact.sh",
     "lint": "bash scripts/sites-env.sh -- eslint . --ignore-pattern dist --ignore-pattern .next",
     "db:generate": "bash scripts/sites-env.sh -- drizzle-kit generate",
-    "test:local-record": "node --experimental-strip-types --test tests/local-record.test.mjs"
+    "test:local-record": "node --experimental-strip-types --test tests/local-record.test.mjs",
+    "test:editorial": "node --test tests/editorial-publication.test.mjs"
   },
   "dependencies": {
     "drizzle-orm": "0.45.2",
@@ -33,6 +34,7 @@
     "drizzle-kit": "0.31.10",
     "eslint": "9.39.4",
     "eslint-config-next": "16.2.6",
+    "miniflare": "4.20260515.0",
     "react-server-dom-webpack": "19.2.6",
     "tailwindcss": "4.2.1",
     "typescript": "5.9.3",

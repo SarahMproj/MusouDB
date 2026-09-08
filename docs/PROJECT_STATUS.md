@@ -28,12 +28,25 @@ The runtime does not consume the versioned catalog. In particular, short game ID
 ## Known gaps for the next pass
 
 - Device and signed-in records remain independent. Import must be explicit because signed-in favorites and progress appear publicly.
-- The structured editor currently persists biography overrides but does not publish every approved research field. Public officer rendering is still partly seed-driven.
+- Structured publication now projects approved fields over the seed at read time. Generic legacy biography copies are ignored when their publication revisions are present, preventing stale research from surviving withdrawal. Hosted acceptance remains pending.
 - Some signed-in save actions lack error feedback; record API input validation and concurrent updates need attention.
-- Public contributor pages currently show submission statuses beyond approved work; review the intended visibility before inviting contributors.
+- Public contributor pages now list approved work only; other review decisions stay in editorial views.
 - Gamertag visibility is one profile-level switch, not the per-identity model described in the schema design.
 - No root LICENSE has been granted yet; code licensing intent and community-data terms remain to be finalized.
 
 ## Verification boundary
 
 Passed: fresh dependency installation; Worker build/artifact validation; one production-metadata rendering test; five device-storage regressions; and 24 sample records validated against 13 schemas (zero warnings). A separate TypeScript check still reports existing missing Cloudflare Worker type declarations and two unawaited database calls in the bundled D1 example. Those are not build failures, but typecheck is not yet a clean gate. They do not establish hosted login, D1 writes, editor publication, or browser interaction acceptance. No production database changes or Site publication are part of this consolidation.
+
+
+## Editorial publication follow-up
+
+- All seven fields publish independently, including research for officers without a detailed seed profile.
+- The newest approved contribution wins per field; deselecting or withdrawing a submission restores an older approved value or the seed. Approval does not automatically mark every part of an officer record reviewed.
+- Citations identify the fields currently supported by each approved source. Unapproved research and unsafe URL schemes do not become public content or active links.
+- Unlock and spoiler notes render within closed reveal controls. Biographies remain in the contributor form's explicitly spoiler-safe field.
+- The editor restores saved field selections, reports failures without discarding them, and detects stale decisions. Decisions, claim state, and revision history are saved in one conditional D1 batch.
+- Requesting changes reopens the author's claim so corrected research can be submitted. Existing publication schemas and migrations are unchanged.
+- Local integration tests run the built Worker with an ephemeral D1 database, exercising API authorization, field selection, officer HTML, repeated approvals, stale updates, unsafe sources, legacy biography withdrawal, and rollback when the final database write fails.
+
+No Site deployment or production data changes were made in this follow-up. Public directory cards still use the seed catalog; this pass completes the detailed officer publication workflow.

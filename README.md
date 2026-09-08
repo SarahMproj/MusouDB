@@ -69,7 +69,7 @@ MusouDB has an implemented web application and a separate versioned schema packa
 - **Explore:** officer search and filters, game pages, battles, weapons, and editorial coverage. The DW8XL Complete Edition page links an 82-officer roster; individual records retain draft/reviewed labels.
 - **Device record:** save officers, save games as owned, and track playing/completed status in browser storage. Older game-detail saves are recognized without overwriting progress.
 - **Signed-in record:** profile editing, favorites, game progress, and public handle pages backed by D1. Device saves remain separate and are not automatically published or imported.
-- **Contributions:** corrections, officer claims, structured research submissions, and editor queues exist. Field-level publication needs further work before broad contributor onboarding.
+- **Contributions:** corrections, officer claims, structured research submissions, and editor queues exist. Selected research fields now publish on officer pages, with source attribution, withdrawal support, and spoiler reveals. Hosted contributor acceptance is still pending.
 - **Open data foundation:** JSON Schemas, 24 sample records, provenance rules, and reference validation. These files are not yet the application's runtime data source.
 
 See [`ROADMAP.md`](ROADMAP.md) for the current priorities and [`docs/PROJECT_STATUS.md`](docs/PROJECT_STATUS.md) for verified scope and known gaps.
@@ -98,11 +98,12 @@ Use Node 22.13 or newer on Linux. The install/build helpers require Bash, curl, 
 npm run install:ci
 npm run test:local-record
 npm test
+npm run test:editorial
 npm ci --prefix packages/schema
 npm test --prefix packages/schema
 ```
 
-`npm test` builds the Worker, validates its fetch entrypoint and hosting manifest, and checks rendered public pages. Device-record tests exercise legacy save migration and progress preservation. The schema validator checks schema conformance, cross-file references, and policy rules; it does not validate the runtime catalog in `app/data.ts` or live D1 rows.
+`npm test` builds the Worker, validates its fetch entrypoint and hosting manifest, and checks rendered public pages. Device-record tests exercise legacy save migration and progress preservation. Editorial tests run the built Worker with a local D1 database and cover selective publication, withdrawal, legacy copies, and transactional failure. The schema validator checks schema conformance, cross-file references, and policy rules; it does not validate the runtime catalog in `app/data.ts` or live D1 rows.
 
 For local development, use `npm run dev`. Signed-in and editorial workflows require the Sites authentication boundary, D1 bindings/migrations, and hosted private `FOUNDING_ADMIN_EMAIL` configuration for the founding editor. Do not embed that value in source or trust caller-supplied authentication headers on an independently exposed server.
 

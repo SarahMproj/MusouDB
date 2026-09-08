@@ -1,8 +1,10 @@
 import {and,desc,eq} from "drizzle-orm";
 import {getDb} from "../../../db";
 import {archiveRecords,citations,contributions,officerClaims,profiles,revisions,structuredContributions} from "../../../db/schema";
-import {officerById} from "../../data";
+import {battles,officerById} from "../../data";
 import {getChatGPTUser,isFoundingAdmin} from "../../chatgpt-auth";
+
+import {selectedFields,stringList,validatePublication} from "../../lib/research-publication";
 
 async function editor(){
   const user=await getChatGPTUser();if(!user)return null;const db=await getDb();
@@ -48,16 +50,44 @@ export async function POST(request:Request){
 
 export async function PATCH(request:Request){
   const admin=await editor();if(!admin)return Response.json({error:"Editor access required"},{status:403});
-  const b=await request.json() as {id?:number;status?:string;editorNote?:string;kind?:string;approvedFields?:string[]};if(!b.id||!["pending","needs-changes","approved","declined"].includes(b.status||""))return Response.json({error:"Valid id and status required"},{status:400});
+  let b: {id?:number;status?:string;editorNote?:string;kind?:string;approvedFields?:unknown;expectedUpdatedAt?:string};
+  try { b=await request.json(); } catch { return Response.json({error:"Invalid JSON"},{status:400}); }
+  if(!b || !Number.isSafeInteger(b.id) || !b.id || !["pending","needs-changes","approved","declined"].includes(b.status||"") || (b.editorNote!==undefined && typeof b.editorNote!=="string")) return Response.json({error:"Valid id, status, and editorial note required"},{status:400});
   const db=await getDb();const now=new Date().toISOString();
   if(b.kind==="structured"){
-    const [item]=await db.select().from(structuredContributions).where(eq(structuredContributions.id,b.id)).limit(1);if(!item)return Response.json({error:"Submission not found"},{status:404});const fields=b.approvedFields||[];
-    await db.update(structuredContributions).set({status:b.status!,approvedFields:JSON.stringify(fields),editorNote:(b.editorNote||"").slice(0,500),updatedAt:now}).where(eq(structuredContributions.id,b.id));
+    const [item]=await db.select().from(structuredContributions).where(eq(structuredContributions.id,b.id)).limit(1);
+    if(!item)return Response.json({error:"Submission not found"},{status:404});
+    if(b.expectedUpdatedAt && b.expectedUpdatedAt!==item.updatedAt)return Response.json({error:"Another editor changed this submission. Reload before reviewing."},{status:409});
+    const fields=b.status==="approved"?selectedFields(b.approvedFields):[];
+    if(!fields)return Response.json({error:"Unknown research field"},{status:400});
     if(b.status==="approved"){
-      const seed=officerById(item.officerId);const [existing]=await db.select().from(archiveRecords).where(and(eq(archiveRecords.recordType,"officer"),eq(archiveRecords.recordId,item.officerId))).limit(1);const values={title:seed?.name||item.officerId,summary:(fields.includes("biography")?item.biography:seed?.summary||item.biography).slice(0,500),body:fields.includes("biography")?item.biography:"",faction:seed?.faction||"",spoilerClass:item.spoilerNotes?"major":"safe",status:"reviewed",updatedAt:now};
-      if(existing)await db.update(archiveRecords).set(values).where(eq(archiveRecords.id,existing.id));else await db.insert(archiveRecords).values({...values,recordType:"officer",recordId:item.officerId,createdBy:item.authorEmail,createdAt:now});
-      const [latest]=await db.select().from(revisions).where(and(eq(revisions.recordType,"officer"),eq(revisions.recordId,item.officerId))).orderBy(desc(revisions.version)).limit(1);await db.insert(revisions).values({recordType:"officer",recordId:item.officerId,version:(latest?.version||0)+1,summary:`Published founding contribution: ${fields.join(", ")}`,contributor:item.authorEmail,createdAt:now});await db.insert(citations).values({recordType:"officer",recordId:item.officerId,label:item.sourceNote||"Contributor research source",url:item.sourceUrl,sourceKind:"community",verifiedAt:now});await db.update(officerClaims).set({status:"completed",updatedAt:now}).where(eq(officerClaims.officerId,item.officerId));
-    }return Response.json({ok:true});
+      if(!officerById(item.officerId))return Response.json({error:"Officer not found"},{status:400});
+      const error=validatePublication(item,fields,battles.map(b=>b.id));
+      if(error)return Response.json({error},{status:400});
+    }
+    const note=(b.editorNote||"").slice(0,500);
+    if(item.status===b.status && JSON.stringify(selectedFields(stringList(item.approvedFields)))===JSON.stringify(fields) && item.editorNote===note)return Response.json({ok:true});
+    const changedAt=new Date(Math.max(Date.now(),Date.parse(item.updatedAt)+1)).toISOString();
+    const summary=b.status==="approved"?`Published research fields: ${fields.join(", ")}`:`Research decision: ${b.status}`;
+    const claimStatus=b.status==="approved"?"completed":b.status==="pending"?"submitted":"active";
+    // All writes compare the same prior revision and run atomically in D1.
+    // The update is last, so a stale decision inserts neither history nor claim changes.
+    const client=db.$client;
+    try{
+      const result=await client.batch([
+        client.prepare(`INSERT INTO revisions (record_type, record_id, version, summary, contributor, created_at)
+          SELECT 'officer', ?, COALESCE((SELECT MAX(version) FROM revisions WHERE record_type='officer' AND record_id=?),0)+1, ?, ?, ?
+          WHERE EXISTS (SELECT 1 FROM structured_contributions WHERE id=? AND updated_at=?)`)
+          .bind(item.officerId,item.officerId,summary,admin.email,changedAt,item.id,item.updatedAt),
+        client.prepare(`UPDATE officer_claims SET status=?, updated_at=? WHERE officer_id=? AND claimant_email=?
+          AND EXISTS (SELECT 1 FROM structured_contributions WHERE id=? AND updated_at=?)`)
+          .bind(claimStatus,changedAt,item.officerId,item.authorEmail,item.id,item.updatedAt),
+        client.prepare(`UPDATE structured_contributions SET status=?, approved_fields_json=?, editor_note=?, updated_at=? WHERE id=? AND updated_at=?`)
+          .bind(b.status,JSON.stringify(fields),note,changedAt,item.id,item.updatedAt),
+      ]);
+      if(!result[2].meta.changes)return Response.json({error:"Another editor changed this submission. Reload before reviewing."},{status:409});
+      return Response.json({ok:true});
+    }catch{ return Response.json({error:"Could not save the decision. Your selections have been preserved; please retry."},{status:503}); }
   }
   await db.update(contributions).set({status:b.status!,editorNote:(b.editorNote||"").slice(0,500),updatedAt:now}).where(eq(contributions.id,b.id));return Response.json({ok:true});
 }
