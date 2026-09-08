@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schema.musoudb.org/v0/circle.schema.json",
+  "title": "Circle",
+  "description": "A later-phase community group. Included in v0 so identifiers stay stable.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name",
+    "owner_handle",
+    "visibility",
+    "meta"
+  ],
+  "properties": {
+    "id": {
+      "$ref": "common.schema.json#/$defs/CircleId"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 80
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1000
+    },
+    "topic": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "entity_type": {
+          "$ref": "common.schema.json#/$defs/EntityType"
+        },
+        "entity_id": {
+          "$ref": "common.schema.json#/$defs/EntityId"
+        },
+        "platform": {
+          "$ref": "common.schema.json#/$defs/Platform"
+        },
+        "theme": {
+          "type": "string",
+          "maxLength": 80
+        }
+      }
+    },
+    "owner_handle": {
+      "$ref": "common.schema.json#/$defs/UserHandle"
+    },
+    "moderator_handles": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/UserHandle"
+      },
+      "uniqueItems": true
+    },
+    "member_handles": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/UserHandle"
+      },
+      "uniqueItems": true
+    },
+    "visibility": {
+      "$ref": "common.schema.json#/$defs/Visibility",
+      "default": "public"
+    },
+    "guidelines": {
+      "type": "string",
+      "maxLength": 4000
+    },
+    "meta": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version"
+      ],
+      "properties": {
+        "schema_version": {
+          "type": "string",
+          "const": "0"
+        },
+        "created_at": {
+          "$ref": "common.schema.json#/$defs/Timestamp"
+        },
+        "updated_at": {
+          "$ref": "common.schema.json#/$defs/Timestamp"
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "$ref": "common.schema.json#/$defs/ForbiddenPersonalFields"
+    }
+  ]
+}

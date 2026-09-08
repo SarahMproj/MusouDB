@@ -1,0 +1,77 @@
+{
+  "id": "weapon:feather-fan",
+  "display_name": "Feather Fan",
+  "aliases": [
+    "War Fan"
+  ],
+  "weapon_type": "fan",
+  "character_ids": [
+    "character:zhuge-liang"
+  ],
+  "appearances": [
+    {
+      "game_id": "game:dynasty-warriors-3",
+      "role": "playable"
+    },
+    {
+      "game_id": "game:dynasty-warriors-8",
+      "role": "playable"
+    },
+    {
+      "game_id": "game:dynasty-warriors-9",
+      "role": "playable"
+    }
+  ],
+  "playstyle_tags": [
+    "ranged",
+    "zone-control",
+    "high-skill-ceiling"
+  ],
+  "acquisition": [
+    {
+      "game_id": "game:dynasty-warriors-3",
+      "method": "default",
+      "provenance": {
+        "category": "community_observation",
+        "contributor": "musoudb_seed",
+        "contributed_at": "2026-08-03T00:00:00Z",
+        "sources": [
+          {
+            "kind": "in_game_observation",
+            "citation": "Verified by a contributor during play; see revision history."
+          }
+        ]
+      }
+    }
+  ],
+  "summary": {
+    "blocks": [
+      {
+        "spoiler_level": "none",
+        "text": "A projectile-oriented moveset built around keeping distance and controlling space rather than trading hits.",
+        "language": "en"
+      }
+    ]
+  },
+  "tags": [
+    "strategist-weapon"
+  ],
+  "provenance": {
+    "category": "community_observation",
+    "contributor": "musoudb_seed",
+    "contributed_at": "2026-08-03T00:00:00Z",
+    "sources": [
+      {
+        "kind": "in_game_observation",
+        "citation": "Verified by a contributor during play; see revision history."
+      }
+    ]
+  },
+  "meta": {
+    "schema_version": "0",
+    "revision": 1,
+    "created_at": "2026-08-03T00:00:00Z",
+    "updated_at": "2026-08-03T00:00:00Z",
+    "status": "accepted"
+  }
+}

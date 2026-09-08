@@ -1,0 +1,79 @@
+{
+  "handle": "sleepingdragon",
+  "display_name": "Sleeping Dragon",
+  "pronouns": "she/her",
+  "bio": "Strategist mains only. Happy to help with weapon checklists on DW8.",
+  "region_label": "north_america",
+  "time_zone": "America/New_York",
+  "favorites": {
+    "game_ids": [
+      "game:dynasty-warriors-8",
+      "game:dynasty-warriors-3"
+    ],
+    "character_ids": [
+      "character:zhuge-liang"
+    ],
+    "faction_ids": [
+      "faction:shu"
+    ],
+    "weapon_ids": [
+      "weapon:feather-fan"
+    ],
+    "battlefield_ids": [
+      "battlefield:dynasty-warriors-8-chi-bi"
+    ]
+  },
+  "playstyle": {
+    "preferred_modes": [
+      "co_op",
+      "challenge"
+    ],
+    "preferred_difficulty": "chaos",
+    "tags": [
+      "completionist",
+      "helpful"
+    ]
+  },
+  "looking_for_group": {
+    "status": "open",
+    "game_ids": [
+      "game:dynasty-warriors-8"
+    ],
+    "note": "Weeknight sessions, spoiler-free please.",
+    "availability_windows": [
+      {
+        "day": "weekdays",
+        "part_of_day": "evening"
+      },
+      {
+        "day": "sat",
+        "part_of_day": "afternoon"
+      }
+    ]
+  },
+  "public_platform_identities": [
+    {
+      "platform": "pc",
+      "gamertag": "sleepingdragon",
+      "label": "Steam"
+    }
+  ],
+  "public_links": [
+    {
+      "label": "Community guide index",
+      "url": "https://example.org/guides"
+    }
+  ],
+  "counts": {
+    "games_owned": 12,
+    "games_completed": 5,
+    "friends": 2,
+    "rallies_attended": 7
+  },
+  "search_engine_indexing": false,
+  "meta": {
+    "schema_version": "0",
+    "created_at": "2026-08-03T00:00:00Z",
+    "updated_at": "2026-08-03T00:00:00Z"
+  }
+}

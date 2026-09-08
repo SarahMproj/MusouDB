@@ -1,0 +1,34 @@
+name: Privacy or rights concern
+description: Report content that exposes personal information or may infringe someone's rights.
+title: "policy: "
+labels: ["policy", "priority"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for flagging this. Please do not include the personal information itself in this issue — point at where it appears instead.
+
+        If you are a rights holder, `docs/IP_AND_ASSET_POLICY.md` describes the response process.
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of concern?
+      options:
+        - Personal information about a real person appears in the repository
+        - Content appears to be copied from a wiki, guide, or manual
+        - An image or asset may be publisher-owned
+        - Branding could imply an official endorsement
+        - A schema or feature would leak private data
+    validations:
+      required: true
+  - type: textarea
+    id: where
+    attributes:
+      label: Where does it appear?
+      description: File path, record ID, or pull request number.
+    validations:
+      required: true
+  - type: textarea
+    id: detail
+    attributes:
+      label: Anything else a maintainer needs to know

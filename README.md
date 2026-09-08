@@ -64,31 +64,49 @@ MusouDB should be welcoming to developers and non-developers alike. Players can 
 
 ## Current status
 
-MusouDB is in its **foundation phase**. Initial work focuses on:
+MusouDB has an implemented web application and a separate versioned schema package. This repository now contains both foundations; implemented does not mean every workflow is launch-ready.
 
-- Game, character, battlefield, profile, collection, and session schemas
-- A legally clean seed dataset
-- A static franchise explorer
-- Contribution and provenance workflows
-- Privacy-safe profile and social design
-- Original branding and an asset-safe repository
+- **Explore:** officer search and filters, game pages, battles, weapons, and editorial coverage. The DW8XL Complete Edition page links an 82-officer roster; individual records retain draft/reviewed labels.
+- **Device record:** save officers, save games as owned, and track playing/completed status in browser storage. Older game-detail saves are recognized without overwriting progress.
+- **Signed-in record:** profile editing, favorites, game progress, and public handle pages backed by D1. Device saves remain separate and are not automatically published or imported.
+- **Contributions:** corrections, officer claims, structured research submissions, and editor queues exist. Field-level publication needs further work before broad contributor onboarding.
+- **Open data foundation:** JSON Schemas, 24 sample records, provenance rules, and reference validation. These files are not yet the application's runtime data source.
 
-See [`ROADMAP.md`](ROADMAP.md) and [`docs/PRODUCT_SPEC.md`](docs/PRODUCT_SPEC.md).
+See [`ROADMAP.md`](ROADMAP.md) for the current priorities and [`docs/PROJECT_STATUS.md`](docs/PROJECT_STATUS.md) for verified scope and known gaps.
 
 ## Repository map
 
 ```text
-MusouDB/
-├── data/                         # Community-authored structured records
-├── docs/                         # Product, safety, data, and asset policies
-├── packages/
-│   └── schema/                   # JSON Schema definitions
-├── .github/
-│   └── ISSUE_TEMPLATE/           # Contributor-friendly issue templates
-├── CONTRIBUTING.md
-├── ROADMAP.md
-└── README.md
+app/                  Application pages, API routes, and current seed catalog
+worker/               Cloudflare Worker entry
+build/                Sites build integration
+db/                   Runtime D1 schema and database access
+drizzle/              Runtime migrations
+data/                 Versioned sample catalog and synthetic profile examples
+packages/schema/      JSON Schemas and offline data validator
+tests/                Worker rendering and device-record regressions
+scripts/              Dependency installation and verified build helpers
+docs/                 Product, provenance, status, and identifier documentation
+.openai/hosting.json   Existing Sites identity and logical database binding
 ```
+
+## Development and validation
+
+Use Node 22.13 or newer on Linux. The install/build helpers require Bash, curl, flock, timeout, and sha256sum.
+
+```bash
+npm run install:ci
+npm run test:local-record
+npm test
+npm ci --prefix packages/schema
+npm test --prefix packages/schema
+```
+
+`npm test` builds the Worker, validates its fetch entrypoint and hosting manifest, and checks rendered public pages. Device-record tests exercise legacy save migration and progress preservation. The schema validator checks schema conformance, cross-file references, and policy rules; it does not validate the runtime catalog in `app/data.ts` or live D1 rows.
+
+For local development, use `npm run dev`. Signed-in and editorial workflows require the Sites authentication boundary, D1 bindings/migrations, and hosted private `FOUNDING_ADMIN_EMAIL` configuration for the founding editor. Do not embed that value in source or trust caller-supplied authentication headers on an independently exposed server.
+
+GitHub code changes do not automatically publish the Site. Preserve the existing Site identity, and use its normal version/deployment workflow when publishing is requested.
 
 ## Intellectual-property principles
 

@@ -40,3 +40,8 @@ next-env.d.ts
 /.sites-runtime/
 /outputs/
 /work/
+
+# Nested schema dependencies
+node_modules/
+*.log
+*.tsbuildinfo

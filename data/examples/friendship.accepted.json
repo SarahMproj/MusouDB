@@ -1,0 +1,14 @@
+{
+  "id": "friendship:0197b1c4-sleepingdragon-tigerofjiangdong",
+  "requester_handle": "sleepingdragon",
+  "recipient_handle": "tigerofjiangdong",
+  "state": "accepted",
+  "message": "Saw we both main strategists — want to run Chi Bi on chaos?",
+  "discovered_via": "shared_favorite",
+  "responded_at": "2026-07-02T14:31:00Z",
+  "meta": {
+    "schema_version": "0",
+    "created_at": "2026-07-01T09:00:00Z",
+    "updated_at": "2026-07-01T09:00:00Z"
+  }
+}

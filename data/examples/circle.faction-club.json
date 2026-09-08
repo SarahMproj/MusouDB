@@ -1,0 +1,25 @@
+{
+  "id": "circle:shu-strategists",
+  "name": "Shu Strategists",
+  "description": "Ranged and control-oriented Shu officers. Checklist swaps and co-op runs.",
+  "topic": {
+    "entity_type": "faction",
+    "entity_id": "faction:shu",
+    "theme": "ranged play"
+  },
+  "owner_handle": "sleepingdragon",
+  "moderator_handles": [
+    "tigerofjiangdong"
+  ],
+  "member_handles": [
+    "sleepingdragon",
+    "tigerofjiangdong"
+  ],
+  "visibility": "public",
+  "guidelines": "Tag spoilers by game. No extracted assets. No gatekeeping newcomers.",
+  "meta": {
+    "schema_version": "0",
+    "created_at": "2026-08-03T00:00:00Z",
+    "updated_at": "2026-08-03T00:00:00Z"
+  }
+}

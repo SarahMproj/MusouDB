@@ -1,67 +1,32 @@
 # MusouDB Roadmap
 
-## Phase 0 — Foundation
+Updated 2026-09-08. This is an implementation roadmap, not a claim of production acceptance.
 
-- Establish original branding and an asset-safe repository
-- Define schemas for games, characters, factions, battlefields, weapons, profiles, collections, and sessions
-- Publish contribution, provenance, privacy, and IP guidelines
-- Seed a small community-authored dataset
-- Launch a static explorer with no user accounts
+## Now — consolidate and verify
 
-## Phase 1 — Franchise Explorer
+- Combine the production application and v0 schema work in one maintained repository.
+- Restore executable build helpers so fresh checkouts install and build.
+- Make game-detail saves visible in the device record, preserving playing/completed status and legacy favorites.
+- Run application and data checks on pull requests.
+- Keep implementation status and known gaps visible in `docs/PROJECT_STATUS.md`.
 
-- Search and filter games, characters, factions, weapons, and battlefields
-- Spoiler-aware summaries and route information
-- Appearance timelines across games
-- Recurring battlefield and character comparisons
-- Personal checklists stored locally
-- Stable public data files and developer documentation
+## Next — finish the existing discovery and contribution loops
 
-## Phase 2 — Warrior Records
+1. Reconcile runtime catalog IDs (`dw3`, `dw8`, `dw9`, `dw8xl`) with the versioned dataset. Preserve existing URLs and stored favorites through an explicit mapping; do not silently treat DW8 and DW8XL as the same edition.
+2. Finish field-level editorial publication. Approved gameplay, weapon, relationship, battle, unlock, and spoiler fields must reach the public officer record, with consistent source/status handling.
+3. Verify signed-in profile, favorite, progress, claim, submission, and editorial flows against D1 in the hosted environment. Add actionable save errors and validate API payloads.
+4. Add an explicit opt-in import from device records to signed-in records. Explain public visibility before publishing any local favorites or progress.
+5. Improve sharing of public records and officer pages, including record-specific text metadata. Test the discover → save → profile → share journey.
 
-- Account creation and authentication
-- Favorite games, characters, factions, weapons, and battlefields
-- Game library and currently-playing status
-- Completion, collection, and checklist tracking
-- Platform and gamertag fields with per-field privacy controls
-- Public profile pages and shareable profile cards
-- Block and report controls
+## Later — expand only after the core loop works
 
-## Phase 3 — Friends and Discovery
+- Grow the sourced catalog and per-game appearance/unlock coverage.
+- Per-platform identity privacy, profile indexing opt-in, and moderation controls.
+- Friend discovery and looking-for-group preferences.
+- Battle Rallies with scheduling, capacity, and visibility controls.
+- Contributor tools, translations, public data exports, and integrations.
 
-- Mutual friend requests
-- Find players by shared favorites, platform, game, and playstyle
-- Looking-for-group status
-- Optional Discord and streaming links
-- Clubs or circles around games, factions, characters, and platforms
-- Search-engine indexing of profiles only by opt-in
+## Release decisions still needed
 
-## Phase 4 — Battle Rallies
-
-- Create and join scheduled sessions
-- Game, platform, mode, difficulty, objective, and party-size fields
-- Time-zone aware scheduling
-- Public, friends-only, and invite-only visibility
-- Optional external voice-chat links
-- Attendance and post-session recaps
-- Community-organized themed events and replay nights
-
-## Phase 5 — Community Tools
-
-- Shareable collection and completion cards
-- Community-created lists and guides
-- Polls, favorites, and recommendation tools
-- Discord bot and embeddable profile widgets
-- Public API or packaged datasets
-- Translation and accessibility expansion
-- Import and export of personal data
-
-## Later possibilities
-
-MusouDB may eventually support opt-in community challenges, richer accomplishment tracking, creator programs, or publisher collaborations. These are possibilities rather than commitments and should only be pursued when the core discovery, profile, and connection experience is healthy.
-
-## Launch principle
-
-Build the smallest useful loop first:
-
-**Discover something you love → add it to your Warrior Record → find someone who loves it too → play together.**
+- Finalize code and community-data licensing before soliciting external contributions. The repository currently states an MIT intent but contains no root license grant.
+- Complete target-environment acceptance checks before describing signed-in or editorial workflows as production-verified.

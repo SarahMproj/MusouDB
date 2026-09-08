@@ -1,0 +1,70 @@
+{
+  "id": "faction:shu",
+  "display_name": "Shu",
+  "aliases": [
+    "Shu Han",
+    "Han"
+  ],
+  "kind": "kingdom",
+  "era_label": "late Han to Three Kingdoms",
+  "historical_note": {
+    "blocks": [
+      {
+        "spoiler_level": "none",
+        "text": "The southwestern state founded by Liu Bei, which claimed to continue the Han dynasty.",
+        "language": "en"
+      }
+    ]
+  },
+  "appearances": [
+    {
+      "game_id": "game:dynasty-warriors-3",
+      "role": "playable"
+    },
+    {
+      "game_id": "game:dynasty-warriors-8",
+      "role": "playable"
+    },
+    {
+      "game_id": "game:dynasty-warriors-9",
+      "role": "playable"
+    }
+  ],
+  "notable_character_ids": [
+    "character:liu-bei",
+    "character:zhuge-liang"
+  ],
+  "color_hint": "#1f7a4d",
+  "summary": {
+    "blocks": [
+      {
+        "spoiler_level": "none",
+        "text": "One of the three rival states the series is built around. Playable across every seeded entry.",
+        "language": "en"
+      }
+    ]
+  },
+  "tags": [
+    "three-kingdoms",
+    "major-faction"
+  ],
+  "provenance": {
+    "category": "public_domain_history",
+    "contributor": "musoudb_seed",
+    "contributed_at": "2026-08-03T00:00:00Z",
+    "sources": [
+      {
+        "kind": "historical_text",
+        "citation": "Records of the Three Kingdoms (Sanguozhi), Chen Shou, 3rd century. Public domain.",
+        "note": "Summarized in the contributor's own words."
+      }
+    ]
+  },
+  "meta": {
+    "schema_version": "0",
+    "revision": 1,
+    "created_at": "2026-08-03T00:00:00Z",
+    "updated_at": "2026-08-03T00:00:00Z",
+    "status": "accepted"
+  }
+}

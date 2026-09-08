@@ -1,0 +1,272 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schema.musoudb.org/v0/collection-entry.schema.json",
+  "title": "Collection Entry",
+  "description": "One player's relationship to one catalog entity: ownership, progress, checklist state.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "handle",
+    "entity_type",
+    "entity_id",
+    "status",
+    "visibility",
+    "meta"
+  ],
+  "properties": {
+    "id": {
+      "$ref": "common.schema.json#/$defs/CollectionEntryId"
+    },
+    "handle": {
+      "$ref": "common.schema.json#/$defs/UserHandle"
+    },
+    "entity_type": {
+      "$ref": "common.schema.json#/$defs/EntityType"
+    },
+    "entity_id": {
+      "$ref": "common.schema.json#/$defs/EntityId"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "favorite",
+        "wishlist",
+        "owned",
+        "playing",
+        "paused",
+        "dropped",
+        "completed",
+        "mastered",
+        "checklist_todo",
+        "checklist_done"
+      ],
+      "description": "Single status per entry. Multiple relationships use multiple entries."
+    },
+    "progress": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "percent": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "completed_units": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "total_units": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "unit_label": {
+          "type": "string",
+          "maxLength": 40
+        }
+      }
+    },
+    "platform": {
+      "$ref": "common.schema.json#/$defs/Platform"
+    },
+    "rating": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5
+    },
+    "note": {
+      "type": "string",
+      "maxLength": 1000,
+      "description": "Player's own words."
+    },
+    "checklist_group": {
+      "type": "string",
+      "maxLength": 80,
+      "description": "Groups entries into a named checklist, e.g. 'dw8-weapons'."
+    },
+    "started_at": {
+      "$ref": "common.schema.json#/$defs/Timestamp"
+    },
+    "completed_at": {
+      "$ref": "common.schema.json#/$defs/Timestamp"
+    },
+    "visibility": {
+      "$ref": "common.schema.json#/$defs/Visibility",
+      "default": "friends_only"
+    },
+    "meta": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version"
+      ],
+      "properties": {
+        "schema_version": {
+          "type": "string",
+          "const": "0"
+        },
+        "created_at": {
+          "$ref": "common.schema.json#/$defs/Timestamp"
+        },
+        "updated_at": {
+          "$ref": "common.schema.json#/$defs/Timestamp"
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "$ref": "common.schema.json#/$defs/ForbiddenPersonalFields"
+    },
+    {
+      "$comment": "Entity type and identifier prefix must agree.",
+      "if": {
+        "type": "object",
+        "properties": {
+          "entity_type": {
+            "const": "game"
+          }
+        },
+        "required": [
+          "entity_type"
+        ]
+      },
+      "then": {
+        "type": "object",
+        "properties": {
+          "entity_id": {
+            "type": "string",
+            "pattern": "^game:"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "type": "object",
+        "properties": {
+          "entity_type": {
+            "const": "character"
+          }
+        },
+        "required": [
+          "entity_type"
+        ]
+      },
+      "then": {
+        "type": "object",
+        "properties": {
+          "entity_id": {
+            "type": "string",
+            "pattern": "^character:"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "type": "object",
+        "properties": {
+          "entity_type": {
+            "const": "weapon"
+          }
+        },
+        "required": [
+          "entity_type"
+        ]
+      },
+      "then": {
+        "type": "object",
+        "properties": {
+          "entity_id": {
+            "type": "string",
+            "pattern": "^weapon:"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "type": "object",
+        "properties": {
+          "entity_type": {
+            "const": "battlefield"
+          }
+        },
+        "required": [
+          "entity_type"
+        ]
+      },
+      "then": {
+        "type": "object",
+        "properties": {
+          "entity_id": {
+            "type": "string",
+            "pattern": "^battlefield:"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "type": "object",
+        "properties": {
+          "entity_type": {
+            "const": "faction"
+          }
+        },
+        "required": [
+          "entity_type"
+        ]
+      },
+      "then": {
+        "type": "object",
+        "properties": {
+          "entity_id": {
+            "type": "string",
+            "pattern": "^faction:"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "type": "object",
+        "properties": {
+          "entity_type": {
+            "const": "series"
+          }
+        },
+        "required": [
+          "entity_type"
+        ]
+      },
+      "then": {
+        "type": "object",
+        "properties": {
+          "entity_id": {
+            "type": "string",
+            "pattern": "^series:"
+          }
+        }
+      }
+    },
+    {
+      "$comment": "Only game entries carry a platform.",
+      "if": {
+        "type": "object",
+        "required": [
+          "platform"
+        ]
+      },
+      "then": {
+        "type": "object",
+        "properties": {
+          "entity_type": {
+            "const": "game"
+          }
+        }
+      }
+    }
+  ]
+}

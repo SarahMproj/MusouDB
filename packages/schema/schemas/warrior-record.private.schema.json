@@ -1,0 +1,246 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schema.musoudb.org/v0/warrior-record.private.schema.json",
+  "title": "Warrior Record (private)",
+  "description": "Server-side account record. Never rendered publicly and never committed to this repository. Examples in data/examples/ are synthetic.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "handle",
+    "account",
+    "meta"
+  ],
+  "properties": {
+    "handle": {
+      "$ref": "common.schema.json#/$defs/UserHandle"
+    },
+    "account": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "auth_provider",
+        "auth_provider_subject"
+      ],
+      "properties": {
+        "auth_provider": {
+          "type": "string",
+          "enum": [
+            "email_otp",
+            "oauth_google",
+            "oauth_discord",
+            "oauth_github"
+          ]
+        },
+        "auth_provider_subject": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 255,
+          "description": "Opaque provider subject. Not an email."
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "Contact address. Private by definition; never in the public projection."
+        },
+        "email_verified": {
+          "type": "boolean"
+        },
+        "locale": {
+          "$ref": "common.schema.json#/$defs/LanguageTag"
+        }
+      }
+    },
+    "platform_identities": {
+      "type": "array",
+      "description": "Every identity with its own visibility. Default friends_only.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "platform",
+          "gamertag",
+          "visibility"
+        ],
+        "properties": {
+          "platform": {
+            "$ref": "common.schema.json#/$defs/Platform"
+          },
+          "gamertag": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "label": {
+            "type": "string",
+            "maxLength": 60
+          },
+          "visibility": {
+            "$ref": "common.schema.json#/$defs/Visibility",
+            "default": "friends_only"
+          },
+          "verified_at": {
+            "$ref": "common.schema.json#/$defs/Timestamp"
+          }
+        }
+      }
+    },
+    "private_links": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "label",
+          "url",
+          "visibility"
+        ],
+        "properties": {
+          "label": {
+            "type": "string",
+            "maxLength": 80
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "visibility": {
+            "$ref": "common.schema.json#/$defs/Visibility",
+            "default": "friends_only"
+          }
+        }
+      }
+    },
+    "notification_preferences": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "friend_requests": {
+          "type": "boolean",
+          "default": true
+        },
+        "rally_invites": {
+          "type": "boolean",
+          "default": true
+        },
+        "rally_reminders": {
+          "type": "boolean",
+          "default": true
+        },
+        "product_updates": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "safety": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "blocked_handles": {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/$defs/UserHandle"
+          },
+          "uniqueItems": true
+        },
+        "muted_handles": {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/$defs/UserHandle"
+          },
+          "uniqueItems": true
+        },
+        "reports_filed": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "friend_request_policy": {
+          "type": "string",
+          "enum": [
+            "anyone",
+            "friends_of_friends",
+            "shared_circle",
+            "nobody"
+          ],
+          "default": "anyone"
+        }
+      }
+    },
+    "spoiler_preferences": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "default_max_spoiler_level": {
+          "$ref": "common.schema.json#/$defs/SpoilerLevel",
+          "default": "none"
+        },
+        "reveal_for_completed_games": {
+          "type": "boolean",
+          "default": true
+        },
+        "per_game_overrides": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "game_id",
+              "max_spoiler_level"
+            ],
+            "properties": {
+              "game_id": {
+                "$ref": "common.schema.json#/$defs/GameId"
+              },
+              "max_spoiler_level": {
+                "$ref": "common.schema.json#/$defs/SpoilerLevel"
+              }
+            }
+          }
+        }
+      }
+    },
+    "data_rights": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Supports the export-or-delete commitment in docs/PRODUCT_SPEC.md.",
+      "properties": {
+        "export_requested_at": {
+          "$ref": "common.schema.json#/$defs/Timestamp"
+        },
+        "deletion_requested_at": {
+          "$ref": "common.schema.json#/$defs/Timestamp"
+        },
+        "deletion_scheduled_for": {
+          "$ref": "common.schema.json#/$defs/Timestamp"
+        }
+      }
+    },
+    "meta": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version"
+      ],
+      "properties": {
+        "schema_version": {
+          "type": "string",
+          "const": "0"
+        },
+        "created_at": {
+          "$ref": "common.schema.json#/$defs/Timestamp"
+        },
+        "updated_at": {
+          "$ref": "common.schema.json#/$defs/Timestamp"
+        },
+        "last_seen_at": {
+          "$ref": "common.schema.json#/$defs/Timestamp"
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "$ref": "common.schema.json#/$defs/ForbiddenPersonalFields"
+    }
+  ]
+}
