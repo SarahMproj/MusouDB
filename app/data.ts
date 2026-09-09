@@ -1,3 +1,4 @@
+import {dossiers,weaponGuides,stageGuides,manual,exSource,combatSource,checked} from "./archive/dw8xl";
 export type Faction = "SHU" | "WEI" | "WU" | "OTHER";
 
 export type Officer = {
@@ -16,7 +17,7 @@ export type Battle = { id: string; name: string; year: string; factions: string[
 export type Weapon = { id: string; name: string; style: string; wielders: string[]; games: string[] };
 export type OfficerProfile = {
   id:string; kingdom:string; role:string; moveset:string; unlock:string; relationships:string[];
-  battles:string[]; biography:string; gameplay:string; spoiler:string; completeness:number;
+  battles:string[]; biography:string; gameplay:string; spoiler:string;
   citations:{label:string;url:string;kind:string}[]; revisions:{version:number;date:string;summary:string}[];
 };
 
@@ -52,9 +53,9 @@ for(const name of jinRoster){const id=slug(name);if(!existing.has(id))officers.p
 export const dw8xlOfficerIds=[...Object.values(dw8xlRoster).flat(),...jinRoster].map(slug);
 
 export const games: Game[] = [
-  {id:"dw3",short:"DW3",title:"Dynasty Warriors 3",year:2001,platforms:["PlayStation 2","Xbox"],era:"The defining foundation",summary:"The entry that crystallized the modern one-versus-thousands formula around character-led Musou campaigns and battlefield objectives.",distinction:"Stage-based Musou Mode",officers:officers.map(o=>o.id),status:"reviewed"},
-  {id:"dw8",short:"DW8",title:"Dynasty Warriors 8",year:2013,platforms:["PlayStation 3","Xbox 360","PC"],era:"The branching chronicle",summary:"A content-rich interpretation built around kingdom campaigns, hypothetical routes, and an expansive officer roster.",distinction:"Historical and hypothetical routes",officers:officers.map(o=>o.id),status:"reviewed"},
-  {id:"dw9",short:"DW9",title:"Dynasty Warriors 9",year:2018,platforms:["PlayStation 4","Xbox One","PC"],era:"The open-world experiment",summary:"The series reimagined its connected battlefields as one traversable landscape with officer-specific stories.",distinction:"Single open world",officers:officers.map(o=>o.id),status:"reviewed"},
+  {id:"dw3",short:"DW3",title:"Dynasty Warriors 3",year:2001,platforms:["PlayStation 2","Xbox"],era:"The defining foundation",summary:"The entry that crystallized the modern one-versus-thousands formula around character-led Musou campaigns and battlefield objectives.",distinction:"Stage-based Musou Mode",officers:officers.filter(o=>o.games.includes("dw3")).map(o=>o.id),status:"reviewed"},
+  {id:"dw8",short:"DW8",title:"Dynasty Warriors 8",year:2013,platforms:["PlayStation 3","Xbox 360"],era:"The branching chronicle",summary:"A content-rich interpretation built around kingdom campaigns, hypothetical routes, and an expansive officer roster.",distinction:"Historical and hypothetical routes",officers:officers.filter(o=>o.games.includes("dw8")).map(o=>o.id),status:"reviewed"},
+  {id:"dw9",short:"DW9",title:"Dynasty Warriors 9",year:2018,platforms:["PlayStation 4","Xbox One","PC"],era:"The open-world experiment",summary:"The series reimagined its connected battlefields as one traversable landscape with officer-specific stories.",distinction:"Single open world",officers:officers.filter(o=>o.games.includes("dw9")).map(o=>o.id),status:"reviewed"},
   {id:"dw8xl",short:"DW8XL CE",title:"Dynasty Warriors 8: Xtreme Legends Complete Edition",year:2014,platforms:["PlayStation 4","PlayStation Vita","Windows"],era:"The complete branching chronicle",summary:"The complete edition combines Dynasty Warriors 8 with Xtreme Legends: 82 playable officers, kingdom stories with historical and hypothetical routes, a dedicated Lu Bu campaign, and expanded Ambition Mode.",distinction:"82 unique playable officers and branching kingdom campaigns",officers:dw8xlOfficerIds,status:"reviewed",edition:"Base game + Xtreme Legends",modes:["Story Mode","Free Mode","Ambition Mode","Challenge Mode"],sourceUrl:"https://www.koeitecmoamerica.com/dw8xl/"},
 ];
 
@@ -84,15 +85,7 @@ export const imageRights = {
   policy: "No extracted game files, copied wiki art, or unverified fan art",
 };
 
-const officialDw8="https://www.koeitecmoamerica.com/dw8xl/";
-const officialRoster="https://www.koeitecmoamerica.com/dw8xl/dlc/";
-const officialHistory="https://www.koeitecmoamerica.com/smusou25th/us/history/titles/smusou_07m.html";
-const sharedCitations=[
-  {label:"DYNASTY WARRIORS 8: Xtreme Legends official site",url:officialDw8,kind:"Official publisher"},
-  {label:"DYNASTY WARRIORS 25th Anniversary title history",url:officialHistory,kind:"Official publisher"},
-  {label:"Official DW8XL character and DLC index",url:officialRoster,kind:"Official publisher"},
-];
-const profile=(id:string,kingdom:string,role:string,moveset:string,unlock:string,relationships:string[],battleIds:string[],biography:string,gameplay:string,spoiler:string):OfficerProfile=>({id,kingdom,role,moveset,unlock,relationships,battles:battleIds,biography,gameplay,spoiler,completeness:100,citations:sharedCitations,revisions:[{version:2,date:"2026-08-13",summary:"Expanded gameplay, relationships, battle links, and spoiler-separated story notes."},{version:1,date:"2026-08-13",summary:"Created canonical DW8XL officer record."}]});
+const profile=(id:string,kingdom:string,role:string,moveset:string,unlock:string,relationships:string[],battleIds:string[],biography:string,gameplay:string,spoiler:string):OfficerProfile=>({id,kingdom,role,moveset,unlock,relationships,battles:battleIds,biography,gameplay,spoiler,citations:[],revisions:[{version:2,date:"2026-08-13",summary:"Expanded gameplay, relationships, battle links, and spoiler-separated story notes."},{version:1,date:"2026-08-13",summary:"Created canonical DW8XL officer record."}]});
 export const officerProfiles:Record<string,OfficerProfile>={
   "cao-cao":profile("cao-cao","Wei","Ruler and commander","General’s Sword · broad crowd-clearing arcs","Available through Wei’s opening story stages",["Cao Pi · son","Xiahou Dun · cousin and general","Sima Yi · strategist"],["yellow-turban-rebellion","guandu","chibi"],"Cao Cao anchors Wei’s campaign as a commander who treats order as the prerequisite for peace. Musou’s portrayal emphasizes strategic decisiveness, recruitment of talent, and a willingness to accept the moral cost of unification.","A balanced sword user with reliable reach, fast setup, and accessible crowd control. His moveset rewards forward pressure without demanding specialized execution.","Wei’s hypothetical route tests whether Cao Cao’s meritocratic coalition can survive the turning points that historically constrained it."),
   "liu-bei":profile("liu-bei","Shu","Ruler and sworn brother","Twin Swords · fast balanced strings","Available through Shu’s opening story stages",["Guan Yu · sworn brother","Zhang Fei · sworn brother","Sun Shangxiang · spouse"],["yellow-turban-rebellion","chibi","yiling"],"Liu Bei is Shu’s moral center: a wandering leader whose stated commitment to benevolence gradually gathers a kingdom around him. His story is framed through loyalty, loss, and the challenge of preserving principle under pressure.","Twin swords provide quick, readable strings and strong mobility. He is an approachable all-rounder suited to players learning weapon affinity, switching, and battlefield flow.","Shu’s branches ask whether key allies can be saved and whether benevolence can produce a future beyond repeated sacrifice."),
@@ -105,8 +98,30 @@ export const officerProfiles:Record<string,OfficerProfile>={
   "lu-lingqi":profile("lu-lingqi","Other","Daughter of Lu Bu","Crossed Pike · sweeping mobile offense","Playable through Xtreme Legends’ Lu Bu campaign",["Lu Bu · father","Chen Gong · allied strategist","Diaochan · ally"],["hulao-gate"],"Lu Lingqi joins the roster in Xtreme Legends as Lu Bu’s daughter, carrying his intimidating battlefield presence into a faster and more guarded character arc.","The crossed pike produces wide rotating attacks, strong movement, and excellent crowd coverage. She feels aggressive without simply duplicating the halberd’s slower overwhelming weight.","The Lu Bu campaign places her loyalty inside a story where alliances repeatedly fracture and survival depends on whom the family can trust."),
   "zhuge-liang":profile("zhuge-liang","Shu","Chief strategist","Feather Fan · ranged elemental control","Unlocked as Shu recruits its strategist",["Liu Bei · lord","Jiang Wei · successor","Sima Yi · strategic rival"],["chibi","wuzhang-plains"],"Zhuge Liang is Shu’s architect and Musou’s emblem of foresight. His plans shape the alliance at Chibi, the founding of Shu, and the northern campaigns that define the kingdom’s later years.","The feather fan controls space with ranged and elemental attacks. Its deliberate tempo rewards prediction, positioning, and efficient crowd setup rather than continuous close-range pressure.","His final campaigns and hypothetical outcomes center on succession, endurance, and whether Shu’s strategy can outlive its strategist."),
 };
+// Edition-scoped dossiers replace generic gameplay and unverified unlock copy.
+for(const [id,dossier] of Object.entries(dossiers)){
+  const p=officerProfiles[id];const o=officers.find(x=>x.id===id)!;
+  const w=weaponGuides.find(x=>x.officerId===id)!;
+  p.gameplay=dossier.gameplay;p.battles=dossier.battles;
+  p.unlock="Story Mode assigns officers by scenario. Free Mode uses unlocked stages; Ambition Mode has separate recruitment. See the game page for mode rules and the weapon page for rare-item conditions.";
+  p.moveset=`${w.name} · ${w.style}`;p.kingdom=p.kingdom.toUpperCase();
+  p.citations=[dossier.historySource,manual,exSource,combatSource,w.rare.source];
+  if(id==="lu-lingqi")p.citations.push({label:"KOEI TECMO · Lu Lingqi portrayal and weapon",url:"https://www.koeitecmoamerica.com/dw8xl/window/ryoreiki.html",kind:"Official publisher"});
+  p.revisions.unshift({version:3,date:checked,summary:"Added edition-specific research, historical context and a linked rare weapon guide. Exact full movesets remain open for verification."});
+  o.summary=dossier.summary;o.revision=checked;
+  if(id==="sun-quan"){o.alias="Zhongmou";o.mark="權"}
+  if(id==="wang-yuanji"){o.alias="Wang Yuanji";o.mark="姬"}
+  if(id==="lu-lingqi"){o.alias="Lu Bu’s daughter";o.mark="綺"}
+}
+for(const w of weaponGuides){
+  const existing=weapons.find(x=>x.id===w.id);
+  if(existing){existing.name=w.name;existing.style=w.style;if(!existing.games.includes("dw8xl"))existing.games.push("dw8xl")}
+  else weapons.push({id:w.id,name:w.name,style:w.style,wielders:[w.officerId],games:["dw8xl"]});
+}
+for(const stage of stageGuides)if(!battles.some(b=>b.id===stage.id))battles.push({id:stage.id,name:stage.name,year:stage.year,factions:[stage.side],games:["dw8xl"],summary:stage.context});
+for(const b of battles)if(["yellow-turban-rebellion","hulao-gate","guandu","chibi","yiling","wuzhang-plains"].includes(b.id)&&!b.games.includes("dw8xl"))b.games.push("dw8xl");
 export const flagshipOfficerIds=Object.keys(officerProfiles);
-for(const id of flagshipOfficerIds){const o=officers.find(item=>item.id===id);const p=officerProfiles[id];if(o){o.sourceStatus="reviewed";o.revision="2026-08-13";o.title=p.role;o.weapon=p.moveset.split(" · ")[0];o.tags=[...new Set([...o.tags,p.kingdom,"Flagship profile"])]}}
+for(const id of flagshipOfficerIds){const o=officers.find(item=>item.id===id);const p=officerProfiles[id];if(o){o.sourceStatus="reviewed";o.revision=checked;o.title=p.role;o.weapon=p.moveset.split(" · ")[0];o.tags=[...new Set([...o.tags,p.kingdom,"Flagship profile"])]}}
 
 export const gameById = (id:string) => games.find(game=>game.id===id);
 export const officerById = (id:string) => officers.find(officer=>officer.id===id);

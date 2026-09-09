@@ -49,4 +49,15 @@ Passed: fresh dependency installation; Worker build/artifact validation; one pro
 - Requesting changes reopens the author's claim so corrected research can be submitted. Existing publication schemas and migrations are unchanged.
 - Local integration tests run the built Worker with an ephemeral D1 database, exercising API authorization, field selection, officer HTML, repeated approvals, stale updates, unsafe sources, legacy biography withdrawal, and rollback when the final database write fails.
 
-No Site deployment or production data changes were made in this follow-up. Public directory cards still use the seed catalog; this pass completes the detailed officer publication workflow.
+No Site deployment or production data changes were made in this follow-up. The initial publication pass covered officer detail pages. The archive expansion below extends that projection to browsing.
+
+
+## DW8XL CE archive expansion (2026-09-09)
+
+- Ten existing featured profiles now have separately attributed historical context, edition-specific playstyle notes and linked rare weapon guides. Broad homepage/DLC citations have been replaced with sources that identify what they support.
+- Ten weapon guides cover EX notes, shared compatibility rules and a particular fifth- or sixth-weapon objective with officer, stage variant, side, difficulty and timer/event conditions.
+- Weapon and battle records have detail routes. Fourteen additional stage records distinguish similarly named scenarios; the Shu campaign has a six-step hypothetical prerequisite checklist.
+- Home, officer directory, game roster and coverage use approved editorial content. Cards summarize approved spoiler-safe biographies, use approved weapons and search approved gameplay; hidden fields and contributor email addresses are not serialized to browsing clients. Withdrawals restore earlier approved content or the seed.
+- Jin filters and roster counts use a normalized kingdom. Coverage counts profiles, source URLs and published fields instead of declaring the seed biographies 100% complete.
+- Guides are source-checked, not replay-tested. Full EX input tables, compatibility stars by level, all weapon ranks, other kingdom route checklists and broader appearance catalogs remain explicit research gaps. Existing non-DW8XL entries are partial catalogs.
+- No schema migration, production data update or deployment is part of this change. Device-import PR #5 remains separate.

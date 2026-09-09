@@ -41,6 +41,21 @@ test('editor decisions publish only selected fields and withdrawals restore the 
     let html=await page();
     for(const marker of ['Approved biography marker','Approved gameplay marker','Approved weapon marker','Test relationship marker','Unlock marker','Secret route marker','Source marker']) assert.ok(html.includes(marker),marker);
     assert.match(html,/<details[^>]*class="spoiler-panel"[^>]*><summary>Reveal story and hypothetical-route notes<\/summary><p>Secret route marker<\/p><\/details>/);
+    // Directory cards, search payload and filter options use approved values,
+    // without serializing private submission fields or hidden route notes.
+    for (const route of ['/', '/officers', '/games/dw8xl', '/coverage']) {
+      const response=await mf.dispatchFetch(`http://musou.test${route}`);
+      assert.equal(response.status,200);
+      const directory=await response.text();
+      assert.ok(directory.includes('Approved weapon marker') || route==='/coverage',route);
+      if (route==='/' || route==='/officers') {
+        assert.ok(directory.includes('Approved biography marker'),route);
+        assert.ok(directory.includes('Approved gameplay marker'),route);
+        assert.ok(!directory.includes('researcher@example.test'),route);
+        assert.ok(!directory.includes('Secret route marker'),route);
+        assert.ok(!directory.includes('Unlock marker'),route);
+      }
+    }
     const before=await db.prepare('SELECT COUNT(*) AS count FROM revisions').first();
     assert.equal((await review(['biography','gameplay','weapon','relationships','unlockCondition','spoilerNotes','battles'])).status,200);
     assert.deepEqual(await db.prepare('SELECT COUNT(*) AS count FROM revisions').first(),before);
@@ -63,6 +78,10 @@ test('editor decisions publish only selected fields and withdrawals restore the 
     await db.prepare('DROP TRIGGER fail_decision').run();
     assert.equal((await review([], 'needs-changes')).status,200);
     html=await page();assert.ok(!html.includes('Approved weapon marker'));assert.ok(!html.includes('Source marker'));assert.ok(!html.includes('Legacy secret'));
+    for (const route of ['/', '/officers', '/games/dw8xl', '/coverage']) {
+      const directory=await (await mf.dispatchFetch(`http://musou.test${route}`)).text();
+      for (const marker of ['Approved weapon marker','Approved biography marker','Approved gameplay marker','Legacy secret']) assert.ok(!directory.includes(marker),`${route}: ${marker}`);
+    }
     await db.prepare("UPDATE structured_contributions SET source_url='javascript:alert(1)'").run();
     assert.equal((await review(['weapon'])).status,400);
     assert.equal((await db.prepare('SELECT status FROM officer_claims').first()).status,'active');
