@@ -1,0 +1,70 @@
+{
+  "id": "character:sun-shang-xiang",
+  "display_name": "Sun Shangxiang",
+  "aliases": [
+    "Lady Sun"
+  ],
+  "sort_name": "Sun, Shangxiang",
+  "given_name_romanization": "Sun Shangxiang",
+  "romanization_system": "pinyin",
+  "primary_faction_id": "faction:wu",
+  "faction_ids": [
+    "faction:wu",
+    "faction:shu"
+  ],
+  "historical_basis": "semi_historical",
+  "appearances": [
+    {
+      "game_id": "game:dynasty-warriors-3",
+      "role": "playable"
+    },
+    {
+      "game_id": "game:dynasty-warriors-8",
+      "role": "playable"
+    },
+    {
+      "game_id": "game:dynasty-warriors-9",
+      "role": "playable"
+    }
+  ],
+  "weapon_ids": [
+    "weapon:bow"
+  ],
+  "playstyle_tags": [
+    "ranged",
+    "mobile"
+  ],
+  "summary": {
+    "blocks": [
+      {
+        "spoiler_level": "none",
+        "text": "A Wu archer whose marriage to Liu Bei places her between two kingdoms, which the series uses as a recurring loyalty conflict.",
+        "language": "en"
+      }
+    ]
+  },
+  "tags": [
+    "wu",
+    "ranged"
+  ],
+  "provenance": {
+    "category": "public_domain_history",
+    "contributor": "musoudb_seed",
+    "contributed_at": "2026-08-03T00:00:00Z",
+    "sources": [
+      {
+        "kind": "historical_text",
+        "citation": "Records of the Three Kingdoms (Sanguozhi), Chen Shou, 3rd century. Public domain.",
+        "note": "Summarized in the contributor's own words."
+      }
+    ],
+    "note": "Her given name is largely a later literary convention; the historical record preserves little beyond the marriage alliance."
+  },
+  "meta": {
+    "schema_version": "0",
+    "revision": 1,
+    "created_at": "2026-08-03T00:00:00Z",
+    "updated_at": "2026-08-03T00:00:00Z",
+    "status": "accepted"
+  }
+}

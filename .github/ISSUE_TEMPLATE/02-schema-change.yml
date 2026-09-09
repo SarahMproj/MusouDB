@@ -1,0 +1,54 @@
+name: Schema change
+description: Propose a new field, a new entity type, or a change to an existing schema.
+title: "schema: "
+labels: ["schema"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Read `packages/schema/README.md` and `docs/ID_CONVENTIONS.md` first. Changes to profiles, privacy, friends, collections, rallies, or moderation need an issue before a pull request.
+  - type: input
+    id: schema
+    attributes:
+      label: Which schema?
+      placeholder: character.schema.json
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What should change?
+      description: Give the field name, type, and constraints you have in mind.
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: What question does this let the product answer?
+      description: Tie it to something a fan wants to do. A field with no reader is a field that will rot.
+    validations:
+      required: true
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Is this catalog data or user data?
+      options:
+        - Catalog data — public, contributor-authored, reviewable
+        - User data — belongs to one player
+    validations:
+      required: true
+  - type: dropdown
+    id: visibility
+    attributes:
+      label: If user data, what should the default visibility be?
+      options: ["not applicable", public, friends_only, invite_only, private]
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Have you considered
+      options:
+        - label: Whether the field could carry a spoiler, and therefore needs SpoileredText.
+        - label: Whether it would appear in the public Warrior Record projection.
+        - label: Whether existing records in `data/` would need to be updated.

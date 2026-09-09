@@ -1,0 +1,63 @@
+{
+  "id": "battlefield:dynasty-warriors-3-yellow-turban-rebellion",
+  "display_name": "Yellow Turban Rebellion",
+  "game_id": "game:dynasty-warriors-3",
+  "canonical_battle_slug": "yellow-turban-rebellion",
+  "canonical_battle_name": "Yellow Turban Rebellion",
+  "historical_year": 184,
+  "mode": "story",
+  "playable_faction_ids": [
+    "faction:wei",
+    "faction:shu",
+    "faction:wu"
+  ],
+  "objectives": [
+    {
+      "kind": "primary",
+      "description": "Defeat the rebel commander.",
+      "spoiler_level": "none"
+    },
+    {
+      "kind": "failure",
+      "description": "Your commanding officer is defeated.",
+      "spoiler_level": "none"
+    }
+  ],
+  "appearances": [
+    {
+      "game_id": "game:dynasty-warriors-3",
+      "role": "story_only"
+    }
+  ],
+  "summary": {
+    "blocks": [
+      {
+        "spoiler_level": "none",
+        "text": "The opening engagement of most campaigns and the series' de facto tutorial stage. Recurs in nearly every entry.",
+        "language": "en"
+      }
+    ]
+  },
+  "tags": [
+    "opening-stage",
+    "recurring"
+  ],
+  "provenance": {
+    "category": "community_observation",
+    "contributor": "musoudb_seed",
+    "contributed_at": "2026-08-03T00:00:00Z",
+    "sources": [
+      {
+        "kind": "in_game_observation",
+        "citation": "Verified by a contributor during play; see revision history."
+      }
+    ]
+  },
+  "meta": {
+    "schema_version": "0",
+    "revision": 1,
+    "created_at": "2026-08-03T00:00:00Z",
+    "updated_at": "2026-08-03T00:00:00Z",
+    "status": "accepted"
+  }
+}

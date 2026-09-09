@@ -1,0 +1,63 @@
+{
+  "handle": "sleepingdragon",
+  "account": {
+    "auth_provider": "oauth_discord",
+    "auth_provider_subject": "discord|000000000000000000",
+    "email": "player@example.org",
+    "email_verified": true,
+    "locale": "en-US"
+  },
+  "platform_identities": [
+    {
+      "platform": "pc",
+      "gamertag": "sleepingdragon",
+      "label": "Steam",
+      "visibility": "public"
+    },
+    {
+      "platform": "playstation",
+      "gamertag": "kongming_ps",
+      "visibility": "friends_only"
+    },
+    {
+      "platform": "nintendo",
+      "gamertag": "SW-0000-0000-0000",
+      "visibility": "private"
+    }
+  ],
+  "private_links": [
+    {
+      "label": "Discord",
+      "url": "https://discord.com/users/000000000000000000",
+      "visibility": "friends_only"
+    }
+  ],
+  "notification_preferences": {
+    "friend_requests": true,
+    "rally_invites": true,
+    "rally_reminders": true,
+    "product_updates": false
+  },
+  "safety": {
+    "blocked_handles": [],
+    "muted_handles": [],
+    "reports_filed": 0,
+    "friend_request_policy": "anyone"
+  },
+  "spoiler_preferences": {
+    "default_max_spoiler_level": "none",
+    "reveal_for_completed_games": true,
+    "per_game_overrides": [
+      {
+        "game_id": "game:dynasty-warriors-3",
+        "max_spoiler_level": "ending"
+      }
+    ]
+  },
+  "data_rights": {},
+  "meta": {
+    "schema_version": "0",
+    "created_at": "2026-08-03T00:00:00Z",
+    "updated_at": "2026-08-03T00:00:00Z"
+  }
+}

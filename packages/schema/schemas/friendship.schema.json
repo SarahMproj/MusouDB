@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schema.musoudb.org/v0/friendship.schema.json",
+  "title": "Friendship",
+  "description": "A mutual, symmetric relationship between two Warrior Records.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "requester_handle",
+    "recipient_handle",
+    "state",
+    "meta"
+  ],
+  "properties": {
+    "id": {
+      "$ref": "common.schema.json#/$defs/FriendshipId"
+    },
+    "requester_handle": {
+      "$ref": "common.schema.json#/$defs/UserHandle"
+    },
+    "recipient_handle": {
+      "$ref": "common.schema.json#/$defs/UserHandle"
+    },
+    "state": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "accepted",
+        "declined",
+        "blocked",
+        "removed"
+      ]
+    },
+    "blocked_by": {
+      "$ref": "common.schema.json#/$defs/UserHandle",
+      "description": "Which side blocked. Required when state is blocked."
+    },
+    "message": {
+      "type": "string",
+      "maxLength": 280,
+      "description": "Optional one-time note with the request. Not a messaging channel."
+    },
+    "discovered_via": {
+      "type": "string",
+      "enum": [
+        "shared_favorite",
+        "shared_game",
+        "shared_platform",
+        "rally",
+        "circle",
+        "handle_search",
+        "invite_link",
+        "unknown"
+      ]
+    },
+    "responded_at": {
+      "$ref": "common.schema.json#/$defs/Timestamp"
+    },
+    "meta": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version"
+      ],
+      "properties": {
+        "schema_version": {
+          "type": "string",
+          "const": "0"
+        },
+        "created_at": {
+          "$ref": "common.schema.json#/$defs/Timestamp"
+        },
+        "updated_at": {
+          "$ref": "common.schema.json#/$defs/Timestamp"
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "$ref": "common.schema.json#/$defs/ForbiddenPersonalFields"
+    },
+    {
+      "$comment": "requester_handle must differ from recipient_handle. Enforced in validator tooling; JSON Schema alone cannot compare two sibling values."
+    },
+    {
+      "if": {
+        "type": "object",
+        "properties": {
+          "state": {
+            "const": "blocked"
+          }
+        },
+        "required": [
+          "state"
+        ]
+      },
+      "then": {
+        "type": "object",
+        "required": [
+          "blocked_by"
+        ]
+      }
+    }
+  ]
+}

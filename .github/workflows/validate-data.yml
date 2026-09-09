@@ -1,0 +1,39 @@
+name: Validate data
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  validate:
+    name: Schema, references, and policy checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: packages/schema/package-lock.json
+
+      - name: Install
+        working-directory: packages/schema
+        run: npm ci
+
+      - name: Validate dataset
+        working-directory: packages/schema
+        run: npm test
+
+      - name: Check for prohibited binary assets
+        run: |
+          # The public repository holds text records only. Extracted game files,
+          # artwork, audio, and video must never be committed. See
+          # docs/IP_AND_ASSET_POLICY.md.
+          found=$(git ls-files 'data/**' | grep -viE '\.(json|md)$' || true)
+          if [ -n "$found" ]; then
+            echo "Non-text files found under data/:"
+            echo "$found"
+            exit 1
+          fi

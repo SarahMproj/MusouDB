@@ -1,0 +1,294 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schema.musoudb.org/v0/battle-rally.schema.json",
+  "title": "Battle Rally",
+  "description": "A scheduled co-op, completion-help, challenge, stream, or watch-party session.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "organizer_handle",
+    "title",
+    "session_type",
+    "game_id",
+    "platform",
+    "starts_at",
+    "time_zone",
+    "visibility",
+    "status",
+    "meta"
+  ],
+  "properties": {
+    "id": {
+      "$ref": "common.schema.json#/$defs/RallyId"
+    },
+    "organizer_handle": {
+      "$ref": "common.schema.json#/$defs/UserHandle"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 120
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 2000
+    },
+    "session_type": {
+      "type": "string",
+      "enum": [
+        "co_op",
+        "completion_help",
+        "challenge_run",
+        "stream",
+        "watch_party",
+        "community_event",
+        "classic_replay"
+      ]
+    },
+    "game_id": {
+      "$ref": "common.schema.json#/$defs/GameId"
+    },
+    "battlefield_id": {
+      "$ref": "common.schema.json#/$defs/BattlefieldId"
+    },
+    "objective": {
+      "type": "string",
+      "maxLength": 500
+    },
+    "platform": {
+      "$ref": "common.schema.json#/$defs/Platform"
+    },
+    "cross_platform": {
+      "type": "boolean",
+      "default": false
+    },
+    "difficulty": {
+      "type": "string",
+      "enum": [
+        "easy",
+        "normal",
+        "hard",
+        "chaos",
+        "ultimate",
+        "any"
+      ]
+    },
+    "starts_at": {
+      "$ref": "common.schema.json#/$defs/Timestamp",
+      "description": "Absolute instant in UTC. time_zone is for display only."
+    },
+    "expected_end_at": {
+      "$ref": "common.schema.json#/$defs/Timestamp"
+    },
+    "time_zone": {
+      "$ref": "common.schema.json#/$defs/IanaTimeZone",
+      "description": "Organizer's zone, so the UI can render the original intent."
+    },
+    "capacity": {
+      "type": "integer",
+      "minimum": 2,
+      "maximum": 64
+    },
+    "spoiler_level": {
+      "$ref": "common.schema.json#/$defs/SpoilerLevel",
+      "default": "none",
+      "description": "Warns attendees that story content may be revealed."
+    },
+    "requirements": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "min_progress_note": {
+          "type": "string",
+          "maxLength": 300
+        },
+        "mic_required": {
+          "type": "boolean",
+          "default": false
+        },
+        "friends_only_join": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "voice_chat": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "MusouDB stores a link or instruction. It does not host voice.",
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": [
+            "platform_native",
+            "discord",
+            "other",
+            "none"
+          ]
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "instructions": {
+          "type": "string",
+          "maxLength": 300
+        }
+      }
+    },
+    "attendees": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "handle",
+          "rsvp"
+        ],
+        "properties": {
+          "handle": {
+            "$ref": "common.schema.json#/$defs/UserHandle"
+          },
+          "rsvp": {
+            "type": "string",
+            "enum": [
+              "going",
+              "maybe",
+              "waitlist",
+              "declined"
+            ]
+          },
+          "attended": {
+            "type": "boolean"
+          },
+          "joined_at": {
+            "$ref": "common.schema.json#/$defs/Timestamp"
+          }
+        }
+      }
+    },
+    "visibility": {
+      "$ref": "common.schema.json#/$defs/Visibility",
+      "default": "friends_only"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "scheduled",
+        "full",
+        "in_progress",
+        "completed",
+        "cancelled"
+      ]
+    },
+    "cancellation_reason": {
+      "type": "string",
+      "maxLength": 300
+    },
+    "recap": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "summary": {
+          "type": "string",
+          "maxLength": 2000,
+          "description": "Organizer's own words."
+        },
+        "attendee_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "links": {
+          "type": "array",
+          "maxItems": 10,
+          "items": {
+            "$ref": "common.schema.json#/$defs/ExternalLink"
+          },
+          "$comment": "Links to media the poster controls. Never rehosted footage."
+        },
+        "posted_at": {
+          "$ref": "common.schema.json#/$defs/Timestamp"
+        }
+      }
+    },
+    "meta": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version"
+      ],
+      "properties": {
+        "schema_version": {
+          "type": "string",
+          "const": "0"
+        },
+        "created_at": {
+          "$ref": "common.schema.json#/$defs/Timestamp"
+        },
+        "updated_at": {
+          "$ref": "common.schema.json#/$defs/Timestamp"
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "$ref": "common.schema.json#/$defs/ForbiddenPersonalFields"
+    },
+    {
+      "if": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "const": "cancelled"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "type": "object",
+        "required": [
+          "cancellation_reason"
+        ]
+      }
+    },
+    {
+      "if": {
+        "type": "object",
+        "properties": {
+          "voice_chat": {
+            "type": "object",
+            "required": [
+              "kind"
+            ],
+            "properties": {
+              "kind": {
+                "enum": [
+                  "discord",
+                  "other"
+                ]
+              }
+            }
+          }
+        },
+        "required": [
+          "voice_chat"
+        ]
+      },
+      "then": {
+        "type": "object",
+        "properties": {
+          "voice_chat": {
+            "type": "object",
+            "required": [
+              "url"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

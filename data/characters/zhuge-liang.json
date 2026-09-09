@@ -1,0 +1,116 @@
+{
+  "id": "character:zhuge-liang",
+  "display_name": "Zhuge Liang",
+  "aliases": [
+    "Kongming",
+    "Sleeping Dragon"
+  ],
+  "sort_name": "Zhuge, Liang",
+  "given_name_romanization": "Zhuge Liang",
+  "romanization_system": "pinyin",
+  "primary_faction_id": "faction:shu",
+  "faction_ids": [
+    "faction:shu"
+  ],
+  "historical_basis": "historical",
+  "appearances": [
+    {
+      "game_id": "game:dynasty-warriors-3",
+      "role": "playable"
+    },
+    {
+      "game_id": "game:dynasty-warriors-8",
+      "role": "playable"
+    },
+    {
+      "game_id": "game:dynasty-warriors-9",
+      "role": "playable"
+    }
+  ],
+  "weapon_ids": [
+    "weapon:feather-fan"
+  ],
+  "playstyle_tags": [
+    "ranged",
+    "zone-control",
+    "high-skill-ceiling"
+  ],
+  "relationships": [
+    {
+      "character_id": "character:liu-bei",
+      "relation": "retainer",
+      "spoiler_level": "none",
+      "provenance": {
+        "category": "public_domain_history",
+        "contributor": "musoudb_seed",
+        "contributed_at": "2026-08-03T00:00:00Z",
+        "sources": [
+          {
+            "kind": "historical_text",
+            "citation": "Records of the Three Kingdoms (Sanguozhi), Chen Shou, 3rd century. Public domain.",
+            "note": "Summarized in the contributor's own words."
+          }
+        ]
+      }
+    }
+  ],
+  "moveset_changes": [
+    {
+      "game_id": "game:dynasty-warriors-8",
+      "change": "Retains the feather fan while gaining an alternate weapon slot under the affinity system, changing how his zoning combos chain.",
+      "provenance": {
+        "category": "community_observation",
+        "contributor": "musoudb_seed",
+        "contributed_at": "2026-08-03T00:00:00Z",
+        "sources": [
+          {
+            "kind": "in_game_observation",
+            "citation": "Verified by a contributor during play; see revision history."
+          }
+        ]
+      }
+    }
+  ],
+  "summary": {
+    "blocks": [
+      {
+        "spoiler_level": "none",
+        "text": "Shu's chief strategist, portrayed as the series' emblem of foresight. Usually a ranged, control-oriented character.",
+        "language": "en"
+      },
+      {
+        "spoiler_level": "minor",
+        "text": "His arc across the later Shu campaigns turns on how long a plan can hold together after the person who made it is gone.",
+        "language": "en",
+        "scope_game_ids": [
+          "game:dynasty-warriors-8"
+        ]
+      }
+    ]
+  },
+  "tags": [
+    "strategist",
+    "shu",
+    "ranged"
+  ],
+  "provenance": {
+    "category": "public_domain_history",
+    "contributor": "musoudb_seed",
+    "contributed_at": "2026-08-03T00:00:00Z",
+    "sources": [
+      {
+        "kind": "historical_text",
+        "citation": "Records of the Three Kingdoms (Sanguozhi), Chen Shou, 3rd century. Public domain.",
+        "note": "Summarized in the contributor's own words."
+      }
+    ],
+    "note": "Historical record and the Romance novel differ sharply on this figure. See historical_basis and keep literary embellishment out of factual fields."
+  },
+  "meta": {
+    "schema_version": "0",
+    "revision": 1,
+    "created_at": "2026-08-03T00:00:00Z",
+    "updated_at": "2026-08-03T00:00:00Z",
+    "status": "accepted"
+  }
+}
