@@ -27,7 +27,7 @@ The runtime does not consume the versioned catalog. In particular, short game ID
 
 ## Known gaps for the next pass
 
-- Device and signed-in records remain independent. Import must be explicit because signed-in favorites and progress appear publicly.
+- Device and signed-in records remain independent. Selected items can now be explicitly imported after confirming public visibility; there is no automatic ongoing synchronization.
 - Structured publication now projects approved fields over the seed at read time. Generic legacy biography copies are ignored when their publication revisions are present, preventing stale research from surviving withdrawal. Hosted acceptance remains pending.
 - Some signed-in save actions lack error feedback; record API input validation and concurrent updates need attention.
 - Public contributor pages now list approved work only; other review decisions stay in editorial views.
@@ -61,3 +61,13 @@ No Site deployment or production data changes were made in this follow-up. The i
 - Jin filters and roster counts use a normalized kingdom. Coverage counts profiles, source URLs and published fields instead of declaring the seed biographies 100% complete.
 - Guides are source-checked, not replay-tested. Full EX input tables, compatibility stars by level, all weapon ranks, other kingdom route checklists and broader appearance catalogs remain explicit research gaps. Existing non-DW8XL entries are partial catalogs.
 - No schema migration, production data update or deployment is part of this change. Device-import PR #5 remains separate.
+
+
+
+## 2026-09-09 — device record import
+
+PR #4 merged after both GitHub checks passed. This follow-up adds account-side review of recognized device saves, with no default selections and an unchecked public-visibility confirmation. Users must save a profile before importing. Existing account items are shown as already saved; account game progress wins conflicts. Imported selections update the account controls immediately, while local storage is untouched.
+
+The authenticated import endpoint validates catalog IDs and statuses, requires explicit confirmation, and derives ownership only from the signed-in profile. A single add-only D1 batch preserves existing entries, rolls back failed imports, and makes retries safe. No schema changes or migrations are needed.
+
+Local Worker/D1 coverage includes sign-in and profile requirements, missing consent, malformed selections, conflict preservation, duplicate retries, account isolation, rollback, and public-profile rendering. Browser interaction and hosted sign-in acceptance remain pending. No Site deployment is included.

@@ -49,3 +49,10 @@ footer{padding:40px 6vw;background:#0f1916;color:#dce1de;display:grid;grid-templ
 .roster-directory a{min-width:0}.roster-directory a small{white-space:normal;overflow-wrap:anywhere;font-size:.875rem}
 #shu-route{margin-bottom:3rem;scroll-margin-top:2rem}#rare-weapon{scroll-margin-top:2rem}
 .coverage-table{overflow-x:auto}.coverage-table>header,.coverage-table>a{min-width:620px}.coverage-table span{font-size:.875rem}
+.device-import{margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border,#ddd)}
+.device-import p{font-size:1rem;line-height:1.6}
+.device-import fieldset{margin:1rem 0;padding:1rem;border:1px solid var(--border,#ddd);min-width:0}
+.device-import legend{font-weight:600;font-size:1rem}
+.device-import .check-row{display:flex;align-items:flex-start;gap:.75rem;margin:1rem 0;font-size:1rem;overflow-wrap:anywhere}
+.device-import .check-row input{width:auto;flex:0 0 auto;margin-top:.25rem}
+.device-import button:disabled{opacity:.55;cursor:not-allowed}

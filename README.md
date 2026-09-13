@@ -70,7 +70,7 @@ MusouDB has an implemented web application and a separate versioned schema packa
 
 - **Explore:** officer search and filters, game pages, battles, weapons, and editorial coverage. The DW8XL Complete Edition page links an 82-officer roster; individual records retain draft/reviewed labels.
 - **Device record:** save officers, save games as owned, and track playing/completed status in browser storage. Older game-detail saves are recognized without overwriting progress.
-- **Signed-in record:** profile editing, favorites, game progress, and public handle pages backed by D1. Device saves remain separate and are not automatically published or imported.
+- **Signed-in record:** profile editing, favorites, game progress, and public handle pages backed by D1. Device saves remain separate until a user selects items and confirms an import to their public record. Import preserves existing account progress.
 - **Contributions:** corrections, officer claims, structured research submissions, and editor queues exist. Selected research fields now publish on officer pages, with source attribution, withdrawal support, and spoiler reveals. Hosted contributor acceptance is still pending.
 - **Open data foundation:** JSON Schemas, 24 sample records, provenance rules, and reference validation. These files are not yet the application's runtime data source.
 
@@ -101,6 +101,7 @@ npm run install:ci
 npm run test:local-record
 npm test
 npm run test:editorial
+npm run test:import
 npm ci --prefix packages/schema
 npm test --prefix packages/schema
 ```

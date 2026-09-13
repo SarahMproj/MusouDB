@@ -15,7 +15,7 @@ Updated 2026-09-08. This is an implementation roadmap, not a claim of production
 1. Reconcile runtime catalog IDs (`dw3`, `dw8`, `dw9`, `dw8xl`) with the versioned dataset. Preserve existing URLs and stored favorites through an explicit mapping; do not silently treat DW8 and DW8XL as the same edition.
 2. Run hosted acceptance of field-level editorial publication. All seven selected fields now reach public officer pages; local Worker/D1 tests cover selective approval, withdrawal, source validation, and transactional rollback.
 3. Verify signed-in profile, favorite, progress, claim, submission, and editorial flows against D1 in the hosted environment. Add actionable save errors and validate API payloads.
-4. Add an explicit opt-in import from device records to signed-in records. Explain public visibility before publishing any local favorites or progress.
+4. Verify the opt-in device import in hosted acceptance. Selection, public-visibility confirmation, add-only writes, and safe retries are implemented and covered by local Worker/D1 tests.
 5. Improve sharing of public records and officer pages, including record-specific text metadata. Test the discover → save → profile → share journey.
 
 ## Later — expand only after the core loop works
