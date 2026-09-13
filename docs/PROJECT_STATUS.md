@@ -27,7 +27,7 @@ The runtime does not consume the versioned catalog. In particular, short game ID
 
 ## Known gaps for the next pass
 
-- Device and signed-in records remain independent. Import must be explicit because signed-in favorites and progress appear publicly.
+- Device and signed-in records remain independent. Selected items can now be explicitly imported after confirming public visibility; there is no automatic ongoing synchronization.
 - Structured publication now projects approved fields over the seed at read time. Generic legacy biography copies are ignored when their publication revisions are present, preventing stale research from surviving withdrawal. Hosted acceptance remains pending.
 - Some signed-in save actions lack error feedback; record API input validation and concurrent updates need attention.
 - Public contributor pages now list approved work only; other review decisions stay in editorial views.
@@ -50,3 +50,12 @@ Passed: fresh dependency installation; Worker build/artifact validation; one pro
 - Local integration tests run the built Worker with an ephemeral D1 database, exercising API authorization, field selection, officer HTML, repeated approvals, stale updates, unsafe sources, legacy biography withdrawal, and rollback when the final database write fails.
 
 No Site deployment or production data changes were made in this follow-up. Public directory cards still use the seed catalog; this pass completes the detailed officer publication workflow.
+
+
+## 2026-09-09 — device record import
+
+PR #4 merged after both GitHub checks passed. This follow-up adds account-side review of recognized device saves, with no default selections and an unchecked public-visibility confirmation. Users must save a profile before importing. Existing account items are shown as already saved; account game progress wins conflicts. Imported selections update the account controls immediately, while local storage is untouched.
+
+The authenticated import endpoint validates catalog IDs and statuses, requires explicit confirmation, and derives ownership only from the signed-in profile. A single add-only D1 batch preserves existing entries, rolls back failed imports, and makes retries safe. No schema changes or migrations are needed.
+
+Local Worker/D1 coverage includes sign-in and profile requirements, missing consent, malformed selections, conflict preservation, duplicate retries, account isolation, rollback, and public-profile rendering. Browser interaction and hosted sign-in acceptance remain pending. No Site deployment is included.
