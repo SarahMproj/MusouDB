@@ -16,6 +16,7 @@
     "db:generate": "bash scripts/sites-env.sh -- drizzle-kit generate",
     "test:local-record": "node --experimental-strip-types --test tests/local-record.test.mjs",
     "test:editorial": "node --test tests/editorial-publication.test.mjs",
+    "test:archive": "node --test tests/archive-content.test.mjs",
     "test:import": "node --test tests/record-import.test.mjs"
   },
   "dependencies": {

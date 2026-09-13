@@ -40,6 +40,15 @@ footer{padding:40px 6vw;background:#0f1916;color:#dce1de;display:grid;grid-templ
 @media(max-width:800px){.claim-grid{grid-template-columns:1fr}.research-grid{grid-template-columns:1fr}.research-grid .spoiler-field{grid-column:auto}.activity-section{grid-template-columns:1fr;gap:25px}.field-review{grid-template-columns:1fr}}
 @media(max-width:650px){.cohort-progress{flex-wrap:wrap}.claim-grid article{grid-template-columns:45px 1fr}.claim-grid button{grid-column:2;margin-top:8px}.guided-research{padding:20px}.guided-research>header{display:block}.guided-research h2{font-size:34px}.profile-badges{flex-wrap:wrap}.research-review>article{padding:18px}.review-actions{flex-direction:column}}
 
+/* Archive guides extend the existing chronicle layout. */
+.edition-label{border-left:3px solid var(--red);padding:12px 16px;background:var(--paper);font-size:1rem;line-height:1.6}
+.detail-main{min-width:0}.detail-main>p,.officer-narrative p,.spoiler-panel p,.spoiler-panel li{font-size:1rem;line-height:1.7}
+.spoiler-panel ol{padding-left:1.5rem}.spoiler-panel li+li{margin-top:1rem}.spoiler-panel h2{font-size:1.5rem}
+.spoiler-panel .fact-grid{margin:1rem 0}.citation-stack a{overflow-wrap:anywhere;font-size:.875rem}.citation-stack a span{font-size:.75rem}
+.detail-main a,.battle-timeline h2 a,.weapon-grid h2 a{text-underline-offset:.2em}.detail-main a:hover,.battle-timeline h2 a:hover,.weapon-grid h2 a:hover{text-decoration:underline}
+.roster-directory a{min-width:0}.roster-directory a small{white-space:normal;overflow-wrap:anywhere;font-size:.875rem}
+#shu-route{margin-bottom:3rem;scroll-margin-top:2rem}#rare-weapon{scroll-margin-top:2rem}
+.coverage-table{overflow-x:auto}.coverage-table>header,.coverage-table>a{min-width:620px}.coverage-table span{font-size:.875rem}
 .device-import{margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border,#ddd)}
 .device-import p{font-size:1rem;line-height:1.6}
 .device-import fieldset{margin:1rem 0;padding:1rem;border:1px solid var(--border,#ddd);min-width:0}
