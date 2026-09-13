@@ -27,3 +27,11 @@ Keep exact event-based timers: Sun Shangxiang’s two-minute window begins with 
 Approved biography is explicitly spoiler-safe in the contribution form and may be summarized on cards. Approved gameplay supports search, approved weapon drives filter options, and published field counts stay distinct from whole-record review status. The same field precedence and legacy-copy guard apply to detail and browsing. Unlock and route text remain outside the browsing payload.
 
 The runtime catalog remains separate from data/ JSON samples. New content lives in app/archive/dw8xl.ts and is integrated by app/data.ts; no backfill or production D1 writes are required.
+
+## Campaign expansion · 2026-09-13
+
+Wei, Wu, Jin and Lu Bu now join Shu in a shared, spoiler-collapsed campaign index. Each step has a scenario ID, campaign scope and prerequisite/side-stage/branch role. Wei's Chibi is separate from the existing Shu-associated Chibi record; Lu Bu's Getaway is separate from Hulao Gate. No stage names or objectives imply historical events.
+
+New source checks: [Ayase Eli](https://steamcommunity.com/sharedfiles/filedetails/?id=259991536) for Wei/Lu Bu; [chromsumia77](https://steamcommunity.com/sharedfiles/filedetails/?id=2839327860) for Wu; Wynter's guide above for Jin, with [rebellion troubleshooting](https://steamcommunity.com/app/278080/discussions/0/540742396943067213/). Both Steam guides are incomplete overall; only their populated campaign sections are used. Short objectives are paraphrased, without copied maps, route tables or walkthrough prose. No fresh-save replay was performed; uncertain exact timers and character-specific walkthroughs remain out of scope.
+
+All five branch checklists are covered, but this is not a catalog of every optional star, post-branch stage or XL side story. Wei's Dian Wei survival is retained as conservative rescue advice; sources differ on whether it independently gates the branch. Jin sources differ on Cao Yi/Cao Xi spelling; the checklist follows Wynter's localized name.

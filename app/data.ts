@@ -1,3 +1,4 @@
+import {routeStages} from "./archive/campaign-routes";
 import {dossiers,weaponGuides,stageGuides,manual,exSource,combatSource,checked} from "./archive/dw8xl";
 export type Faction = "SHU" | "WEI" | "WU" | "OTHER";
 
@@ -118,7 +119,7 @@ for(const w of weaponGuides){
   if(existing){existing.name=w.name;existing.style=w.style;if(!existing.games.includes("dw8xl"))existing.games.push("dw8xl")}
   else weapons.push({id:w.id,name:w.name,style:w.style,wielders:[w.officerId],games:["dw8xl"]});
 }
-for(const stage of stageGuides)if(!battles.some(b=>b.id===stage.id))battles.push({id:stage.id,name:stage.name,year:stage.year,factions:[stage.side],games:["dw8xl"],summary:stage.context});
+for(const stage of [...stageGuides,...routeStages])if(!battles.some(b=>b.id===stage.id))battles.push({id:stage.id,name:stage.name,year:stage.year,factions:[stage.side],games:["dw8xl"],summary:stage.context});
 for(const b of battles)if(["yellow-turban-rebellion","hulao-gate","guandu","chibi","yiling","wuzhang-plains"].includes(b.id)&&!b.games.includes("dw8xl"))b.games.push("dw8xl");
 export const flagshipOfficerIds=Object.keys(officerProfiles);
 for(const id of flagshipOfficerIds){const o=officers.find(item=>item.id===id);const p=officerProfiles[id];if(o){o.sourceStatus="reviewed";o.revision=checked;o.title=p.role;o.weapon=p.moveset.split(" · ")[0];o.tags=[...new Set([...o.tags,p.kingdom,"Flagship profile"])]}}

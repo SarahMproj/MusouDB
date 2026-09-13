@@ -9,8 +9,14 @@ test('archive guides connect officers, weapons and stages without missing pages'
  const mf=new Miniflare({modules:files,modulesRoot:root,compatibilityDate:'2026-05-22',compatibilityFlags:['nodejs_compat'],d1Databases:['DB'],serviceBindings:{ASSETS:()=>new Response('Not found',{status:404})}});
  try{
   const db=await mf.getD1Database('DB');for(const file of (await readdir('drizzle')).filter(f=>f.endsWith('.sql')).sort()){const sql=await readFile(`drizzle/${file}`,'utf8');await db.batch(sql.split('--> statement-breakpoint').map(s=>s.trim()).filter(Boolean).map(s=>db.prepare(s)))}
-  const get=async route=>{const response=await mf.dispatchFetch(`http://musou.test${route}`);assert.equal(response.status,200,route);return response.text()};
+  const get=async route=>{const response=await mf.dispatchFetch(`http://musou.test${route}`);assert.equal(response.status,200,route);return (await response.text()).replace(/<!--[\s\S]*?-->/g,'')};
   const weaponIndex=await get('/weapons');const battleIndex=await get('/battles');
+  for(const campaign of ['shu','wei','wu','jin','lu-bu'])assert.ok(battleIndex.includes(`id="${campaign}-route"`));
+  assert.doesNotMatch(battleIndex,/<details[^>]*open/);
+  const weiChibi=await get('/battles/wei-chibi');
+  assert.ok(weiChibi.includes('Guo Jia'));assert.ok(!weiChibi.includes('altar'));assert.ok(!weiChibi.includes('Reveal Shu route'));
+  const shuChibi=await get('/battles/chibi');assert.ok(shuChibi.includes('Reveal Shu route'));assert.ok(!shuChibi.includes('Reveal Wei route'));
+  const getaway=await get('/battles/lu-bu-getaway');assert.ok(getaway.includes('Hua Xiong'));assert.ok(!getaway.includes('literary and game scenario'));
   const links=html=>[...new Set([...html.matchAll(/href="(\/(?:weapons|battles|officers)\/[^"#?]+)(?:#[^"]*)?"/g)].map(m=>m[1]))];
   const weaponLinks=links(weaponIndex).filter(x=>x.startsWith('/weapons/'));
   let guideCount=0;const profileLinks=new Set();const stageLinks=new Set(links(battleIndex).filter(x=>x.startsWith('/battles/')));

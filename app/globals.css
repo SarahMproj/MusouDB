@@ -56,3 +56,5 @@ footer{padding:40px 6vw;background:#0f1916;color:#dce1de;display:grid;grid-templ
 .device-import .check-row{display:flex;align-items:flex-start;gap:.75rem;margin:1rem 0;font-size:1rem;overflow-wrap:anywhere}
 .device-import .check-row input{width:auto;flex:0 0 auto;margin-top:.25rem}
 .device-import button:disabled{opacity:.55;cursor:not-allowed}
+
+.campaign-guide{margin-block:2rem;scroll-margin-top:6rem}.campaign-guide li{padding-block:.65rem}.campaign-guide li>p{margin-block:.4rem}#campaign-routes{scroll-margin-top:6rem}
