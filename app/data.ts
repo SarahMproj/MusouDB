@@ -27,7 +27,7 @@ export const officers: Officer[] = [
   {id:"liu-bei",name:"Liu Bei",mark:"備",faction:"SHU",title:"The Benevolent Lord",alias:"Xuande",summary:"The founder of Shu, written throughout the series as the benevolence-first counterweight to Cao Cao’s pragmatism.",weapon:"Twin Swords",tags:["Balanced","Beginner friendly"],games:["dw3","dw8","dw9"],style:"liu",sourceStatus:"reviewed",revision:"2026-08-13"},
   {id:"sun-shangxiang",name:"Sun Shangxiang",mark:"尚",faction:"WU",title:"The Bow Princess",alias:"Lady Sun",summary:"A Wu warrior whose marriage to Liu Bei places her between two kingdoms—a recurring conflict of loyalty.",weapon:"Chakram",tags:["Ranged","Mobile"],games:["dw3","dw8","dw9"],style:"sun",sourceStatus:"reviewed",revision:"2026-08-13"},
   {id:"guan-yu",name:"Guan Yu",mark:"羽",faction:"SHU",title:"God of War",alias:"Yunchang",summary:"A towering Shu general defined by honor, loyalty, and the sweeping reach of the Green Dragon weapon tradition.",weapon:"Crescent Blade",tags:["Power","Wide reach"],games:["dw3","dw8","dw9"],style:"liu",sourceStatus:"draft",revision:"2026-08-13"},
-  {id:"zhang-fei",name:"Zhang Fei",mark:"飛",faction:"SHU",title:"The Fierce Tiger",alias:"Yide",summary:"A ferocious frontline fighter whose explosive temperament is matched by fierce devotion to his sworn brothers.",weapon:"Double Voulge",tags:["Power","Close range"],games:["dw3","dw8","dw9"],style:"zhuge",sourceStatus:"draft",revision:"2026-08-13"},
+  {id:"zhang-fei",name:"Zhang Fei",mark:"飛",faction:"SHU",title:"The Fierce Tiger",alias:"Yide",summary:"A ferocious frontline fighter whose explosive temperament is matched by fierce devotion to his sworn brothers.",weapon:"Double Pike",tags:["Power","Close range"],games:["dw3","dw8","dw9"],style:"zhuge",sourceStatus:"draft",revision:"2026-08-13"},
   {id:"zhao-yun",name:"Zhao Yun",mark:"雲",faction:"SHU",title:"The Young Dragon",alias:"Zilong",summary:"An agile spear fighter and enduring series icon, celebrated for composure, courage, and heroic rescue missions.",weapon:"Dragon Spear",tags:["Mobile","Combo"],games:["dw3","dw8","dw9"],style:"liu",sourceStatus:"draft",revision:"2026-08-13"},
   {id:"xiahou-dun",name:"Xiahou Dun",mark:"惇",faction:"WEI",title:"The One-Eyed General",alias:"Yuanrang",summary:"Cao Cao’s steadfast cousin and a forceful close-range officer associated with direct, relentless pressure.",weapon:"Podao",tags:["Power","Aggressive"],games:["dw3","dw8","dw9"],style:"cao",sourceStatus:"draft",revision:"2026-08-13"},
   {id:"dian-wei",name:"Dian Wei",mark:"韋",faction:"WEI",title:"The Ancient Evil",alias:"Dian Wei",summary:"A loyal bodyguard whose heavy attacks and self-sacrificing defense make him one of Wei’s most imposing officers.",weapon:"Battle Axe",tags:["Heavy","Guard break"],games:["dw3","dw8","dw9"],style:"cao",sourceStatus:"draft",revision:"2026-08-13"},
@@ -100,18 +100,35 @@ export const officerProfiles:Record<string,OfficerProfile>={
 };
 // Edition-scoped dossiers replace generic gameplay and unverified unlock copy.
 for(const [id,dossier] of Object.entries(dossiers)){
-  const p=officerProfiles[id];const o=officers.find(x=>x.id===id)!;
-  const w=weaponGuides.find(x=>x.officerId===id)!;
+  const o=officers.find(x=>x.id===id)!;
+  const w=weaponGuides.find(x=>x.officerId===id);
+  const weapon=w??dossier.weapon;
+  if(!o||!weapon)throw new Error(`Incomplete dossier association: ${id}`);
+  const researchDate=dossier.checked??checked;
+  if(!officerProfiles[id]&&dossier.profile){
+    const detail=dossier.profile;
+    officerProfiles[id]={id,kingdom:detail.kingdom,role:detail.role,moveset:"",unlock:"",relationships:detail.relationships,battles:[],biography:detail.biography,gameplay:"",spoiler:detail.spoiler,citations:[],revisions:[]};
+    o.alias=detail.alias;
+  }
+  const p=officerProfiles[id];
+  if(!p)throw new Error(`Missing officer profile: ${id}`);
   p.gameplay=dossier.gameplay;p.battles=dossier.battles;
-  p.unlock="Story Mode assigns officers by scenario. Free Mode uses unlocked stages; Ambition Mode has separate recruitment. See the game page for mode rules and the weapon page for rare-item conditions.";
-  p.moveset=`${w.name} · ${w.style}`;p.kingdom=p.kingdom.toUpperCase();
-  p.citations=[dossier.historySource,manual,exSource,combatSource,w.rare.source];
+  p.unlock="Story Mode assigns officers by scenario. Free Mode uses unlocked stages; Ambition Mode has separate recruitment. See the game page for mode rules. "+(w?"The weapon page lists a separate rare-item objective.":"Exact character availability and rare-item objectives remain open for this record.");
+  p.moveset=`${weapon.name} · ${weapon.style}`;p.kingdom=p.kingdom.toUpperCase();
+  p.citations=[dossier.historySource,manual,exSource,combatSource,...(w?[w.rare.source]:[]),...(dossier.sources??[])];
   if(id==="lu-lingqi")p.citations.push({label:"KOEI TECMO · Lu Lingqi portrayal and weapon",url:"https://www.koeitecmoamerica.com/dw8xl/window/ryoreiki.html",kind:"Official publisher"});
-  p.revisions.unshift({version:3,date:checked,summary:"Added edition-specific research, historical context and a linked rare weapon guide. Exact full movesets remain open for verification."});
-  o.summary=dossier.summary;o.revision=checked;
+  p.revisions.unshift({version:p.revisions.length?3:1,date:researchDate,summary:w?"Added edition-specific research, historical context and a linked rare weapon guide. Exact full movesets remain open for verification.":"Added historical context, editorial portrayal, relationships and sourced weapon/playstyle notes. Rare weapon conditions and full movesets remain open."});
+  o.summary=dossier.summary;o.revision=researchDate;
   if(id==="sun-quan"){o.alias="Zhongmou";o.mark="權"}
   if(id==="wang-yuanji"){o.alias="Wang Yuanji";o.mark="姬"}
   if(id==="lu-lingqi"){o.alias="Lu Bu’s daughter";o.mark="綺"}
+}
+for(const [id,dossier] of Object.entries(dossiers))if(dossier.weapon){
+  const existing=weapons.find(w=>w.id===dossier.weaponId);
+  if(existing){
+    if(!existing.games.includes("dw8xl"))existing.games.push("dw8xl");
+    if(!existing.wielders.includes(id))existing.wielders.push(id);
+  }else weapons.push({id:dossier.weaponId,name:dossier.weapon.name,style:dossier.weapon.style,wielders:[id],games:["dw8xl"]});
 }
 for(const w of weaponGuides){
   const existing=weapons.find(x=>x.id===w.id);
@@ -121,7 +138,7 @@ for(const w of weaponGuides){
 for(const stage of stageGuides)if(!battles.some(b=>b.id===stage.id))battles.push({id:stage.id,name:stage.name,year:stage.year,factions:[stage.side],games:["dw8xl"],summary:stage.context});
 for(const b of battles)if(["yellow-turban-rebellion","hulao-gate","guandu","chibi","yiling","wuzhang-plains"].includes(b.id)&&!b.games.includes("dw8xl"))b.games.push("dw8xl");
 export const flagshipOfficerIds=Object.keys(officerProfiles);
-for(const id of flagshipOfficerIds){const o=officers.find(item=>item.id===id);const p=officerProfiles[id];if(o){o.sourceStatus="reviewed";o.revision=checked;o.title=p.role;o.weapon=p.moveset.split(" · ")[0];o.tags=[...new Set([...o.tags,p.kingdom,"Flagship profile"])]}}
+for(const id of flagshipOfficerIds){const o=officers.find(item=>item.id===id);const p=officerProfiles[id];if(o){o.sourceStatus="reviewed";o.revision=dossiers[id]?.checked??checked;o.title=p.role;o.weapon=p.moveset.split(" · ")[0];o.tags=[...new Set([...o.tags,p.kingdom,"Flagship profile"])]}}
 
 export const gameById = (id:string) => games.find(game=>game.id===id);
 export const officerById = (id:string) => officers.find(officer=>officer.id===id);
