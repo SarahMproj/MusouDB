@@ -1,5 +1,13 @@
 # MusouDB project status
 
+## 2026-09-23 — officer content expansion
+
+- Expanded ten existing DW8XL CE roster seeds into sourced dossiers, bringing the total to 20 of 82. Coverage is now Wei 3/19, Wu 4/19, Shu 6/22, Jin 4/12 and Other 3/10.
+- Added historical context, editorial game portrayals, relationship links, aliases and concise community combat notes. Corrected Zhang Fei's weapon to Double Pike.
+- Added nine weapon records and upgraded the existing Crescent Blade association, for ten additional weapon research pages. Existing rare acquisition guides remain ten; missing conditions are explicitly open.
+- Preserved previous research dates and the 82-officer roster. No inferred cross-edition appearances or generic place-name matches were added. The runtime catalog remains separate from the JSON sample dataset and D1 editorial overrides.
+- Campaign PR #7 remains independent. No schema migration or production database write is required for these content changes.
+
 ## 2026-09-08 consolidation
 
 The application sync (PR #3) and schema package (PR #2) were developed separately. Their combined checkout retains both histories and resolves the `.gitignore` conflict without losing runtime or nested dependency exclusions. Build helper executable permissions are restored.

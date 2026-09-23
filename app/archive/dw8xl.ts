@@ -1,3 +1,4 @@
+import {additionalDossiers} from "./dw8xl-officers";
 // Original summaries of linked sources. No guide text or game assets are reproduced.
 export type Source={label:string;url:string;kind:string};
 export const edition="Dynasty Warriors 8: Xtreme Legends Complete Edition";
@@ -11,8 +12,13 @@ export const rareSource:Source={label:"Jimbo Gaming · DW8XL CE rare weapon cond
 export const sixthSource:Source={label:"Biosim · 6th weapon conditions",url:"https://steamcommunity.com/sharedfiles/filedetails/?id=268837364",kind:"Community guide"};
 export const routeSource:Source={label:"Wynter and contributors · DW8 hypothetical objectives",url:"https://www.tapatalk.com/groups/koeiwarriors/dynasty-warriors-8-hypothetical-guide-t18440.html",kind:"Community guide · base campaign"};
 const history=(name:string,page:string):Source=>({label:`${name} · historical background and references`,url:`https://en.wikipedia.org/wiki/${page}`,kind:"Historical overview · secondary source"});
-export type Dossier={history:string;historySource:Source;gameplay:string;weaponId:string;exNote:string;battles:string[];summary:string};
+export type Dossier={
+ history:string;historySource:Source;gameplay:string;weaponId:string;exNote:string;battles:string[];summary:string;
+ checked?:string;gameplayContext?:string;sources?:Source[];weapon?:{name:string;style:string};
+ profile?:{kingdom:string;role:string;alias:string;biography:string;relationships:string[];spoiler:string};
+};
 export const dossiers:Record<string,Dossier>={
+ ...additionalDossiers,
  "cao-cao":{history:"Cao Cao (155–220) built the northern power base inherited by Cao Wei. He served the Han court and held the title King of Wei; his son Cao Pi established the imperial dynasty after his death. Calling Cao Cao its founding emperor without that distinction collapses two different careers.",historySource:history("Cao Cao","Cao_Cao"),gameplay:"Use C1-EX to freeze targets; C4-EX helps build gauges. Watch for interruptions while setting up.",weaponId:"generals-sword",exNote:"C1-EX and C4-EX.",battles:["guandu","chibi","baidi-castle"],summary:"Wei’s leading commander. In DW8XL CE, his General’s Sword mixes freezing setups with crowd pressure."},
  "liu-bei":{history:"Liu Bei (161–223) founded Shu Han and became emperor in 221. His career moved through alliances and displacements before he secured a base in Yi Province. The sworn-brother oath associated with Guan Yu and Zhang Fei belongs to literary tradition; it should not be treated as a documented ceremony.",historySource:history("Liu Bei","Liu_Bei"),gameplay:"C4-EX and C5-EX support officer pressure and gauge building; True Rage is another useful damage option.",weaponId:"twin-swords",exNote:"C4-EX and C5-EX.",battles:["yellow-turban-rebellion","xu-province","chibi","yiling"],summary:"Shu’s benevolence-driven leader, using Twin Swords in DW8XL CE. His campaign connects early rescues to later branching outcomes."},
  "sun-quan":{history:"Sun Quan (182–252) inherited Sun Ce’s territorial position in 200 and became emperor of Wu in 229. His rule connected the Sun family’s early conquests with a lasting southern state. The game’s Wu label also covers years before Wu existed as an imperial dynasty.",historySource:history("Sun Quan","Sun_Quan"),gameplay:"Switch attacks can extend strings. C3-EX builds gauges; C5-EX needs careful positioning to connect.",weaponId:"flame-blade",exNote:"C3-EX and C5-EX.",battles:["chibi","yiling","liang-province"],summary:"The Sun family’s successor and ruler of Wu. DW8XL CE gives him the Flame Blade and combo-extending switch attacks."},
