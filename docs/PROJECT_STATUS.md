@@ -1,5 +1,14 @@
 # MusouDB project status
 
+## 2026-09-23 — complete DW8XL CE core roster
+
+- Added the remaining 62 authored officer dossiers: Wei 19/19, Wu 19/19, Shu 22/22, Jin 12/12 and Other 10/10.
+- All 82 now have historical or literary context, editorial portrayal, relationships, source references and a reciprocal signature-weapon page.
+- Preserved the distinction between core coverage and advanced research: 20 combat summaries, ten rare guides, and 62 explicitly open combat records. No new exact unlock or stage conditions are claimed.
+- Corrected Sun Quan to Sword for DW8XL CE and preserved the previous weapon URL as a redirect. Dian Wei retains the battle-axe record ID with the edition name Axe.
+- Runtime content only; no production database migration or contributor-data write is required. Website deployment remains a separate release step.
+
+
 ## 2026-09-23 — officer content expansion
 
 - Expanded ten existing DW8XL CE roster seeds into sourced dossiers, bringing the total to 20 of 82. Coverage is now Wei 3/19, Wu 4/19, Shu 6/22, Jin 4/12 and Other 3/10.

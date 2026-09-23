@@ -43,7 +43,7 @@ test('archive guides connect officers, weapons and stages without missing pages'
    assert.ok(!weapon.includes('id="rare-weapon"'),weaponId);
    assert.ok(weapon.includes('not yet been added'),weaponId);
   }
-  assert.equal(weaponLinks.length,21);
+  assert.equal(weaponLinks.length,82);
   const zhangFei=await get('/officers/zhang-fei');assert.ok(!zhangFei.includes('Double Voulge'));
   const chenGong=await get('/officers/chen-gong');assert.ok(chenGong.includes('window/chinkyu.html'));
   const simaShi=await get('/officers/sima-shi');assert.ok(simaShi.replace(/<!--[\s\S]*?-->/g,'').includes('JIN OFFICER'));
@@ -52,10 +52,38 @@ test('archive guides connect officers, weapons and stages without missing pages'
   const sima=await get('/officers/sima-yi');assert.ok(sima.replace(/<!--[\s\S]*?-->/g,'').includes('JIN OFFICER'));
   const wang=await get('/officers/wang-yuanji');assert.ok(!wang.includes('href="/battles/wuzhang-plains"'));
   const game=await get('/games/dw8xl');assert.equal(new Set([...game.matchAll(/href="\/officers\/([^"?#]+)"/g)].map(m=>m[1])).size,82);
-  assert.ok(game.replace(/<!--[\s\S]*?-->/g,'').includes('20 research profiles'));
+  assert.ok(game.replace(/<!--[\s\S]*?-->/g,'').includes('82 research profiles'));
+  const allProfiles=links(game).filter(route=>route.startsWith('/officers/'));
+  const profileWeapons=new Set();let combatGaps=0;
+  for(const route of allProfiles){
+   const html=await get(route);
+   for(const heading of ['Historical context','Game portrayal','Key relationships','Gameplay scope:'])assert.ok(html.includes(heading),`${route}: ${heading}`);
+   assert.doesNotMatch(html,/Unique EX weapon|Archive record|open for sourced community expansion/,route);
+   assert.doesNotMatch(html,/<details[^>]*open/,route);
+   assert.ok(html.includes('en.wikipedia.org/wiki/'),`${route}: historical or literary reference`);
+   const weaponLink=links(html).find(link=>link.startsWith('/weapons/'));
+   assert.ok(weaponLink,`${route}: signature weapon link`);profileWeapons.add(weaponLink);
+   const weapon=await get(weaponLink);
+   assert.ok(weapon.includes(`href="${route}"`),`${route}: reciprocal weapon association`);
+   for(const relationship of links(html).filter(link=>link.startsWith('/officers/')))assert.ok(allProfiles.includes(relationship),`${route}: unknown relationship ${relationship}`);
+   if(html.includes('<h2>Combat research</h2>')){
+    combatGaps++;
+    assert.ok(html.includes('2026-09-23'),route);
+    assert.ok(html.includes('still need verification'),route);
+    assert.ok(!html.includes('319075861'),`${route}: unrelated combat source`);
+    assert.ok(!weapon.includes('<h2>Using this weapon</h2>'),`${weaponLink}: empty gameplay section`);
+    assert.ok(!weapon.includes('319075861'),`${weaponLink}: unrelated combat source`);
+   }
+  }
+  assert.equal(profileWeapons.size,82);assert.equal(combatGaps,62);
+  for(const [id,weaponId] of Object.entries({'sun-quan':'sword','deng-ai':'lance','lianshi':'crossbow','wang-yi':'trishula','liu-shan':'rapier','yueying':'dagger-axe','guan-suo':'nunchaku','meng-huo':'gloves','yu-jin':'war-trident','zhu-ran':'flame-bow','dian-wei':'battle-axe'}))assert.ok((await get(`/officers/${id}`)).includes(`href="/weapons/${weaponId}"`),`${id}: edition-specific association`);
+  for(const id of ['bao-sanniang','guan-suo','zhurong','diaochan'])assert.ok((await get(`/officers/${id}`)).includes('Literary overview'),`${id}: literary source label`);
+  const legacySword=await mf.dispatchFetch('http://musou.test/weapons/flame-blade',{redirect:'manual'});
+  assert.equal(legacySword.status,308);assert.equal(new URL(legacySword.headers.get('location'),'http://musou.test').pathname,'/weapons/sword');
   const coverage=await get('/coverage');assert.ok(coverage.includes('Visible research gaps'));assert.ok(!coverage.includes('Flagship complete'));
-  assert.match(coverage,/<strong>20<\/strong><span>Research profiles<\/span>/);
-  assert.match(coverage,/<strong>62<\/strong><span>Seed profiles to expand<\/span>/);
+  assert.match(coverage,/<strong>82<\/strong><span>Research profiles<\/span>/);
+  assert.match(coverage,/<strong>0<\/strong><span>Seed profiles to expand<\/span>/);
+  for(const count of [19,22,12,10])assert.ok(coverage.replace(/<!--[\s\S]*?-->/g,'').includes(`${count}/${count} researched`));
   assert.match(coverage,/<strong>10<\/strong><span>Rare weapon guides<\/span>/);
   const original=await get('/officers/cao-cao');assert.ok(!original.includes('2026-09-23'));
   assert.equal((await mf.dispatchFetch('http://musou.test/weapons/not-a-weapon')).status,404);

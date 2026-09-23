@@ -2,7 +2,7 @@
 
 Scope: Dynasty Warriors 8: Xtreme Legends Complete Edition (2014; Windows, PlayStation 4, PlayStation Vita). The linked manual is the PC manual. These notes do not apply to Empires, Dynasty Warriors 9, or the later Definitive Edition’s DLC bundle.
 
-The original ten dossiers are Cao Cao, Liu Bei, Sun Quan, Sima Yi, Lu Bu, Zhao Yun, Sun Shangxiang, Wang Yuanji, Lu Lingqi and Zhuge Liang. The September 23 expansion adds Guan Yu, Zhang Fei, Xiahou Dun, Zhang Liao, Zhou Yu, Lu Xun, Sima Shi, Sima Zhao, Chen Gong and Fa Zheng, for twenty total. History summaries and gameplay commentary are original prose. No publisher images, game files, guide tables or third-party biographies are reproduced.
+The original ten dossiers are Cao Cao, Liu Bei, Sun Quan, Sima Yi, Lu Bu, Zhao Yun, Sun Shangxiang, Wang Yuanji, Lu Lingqi and Zhuge Liang. The September 23 expansion adds Guan Yu, Zhang Fei, Xiahou Dun, Zhang Liao, Zhou Yu, Lu Xun, Sima Shi, Sima Zhao, Chen Gong and Fa Zheng, bringing the first expansion to twenty. The roster-completion pass adds the remaining 62, for all 82 playable officers. History summaries and gameplay commentary are original prose. No publisher images, game files, guide tables or third-party biographies are reproduced.
 
 ## Source boundaries
 
@@ -26,7 +26,7 @@ Keep exact event-based timers: Sun Shangxiang’s two-minute window begins with 
 
 Approved biography is explicitly spoiler-safe in the contribution form and may be summarized on cards. Approved gameplay supports search, approved weapon drives filter options, and published field counts stay distinct from whole-record review status. The same field precedence and legacy-copy guard apply to detail and browsing. Unlock and route text remain outside the browsing payload.
 
-The runtime catalog remains separate from data/ JSON samples. New content lives in app/archive/dw8xl.ts and is integrated by app/data.ts; no backfill or production D1 writes are required.
+The runtime catalog remains separate from data/ JSON samples. New content lives in app/archive/dw8xl.ts and its officer modules and is integrated by app/data.ts; no backfill or production D1 writes are required.
 
 ## Officer expansion — 2026-09-23
 
@@ -50,3 +50,27 @@ The additional dossiers live in `app/archive/dw8xl-officers.ts`. Each has its ow
 Short combat notes use the existing Aranea community analysis, whose setup assumes developed characters on Ultimate difficulty. They do not promise damage thresholds or universal rankings. Only explicitly supported EX strings are named; a complete input table still needs verification. Game-portrayal paragraphs are labeled editorial readings. Historical overviews and their references support historical relationships; sworn brotherhood and Xingcai's game identity are labeled as adaptation.
 
 The ten added profiles link to weapon research pages without implying that rare acquisition requirements are complete. Their rare guides remain unfilled, so the coverage count stays at ten. Scenario links are included only where the existing archive provides the corresponding supported context; missing stage coverage is not filled by matching a place name across factions. PR #7's campaign expansion remains separate.
+
+
+## Full roster core profiles — 2026-09-23
+
+`app/archive/dw8xl-roster.ts` contains 62 individually authored core dossiers. Each has a historical or literary overview, a separately labeled editorial portrayal, named relationships, a signature weapon, a source link and a story note. These are original summaries, not a database import or copied biographies. The shared constructor supplies formatting and explicit research gaps; it does not generate historical claims or combat advice.
+
+| Roster group | Core profiles | Newly added |
+| --- | ---: | ---: |
+| Wei | 19/19 | 16 |
+| Wu | 19/19 | 15 |
+| Shu | 22/22 | 16 |
+| Jin | 12/12 | 8 |
+| Other | 10/10 | 7 |
+| Total | 82/82 | 62 |
+
+The new profiles deliberately leave individual attack strings, playstyle guidance, exact unlocks, rare acquisition objectives and unverified stage links open. Twenty earlier profiles retain short combat notes, and the rare-guide count remains ten. An empty gameplay field is rendered as an explicit research gap and is not assigned the shared Aranea citation. All 82 signature associations lead to reciprocal weapon pages; basic associations are not full moveset guides.
+
+Returning Wei and Wu weapon associations use [wowitsyugi's DW8 EX list](https://gamefaqs.gamespot.com/ps3/688499-dynasty-warriors-8/faqs/67510). Returning Shu, Jin and Other associations use the [DW8/XL weapon reference](https://koeitecmo.wiki/wiki/Dynasty_Warriors_8/Weapons). Only the narrow weapon associations are used, not guide prose, stats tables or acquisition instructions. [Yu Jin](https://www.koeitecmoamerica.com/dw8xl/window/ukin.html) and [Zhu Ran](https://www.koeitecmoamerica.com/dw8xl/window/syuzen.html) use their official XL pages, which identify War Trident and Flame Bow respectively. Every historical overview links its own secondary reference; the underlying primary references remain available there for further research.
+
+Special identity boundaries are recorded explicitly: Bao Sanniang, Guan Suo and Zhurong are fictional; Diaochan's named story is literary; Zuo Ci's supernatural episodes are legendary; Meng Huo's historicity is disputed. Guan Yinping and Xingcai do not acquire historical names or military careers simply because relatives appear in historical accounts. The two Qiao sisters' names are not securely recorded. Xu Zhu/Xu Chu and Zhang Jiao/Zhang Jue are spelling or reading variants, whereas Yu Jin/Yue Jin and the two Zhang Bao identities must stay separate. Jin is an edition roster group that includes Wei officers and opponents of the Sima family, including Xiahou Ba and Zhuge Dan.
+
+Sun Quan's earlier Flame Blade assignment was an edition error. His DW8XL CE EX association and existing Emperor's Might guide now use **Sword**; Flame Blade is a separate DLC type in DW8/XL and becomes his EX association in Empires. The old `/weapons/flame-blade` record URL permanently redirects to `/weapons/sword` so existing archive links reach the corrected record. His review date advances to September 23. Dian Wei's existing `/weapons/battle-axe` ID is retained, with the edition name **Axe**.
+
+Validation checks all 82 rendered officer profiles and reciprocal weapon links, 82 weapon pages, kingdom totals, explicit combat gaps, fictional-source labels, the corrected Sword redirect, closed spoiler controls and the existing ten rare guides. Editorial publication tests continue to check that approved fields override core content and that withdrawal removes those overrides.
