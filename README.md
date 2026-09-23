@@ -6,7 +6,7 @@ MusouDB is an open-source home for Warriors and Musou fandom: a structured game 
 
 The goal is simple: make the franchise easier to explore and the community easier to find.
 
-The DW8XL CE archive now includes twenty researched officer dossiers, ten rare weapon guides, connected battle pages and a Shu hypothetical-route checklist. Ten more weapon pages carry sourced associations and combat notes while their acquisition guides remain open. Historical background is separate from game portrayal. See [research scope and sources](docs/ARCHIVE_RESEARCH.md) for verification limits.
+The DW8XL CE archive now covers all 82 playable officers with historical or literary background, game portrayal, relationships, sources and linked signature weapons. Twenty profiles include community combat notes; ten have rare weapon guides. Detailed combat research for the other 62, exact unlocks and further campaign checklists remain open. Connected battle pages and a Shu hypothetical-route checklist are also available. See [research scope and sources](docs/ARCHIVE_RESEARCH.md) for verification limits.
 
 ## The core experience
 
