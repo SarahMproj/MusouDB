@@ -56,3 +56,26 @@ footer{padding:40px 6vw;background:#0f1916;color:#dce1de;display:grid;grid-templ
 .device-import .check-row{display:flex;align-items:flex-start;gap:.75rem;margin:1rem 0;font-size:1rem;overflow-wrap:anywhere}
 .device-import .check-row input{width:auto;flex:0 0 auto;margin-top:.25rem}
 .device-import button:disabled{opacity:.55;cursor:not-allowed}
+
+.campaign-guide{margin-block:2rem;scroll-margin-top:6rem}.campaign-guide li{padding-block:.65rem}.campaign-guide li>p{margin-block:.4rem}#campaign-routes{scroll-margin-top:6rem}
+/* Original officer paintings: full portraits on records, lighter crops in grids. */
+.portrait-link{display:block;height:auto;aspect-ratio:4/5}
+.portrait-link:after{display:none}
+.officer-artwork{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 15%}
+.portrait-link .officer-artwork{transition:transform .35s ease}
+.portrait-link:hover .officer-artwork{transform:scale(1.025)}
+.portrait-link:focus-visible{outline:3px solid var(--red);outline-offset:4px}
+.portrait-fallback{display:grid;place-items:center;width:100%;height:100%;min-height:230px;font-family:serif;font-size:120px;color:#f1e9d8}
+.detail-hero.officer-hero{grid-template-columns:minmax(240px,440px) minmax(0,1fr);gap:7vw;padding:56px 8vw;background:#e3ddce;align-items:center}
+.detail-hero.officer-hero.cao{background:#dce1df}
+.detail-hero.officer-hero.sun{background:#e7dbce}
+.detail-hero.officer-hero.other{background:#dfdbd2}
+.officer-hero-art{margin:0;width:100%;position:relative}
+.officer-hero-art .officer-artwork{height:auto;box-shadow:0 18px 38px #2b251523}
+.officer-hero-art figcaption{font-size:9px;letter-spacing:.035em;color:#5a605a;margin-top:12px;line-height:1.5}
+.officer-hero-copy h1{font-size:clamp(48px,6.5vw,92px);overflow-wrap:break-word}
+.officer-hero-copy>.eyebrow{line-height:1.8}
+.officer-hero-copy .public-link{display:block;width:fit-content;margin-top:18px}
+@media(max-width:1000px){.detail-hero.officer-hero{gap:5vw;padding:45px 6vw;grid-template-columns:minmax(220px,42%) minmax(0,1fr)}}
+@media(max-width:700px){.detail-hero.officer-hero{grid-template-columns:1fr;padding:30px 6vw 44px;gap:28px}.officer-hero-art{max-width:420px;margin:auto}.officer-hero-copy h1{font-size:clamp(48px,12vw,76px)}}
+@media(prefers-reduced-motion:reduce){.portrait-link .officer-artwork{transition:none}.portrait-link:hover .officer-artwork{transform:none}}

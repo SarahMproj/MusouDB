@@ -1,0 +1,576 @@
+{
+  "bao-sanniang": {
+    "src": "/artwork/officers/bao-sanniang.webp",
+    "thumbnail": "/artwork/officers/bao-sanniang-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Bao Sanniang"
+  },
+  "cai-wenji": {
+    "src": "/artwork/officers/cai-wenji.webp",
+    "thumbnail": "/artwork/officers/cai-wenji-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Cai Wenji"
+  },
+  "cao-cao": {
+    "src": "/artwork/officers/cao-cao.webp",
+    "thumbnail": "/artwork/officers/cao-cao-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Cao Cao"
+  },
+  "cao-pi": {
+    "src": "/artwork/officers/cao-pi.webp",
+    "thumbnail": "/artwork/officers/cao-pi-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Cao Pi"
+  },
+  "cao-ren": {
+    "src": "/artwork/officers/cao-ren.webp",
+    "thumbnail": "/artwork/officers/cao-ren-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Cao Ren"
+  },
+  "chen-gong": {
+    "src": "/artwork/officers/chen-gong.webp",
+    "thumbnail": "/artwork/officers/chen-gong-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Chen Gong"
+  },
+  "daqiao": {
+    "src": "/artwork/officers/daqiao.webp",
+    "thumbnail": "/artwork/officers/daqiao-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Daqiao"
+  },
+  "deng-ai": {
+    "src": "/artwork/officers/deng-ai.webp",
+    "thumbnail": "/artwork/officers/deng-ai-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Deng Ai"
+  },
+  "dian-wei": {
+    "src": "/artwork/officers/dian-wei.webp",
+    "thumbnail": "/artwork/officers/dian-wei-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Dian Wei"
+  },
+  "diaochan": {
+    "src": "/artwork/officers/diaochan.webp",
+    "thumbnail": "/artwork/officers/diaochan-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Diaochan"
+  },
+  "ding-feng": {
+    "src": "/artwork/officers/ding-feng.webp",
+    "thumbnail": "/artwork/officers/ding-feng-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Ding Feng"
+  },
+  "dong-zhuo": {
+    "src": "/artwork/officers/dong-zhuo.webp",
+    "thumbnail": "/artwork/officers/dong-zhuo-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Dong Zhuo"
+  },
+  "fa-zheng": {
+    "src": "/artwork/officers/fa-zheng.webp",
+    "thumbnail": "/artwork/officers/fa-zheng-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Fa Zheng"
+  },
+  "gan-ning": {
+    "src": "/artwork/officers/gan-ning.webp",
+    "thumbnail": "/artwork/officers/gan-ning-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Gan Ning"
+  },
+  "guan-ping": {
+    "src": "/artwork/officers/guan-ping.webp",
+    "thumbnail": "/artwork/officers/guan-ping-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Guan Ping"
+  },
+  "guan-suo": {
+    "src": "/artwork/officers/guan-suo.webp",
+    "thumbnail": "/artwork/officers/guan-suo-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Guan Suo"
+  },
+  "guan-xing": {
+    "src": "/artwork/officers/guan-xing.webp",
+    "thumbnail": "/artwork/officers/guan-xing-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Guan Xing"
+  },
+  "guan-yinping": {
+    "src": "/artwork/officers/guan-yinping.webp",
+    "thumbnail": "/artwork/officers/guan-yinping-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Guan Yinping"
+  },
+  "guan-yu": {
+    "src": "/artwork/officers/guan-yu.webp",
+    "thumbnail": "/artwork/officers/guan-yu-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Guan Yu"
+  },
+  "guo-huai": {
+    "src": "/artwork/officers/guo-huai.webp",
+    "thumbnail": "/artwork/officers/guo-huai-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Guo Huai"
+  },
+  "guo-jia": {
+    "src": "/artwork/officers/guo-jia.webp",
+    "thumbnail": "/artwork/officers/guo-jia-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Guo Jia"
+  },
+  "han-dang": {
+    "src": "/artwork/officers/han-dang.webp",
+    "thumbnail": "/artwork/officers/han-dang-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Han Dang"
+  },
+  "huang-gai": {
+    "src": "/artwork/officers/huang-gai.webp",
+    "thumbnail": "/artwork/officers/huang-gai-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Huang Gai"
+  },
+  "huang-zhong": {
+    "src": "/artwork/officers/huang-zhong.webp",
+    "thumbnail": "/artwork/officers/huang-zhong-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Huang Zhong"
+  },
+  "jia-chong": {
+    "src": "/artwork/officers/jia-chong.webp",
+    "thumbnail": "/artwork/officers/jia-chong-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Jia Chong"
+  },
+  "jia-xu": {
+    "src": "/artwork/officers/jia-xu.webp",
+    "thumbnail": "/artwork/officers/jia-xu-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Jia Xu"
+  },
+  "jiang-wei": {
+    "src": "/artwork/officers/jiang-wei.webp",
+    "thumbnail": "/artwork/officers/jiang-wei-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Jiang Wei"
+  },
+  "li-dian": {
+    "src": "/artwork/officers/li-dian.webp",
+    "thumbnail": "/artwork/officers/li-dian-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Li Dian"
+  },
+  "lianshi": {
+    "src": "/artwork/officers/lianshi.webp",
+    "thumbnail": "/artwork/officers/lianshi-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Lianshi"
+  },
+  "ling-tong": {
+    "src": "/artwork/officers/ling-tong.webp",
+    "thumbnail": "/artwork/officers/ling-tong-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Ling Tong"
+  },
+  "liu-bei": {
+    "src": "/artwork/officers/liu-bei.webp",
+    "thumbnail": "/artwork/officers/liu-bei-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Liu Bei"
+  },
+  "liu-shan": {
+    "src": "/artwork/officers/liu-shan.webp",
+    "thumbnail": "/artwork/officers/liu-shan-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Liu Shan"
+  },
+  "lu-bu": {
+    "src": "/artwork/officers/lu-bu.webp",
+    "thumbnail": "/artwork/officers/lu-bu-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Lu Bu"
+  },
+  "lu-lingqi": {
+    "src": "/artwork/officers/lu-lingqi.webp",
+    "thumbnail": "/artwork/officers/lu-lingqi-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Lu Lingqi"
+  },
+  "lu-meng": {
+    "src": "/artwork/officers/lu-meng.webp",
+    "thumbnail": "/artwork/officers/lu-meng-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Lu Meng"
+  },
+  "lu-su": {
+    "src": "/artwork/officers/lu-su.webp",
+    "thumbnail": "/artwork/officers/lu-su-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Lu Su"
+  },
+  "lu-xun": {
+    "src": "/artwork/officers/lu-xun.webp",
+    "thumbnail": "/artwork/officers/lu-xun-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Lu Xun"
+  },
+  "ma-chao": {
+    "src": "/artwork/officers/ma-chao.webp",
+    "thumbnail": "/artwork/officers/ma-chao-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Ma Chao"
+  },
+  "ma-dai": {
+    "src": "/artwork/officers/ma-dai.webp",
+    "thumbnail": "/artwork/officers/ma-dai-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Ma Dai"
+  },
+  "meng-huo": {
+    "src": "/artwork/officers/meng-huo.webp",
+    "thumbnail": "/artwork/officers/meng-huo-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Meng Huo"
+  },
+  "pang-de": {
+    "src": "/artwork/officers/pang-de.webp",
+    "thumbnail": "/artwork/officers/pang-de-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Pang De"
+  },
+  "pang-tong": {
+    "src": "/artwork/officers/pang-tong.webp",
+    "thumbnail": "/artwork/officers/pang-tong-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Pang Tong"
+  },
+  "sima-shi": {
+    "src": "/artwork/officers/sima-shi.webp",
+    "thumbnail": "/artwork/officers/sima-shi-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Sima Shi"
+  },
+  "sima-yi": {
+    "src": "/artwork/officers/sima-yi.webp",
+    "thumbnail": "/artwork/officers/sima-yi-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Sima Yi"
+  },
+  "sima-zhao": {
+    "src": "/artwork/officers/sima-zhao.webp",
+    "thumbnail": "/artwork/officers/sima-zhao-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Sima Zhao"
+  },
+  "sun-ce": {
+    "src": "/artwork/officers/sun-ce.webp",
+    "thumbnail": "/artwork/officers/sun-ce-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Sun Ce"
+  },
+  "sun-jian": {
+    "src": "/artwork/officers/sun-jian.webp",
+    "thumbnail": "/artwork/officers/sun-jian-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Sun Jian"
+  },
+  "sun-quan": {
+    "src": "/artwork/officers/sun-quan.webp",
+    "thumbnail": "/artwork/officers/sun-quan-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Sun Quan"
+  },
+  "sun-shangxiang": {
+    "src": "/artwork/officers/sun-shangxiang.webp",
+    "thumbnail": "/artwork/officers/sun-shangxiang-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Sun Shangxiang"
+  },
+  "taishi-ci": {
+    "src": "/artwork/officers/taishi-ci.webp",
+    "thumbnail": "/artwork/officers/taishi-ci-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Taishi Ci"
+  },
+  "wang-yi": {
+    "src": "/artwork/officers/wang-yi.webp",
+    "thumbnail": "/artwork/officers/wang-yi-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Wang Yi"
+  },
+  "wang-yuanji": {
+    "src": "/artwork/officers/wang-yuanji.webp",
+    "thumbnail": "/artwork/officers/wang-yuanji-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Wang Yuanji"
+  },
+  "wei-yan": {
+    "src": "/artwork/officers/wei-yan.webp",
+    "thumbnail": "/artwork/officers/wei-yan-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Wei Yan"
+  },
+  "wen-yang": {
+    "src": "/artwork/officers/wen-yang.webp",
+    "thumbnail": "/artwork/officers/wen-yang-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Wen Yang"
+  },
+  "xiahou-ba": {
+    "src": "/artwork/officers/xiahou-ba.webp",
+    "thumbnail": "/artwork/officers/xiahou-ba-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Xiahou Ba"
+  },
+  "xiahou-dun": {
+    "src": "/artwork/officers/xiahou-dun.webp",
+    "thumbnail": "/artwork/officers/xiahou-dun-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Xiahou Dun"
+  },
+  "xiahou-yuan": {
+    "src": "/artwork/officers/xiahou-yuan.webp",
+    "thumbnail": "/artwork/officers/xiahou-yuan-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Xiahou Yuan"
+  },
+  "xiaoqiao": {
+    "src": "/artwork/officers/xiaoqiao.webp",
+    "thumbnail": "/artwork/officers/xiaoqiao-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Xiaoqiao"
+  },
+  "xingcai": {
+    "src": "/artwork/officers/xingcai.webp",
+    "thumbnail": "/artwork/officers/xingcai-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Xingcai"
+  },
+  "xu-huang": {
+    "src": "/artwork/officers/xu-huang.webp",
+    "thumbnail": "/artwork/officers/xu-huang-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Xu Huang"
+  },
+  "xu-shu": {
+    "src": "/artwork/officers/xu-shu.webp",
+    "thumbnail": "/artwork/officers/xu-shu-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Xu Shu"
+  },
+  "xu-zhu": {
+    "src": "/artwork/officers/xu-zhu.webp",
+    "thumbnail": "/artwork/officers/xu-zhu-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Xu Zhu"
+  },
+  "yu-jin": {
+    "src": "/artwork/officers/yu-jin.webp",
+    "thumbnail": "/artwork/officers/yu-jin-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Yu Jin"
+  },
+  "yuan-shao": {
+    "src": "/artwork/officers/yuan-shao.webp",
+    "thumbnail": "/artwork/officers/yuan-shao-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Yuan Shao"
+  },
+  "yue-jin": {
+    "src": "/artwork/officers/yue-jin.webp",
+    "thumbnail": "/artwork/officers/yue-jin-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Yue Jin"
+  },
+  "yueying": {
+    "src": "/artwork/officers/yueying.webp",
+    "thumbnail": "/artwork/officers/yueying-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Yueying"
+  },
+  "zhang-bao": {
+    "src": "/artwork/officers/zhang-bao.webp",
+    "thumbnail": "/artwork/officers/zhang-bao-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Zhang Bao"
+  },
+  "zhang-chunhua": {
+    "src": "/artwork/officers/zhang-chunhua.webp",
+    "thumbnail": "/artwork/officers/zhang-chunhua-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Zhang Chunhua"
+  },
+  "zhang-fei": {
+    "src": "/artwork/officers/zhang-fei.webp",
+    "thumbnail": "/artwork/officers/zhang-fei-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Zhang Fei"
+  },
+  "zhang-he": {
+    "src": "/artwork/officers/zhang-he.webp",
+    "thumbnail": "/artwork/officers/zhang-he-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Zhang He"
+  },
+  "zhang-jiao": {
+    "src": "/artwork/officers/zhang-jiao.webp",
+    "thumbnail": "/artwork/officers/zhang-jiao-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Zhang Jiao"
+  },
+  "zhang-liao": {
+    "src": "/artwork/officers/zhang-liao.webp",
+    "thumbnail": "/artwork/officers/zhang-liao-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Zhang Liao"
+  },
+  "zhao-yun": {
+    "src": "/artwork/officers/zhao-yun.webp",
+    "thumbnail": "/artwork/officers/zhao-yun-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Zhao Yun"
+  },
+  "zhenji": {
+    "src": "/artwork/officers/zhenji.webp",
+    "thumbnail": "/artwork/officers/zhenji-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Zhenji"
+  },
+  "zhong-hui": {
+    "src": "/artwork/officers/zhong-hui.webp",
+    "thumbnail": "/artwork/officers/zhong-hui-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Zhong Hui"
+  },
+  "zhou-tai": {
+    "src": "/artwork/officers/zhou-tai.webp",
+    "thumbnail": "/artwork/officers/zhou-tai-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Zhou Tai"
+  },
+  "zhou-yu": {
+    "src": "/artwork/officers/zhou-yu.webp",
+    "thumbnail": "/artwork/officers/zhou-yu-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Zhou Yu"
+  },
+  "zhu-ran": {
+    "src": "/artwork/officers/zhu-ran.webp",
+    "thumbnail": "/artwork/officers/zhu-ran-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Zhu Ran"
+  },
+  "zhuge-dan": {
+    "src": "/artwork/officers/zhuge-dan.webp",
+    "thumbnail": "/artwork/officers/zhuge-dan-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Zhuge Dan"
+  },
+  "zhuge-liang": {
+    "src": "/artwork/officers/zhuge-liang.webp",
+    "thumbnail": "/artwork/officers/zhuge-liang-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Zhuge Liang"
+  },
+  "zhurong": {
+    "src": "/artwork/officers/zhurong.webp",
+    "thumbnail": "/artwork/officers/zhurong-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Zhurong"
+  },
+  "zuo-ci": {
+    "src": "/artwork/officers/zuo-ci.webp",
+    "thumbnail": "/artwork/officers/zuo-ci-card.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Original painted interpretation of Zuo Ci"
+  }
+}
