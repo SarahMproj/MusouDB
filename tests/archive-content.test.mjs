@@ -3,14 +3,21 @@ import {readFile,readdir} from 'node:fs/promises';
 import path from 'node:path';
 import test from 'node:test';
 import {Miniflare} from 'miniflare';
+import sharp from 'sharp';
 async function modules(dir){return (await Promise.all((await readdir(dir,{withFileTypes:true})).map(async entry=>{const file=path.join(dir,entry.name);return entry.isDirectory()?modules(file):entry.name.endsWith('.js')?[{type:'ESModule',path:file,contents:await readFile(file,'utf8')}]:[]}))).flat()}
 test('archive guides connect officers, weapons and stages without missing pages',async()=>{
  const root=path.resolve('dist/server');const files=await modules(root);files.sort((a,b)=>Number(b.path===path.join(root,'index.js'))-Number(a.path===path.join(root,'index.js')));
  const mf=new Miniflare({modules:files,modulesRoot:root,compatibilityDate:'2026-05-22',compatibilityFlags:['nodejs_compat'],d1Databases:['DB'],serviceBindings:{ASSETS:()=>new Response('Not found',{status:404})}});
  try{
   const db=await mf.getD1Database('DB');for(const file of (await readdir('drizzle')).filter(f=>f.endsWith('.sql')).sort()){const sql=await readFile(`drizzle/${file}`,'utf8');await db.batch(sql.split('--> statement-breakpoint').map(s=>s.trim()).filter(Boolean).map(s=>db.prepare(s)))}
-  const get=async route=>{const response=await mf.dispatchFetch(`http://musou.test${route}`);assert.equal(response.status,200,route);return response.text()};
+  const get=async route=>{const response=await mf.dispatchFetch(`http://musou.test${route}`);assert.equal(response.status,200,route);return (await response.text()).replace(/<!--[\s\S]*?-->/g,'')};
   const weaponIndex=await get('/weapons');const battleIndex=await get('/battles');
+  for(const campaign of ['shu','wei','wu','jin','lu-bu'])assert.ok(battleIndex.includes(`id="${campaign}-route"`));
+  assert.doesNotMatch(battleIndex,/<details[^>]*open/);
+  const weiChibi=await get('/battles/wei-chibi');
+  assert.ok(weiChibi.includes('Guo Jia'));assert.ok(!weiChibi.includes('altar'));assert.ok(!weiChibi.includes('Reveal Shu route'));
+  const shuChibi=await get('/battles/chibi');assert.ok(shuChibi.includes('Reveal Shu route'));assert.ok(!shuChibi.includes('Reveal Wei route'));
+  const getaway=await get('/battles/lu-bu-getaway');assert.ok(getaway.includes('Hua Xiong'));assert.ok(!getaway.includes('literary and game scenario'));
   const links=html=>[...new Set([...html.matchAll(/href="(\/(?:weapons|battles|officers)\/[^"#?]+)(?:#[^"]*)?"/g)].map(m=>m[1]))];
   const weaponLinks=links(weaponIndex).filter(x=>x.startsWith('/weapons/'));
   let guideCount=0;const profileLinks=new Set();const stageLinks=new Set(links(battleIndex).filter(x=>x.startsWith('/battles/')));
@@ -54,9 +61,25 @@ test('archive guides connect officers, weapons and stages without missing pages'
   const game=await get('/games/dw8xl');assert.equal(new Set([...game.matchAll(/href="\/officers\/([^"?#]+)"/g)].map(m=>m[1])).size,82);
   assert.ok(game.replace(/<!--[\s\S]*?-->/g,'').includes('82 research profiles'));
   const allProfiles=links(game).filter(route=>route.startsWith('/officers/'));
+  const artwork=JSON.parse(await readFile('app/artwork/officers.json','utf8'));
+  const provenance=JSON.parse(await readFile('docs/OFFICER_ARTWORK.json','utf8'));
+  assert.deepEqual(Object.keys(artwork).sort(),allProfiles.map(route=>route.split('/').at(-1)).sort());
+  assert.equal(new Set(provenance.map(item=>item.sourceSha256)).size,82,'Each officer has a unique original painting');
   const profileWeapons=new Set();let combatGaps=0;
   for(const route of allProfiles){
    const html=await get(route);
+   const id=route.split('/').at(-1);const portrait=artwork[id];
+   const image=html.match(/<img[^>]*class="officer-artwork"[^>]*>/)?.[0];
+   assert.ok(image,`${route}: portrait rendered`);
+   assert.ok(image.includes(`src="${portrait.src}"`),`${route}: correct portrait`);
+   assert.ok(image.includes('loading="eager"'),`${route}: hero loads immediately`);
+   assert.ok(image.includes(`alt="${portrait.alt}"`),`${route}: portrait description`);
+   assert.ok(html.includes('AI-generated original portrait'),`${route}: artwork provenance`);
+   for(const [asset,width] of [[portrait.src,portrait.width],[portrait.thumbnail,480]]){
+    const bytes=await readFile(`dist/client${asset}`);const info=await sharp(bytes).metadata();
+    assert.equal(info.format,'webp',asset);assert.equal(info.width,width,asset);
+    assert.ok(bytes.length<300000,`${asset}: bounded image transfer size`);
+   }
    for(const heading of ['Historical context','Game portrayal','Key relationships','Gameplay scope:'])assert.ok(html.includes(heading),`${route}: ${heading}`);
    assert.doesNotMatch(html,/Unique EX weapon|Archive record|open for sourced community expansion/,route);
    assert.doesNotMatch(html,/<details[^>]*open/,route);
@@ -76,6 +99,8 @@ test('archive guides connect officers, weapons and stages without missing pages'
    }
   }
   assert.equal(profileWeapons.size,82);assert.equal(combatGaps,62);
+  const directory=await get('/officers');
+  assert.equal([...directory.matchAll(/<img[^>]*class="officer-artwork"[^>]*loading="lazy"[^>]*>/g)].length,82,'Directory uses lazy-loaded portraits');
   for(const [id,weaponId] of Object.entries({'sun-quan':'sword','deng-ai':'lance','lianshi':'crossbow','wang-yi':'trishula','liu-shan':'rapier','yueying':'dagger-axe','guan-suo':'nunchaku','meng-huo':'gloves','yu-jin':'war-trident','zhu-ran':'flame-bow','dian-wei':'battle-axe'}))assert.ok((await get(`/officers/${id}`)).includes(`href="/weapons/${weaponId}"`),`${id}: edition-specific association`);
   for(const id of ['bao-sanniang','guan-suo','zhurong','diaochan'])assert.ok((await get(`/officers/${id}`)).includes('Literary overview'),`${id}: literary source label`);
   const legacySword=await mf.dispatchFetch('http://musou.test/weapons/flame-blade',{redirect:'manual'});

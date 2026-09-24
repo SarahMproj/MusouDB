@@ -1,5 +1,12 @@
 # MusouDB project status
 
+## 2026-09-23 — original officer artwork
+
+- Added original AI-generated paintings for all 82 DW8XL CE officers in the approved Sun Shangxiang style, with individual briefs and faction colors.
+- Integrated full portraits on officer pages and responsive, lazy-loaded artwork on archive and home cards. Provenance labels distinguish these interpretations from official art and historical likenesses.
+- Preserved the published campaign branch research while reconciling it with the complete officer roster. No database migration or contributor-data change is required.
+- Artwork prompts, source hashes and preparation instructions are recorded in `OFFICER_ARTWORK.json` and `OFFICER_ARTWORK.md`.
+
 ## 2026-09-23 — complete DW8XL CE core roster
 
 - Added the remaining 62 authored officer dossiers: Wei 19/19, Wu 19/19, Shu 22/22, Jin 12/12 and Other 10/10.
@@ -76,7 +83,7 @@ No Site deployment or production data changes were made in this follow-up. The i
 - Weapon and battle records have detail routes. Fourteen additional stage records distinguish similarly named scenarios; the Shu campaign has a six-step hypothetical prerequisite checklist.
 - Home, officer directory, game roster and coverage use approved editorial content. Cards summarize approved spoiler-safe biographies, use approved weapons and search approved gameplay; hidden fields and contributor email addresses are not serialized to browsing clients. Withdrawals restore earlier approved content or the seed.
 - Jin filters and roster counts use a normalized kingdom. Coverage counts profiles, source URLs and published fields instead of declaring the seed biographies 100% complete.
-- Guides are source-checked, not replay-tested. Full EX input tables, compatibility stars by level, all weapon ranks, other kingdom route checklists and broader appearance catalogs remain explicit research gaps. Existing non-DW8XL entries are partial catalogs.
+- Guides are source-checked, not replay-tested. Full EX input tables, compatibility stars by level, all weapon ranks, detailed route walkthroughs and broader appearance catalogs remain explicit research gaps. Existing non-DW8XL entries are partial catalogs.
 - No schema migration, production data update or deployment is part of this change. Device-import PR #5 remains separate.
 
 
@@ -88,3 +95,8 @@ PR #4 merged after both GitHub checks passed. This follow-up adds account-side r
 The authenticated import endpoint validates catalog IDs and statuses, requires explicit confirmation, and derives ownership only from the signed-in profile. A single add-only D1 batch preserves existing entries, rolls back failed imports, and makes retries safe. No schema changes or migrations are needed.
 
 Local Worker/D1 coverage includes sign-in and profile requirements, missing consent, malformed selections, conflict preservation, duplicate retries, account isolation, rollback, and public-profile rendering. Browser interaction and hosted sign-in acceptance remain pending. No Site deployment is included.
+
+## Campaign route follow-up
+
+- Added Wei, Wu, Jin and Lu Bu branch checklists alongside Shu, with 20 additional scenario records and spoiler-collapsed links from battle details.
+- Distinguished side-stage access from prerequisite stars and the final camp conversation. Sources checked 2026-09-13; fresh-save replay remains outstanding.

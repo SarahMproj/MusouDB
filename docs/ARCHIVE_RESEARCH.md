@@ -74,3 +74,12 @@ Special identity boundaries are recorded explicitly: Bao Sanniang, Guan Suo and 
 Sun Quan's earlier Flame Blade assignment was an edition error. His DW8XL CE EX association and existing Emperor's Might guide now use **Sword**; Flame Blade is a separate DLC type in DW8/XL and becomes his EX association in Empires. The old `/weapons/flame-blade` record URL permanently redirects to `/weapons/sword` so existing archive links reach the corrected record. His review date advances to September 23. Dian Wei's existing `/weapons/battle-axe` ID is retained, with the edition name **Axe**.
 
 Validation checks all 82 rendered officer profiles and reciprocal weapon links, 82 weapon pages, kingdom totals, explicit combat gaps, fictional-source labels, the corrected Sword redirect, closed spoiler controls and the existing ten rare guides. Editorial publication tests continue to check that approved fields override core content and that withdrawal removes those overrides.
+
+## Campaign expansion · 2026-09-13
+
+Wei, Wu, Jin and Lu Bu now join Shu in a shared, spoiler-collapsed campaign index. Each step has a scenario ID, campaign scope and prerequisite/side-stage/branch role. Wei's Chibi is separate from the existing Shu-associated Chibi record; Lu Bu's Getaway is separate from Hulao Gate. No stage names or objectives imply historical events.
+
+New source checks: [Ayase Eli](https://steamcommunity.com/sharedfiles/filedetails/?id=259991536) for Wei/Lu Bu; [chromsumia77](https://steamcommunity.com/sharedfiles/filedetails/?id=2839327860) for Wu; Wynter's guide above for Jin, with [rebellion troubleshooting](https://steamcommunity.com/app/278080/discussions/0/540742396943067213/). Both Steam guides are incomplete overall; only their populated campaign sections are used. Short objectives are paraphrased, without copied maps, route tables or walkthrough prose. No fresh-save replay was performed; uncertain exact timers and character-specific walkthroughs remain out of scope.
+
+All five branch checklists are covered, but this is not a catalog of every optional star, post-branch stage or XL side story. Wei's Dian Wei survival is retained as conservative rescue advice; sources differ on whether it independently gates the branch. Jin sources differ on Cao Yi/Cao Xi spelling; the checklist follows Wynter's localized name.
+
