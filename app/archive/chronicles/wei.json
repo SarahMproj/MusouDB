@@ -1,0 +1,154 @@
+{
+  "cai-wenji": {
+    "title": "What war takes from the people who survive it",
+    "perspective": "attested",
+    "themes": ["Displacement", "Cultural memory"],
+    "paragraphs": ["A chronicle told only through commanders can make the collapse of the Han sound like a contest for territory. Cai Yan changes the scale. A scholar’s daughter whose life was disrupted by captivity, she brings family separation, learning, and the survival of culture into the same world as sieges and succession. Her connection to Cao Cao belongs to that history of displacement and return, rather than to the recruitment of another fighting general.", "This makes Cai Wenji a valuable counterpoint within Wei. Where its rulers ask who can restore order, her story invites a different question: what would restoration mean for the people who have already lost their ordinary lives? The game’s musical identity gives that contrast a visible form. Read her beside the military founders, but do not turn her literary reputation into evidence that she commanded their armies."],
+    "boundary": "Her learning and disrupted life have historical grounding. A harp used as a battlefield weapon is the game’s interpretation, not a historical occupation.",
+    "related": ["cao-cao", "zhenji"]
+  },
+  "cao-cao": {
+    "title": "Building the state before taking the throne",
+    "perspective": "attested",
+    "themes": ["Legitimacy", "State-building"],
+    "paragraphs": ["Cao Cao’s story becomes more interesting when the crown is not treated as its starting point. He accumulated power within the Han political order and built the northern position that his son would turn into an imperial dynasty. Military success and the authority to govern were connected, but they were not identical. His career sits inside that gap: the old court still supplied legitimacy even as its strongest servant became increasingly difficult to distinguish from its master.", "MusouDB reads his narrative as a struggle over the terms of reconstruction. Order might end some forms of suffering while concentrating tremendous power in the person who provides it. That tension makes him more than either a straightforward villain or an uncomplicated savior. Following his story into Cao Pi’s reveals the difference between establishing the foundations of a regime and formally replacing the dynasty that came before it."],
+    "boundary": "Cao Cao was King of Wei during his lifetime. Cao Pi, not Cao Cao, established imperial Cao Wei.",
+    "related": ["cao-pi", "yuan-shao", "xiahou-dun"]
+  },
+  "cao-pi": {
+    "title": "An inheritance that had to become a new dynasty",
+    "perspective": "attested",
+    "themes": ["Succession", "Imperial identity"],
+    "paragraphs": ["Cao Pi inherited much more than an army. His father had constructed a northern power base while remaining within the Han political framework; the son’s accession turned that accumulated authority into a different imperial claim. The transition asks a question that battlefield victories alone cannot settle: when does a family’s dominance become a state with a right to endure beyond its founder?", "His game characterization gives this problem a cool, exacting surface. Demanding recognition can be read as the pressure of succeeding someone whose achievements already dominate the story. Beside Cao Cao, he represents the work of converting personal ascendancy into succession. Beside Zhenji, he brings the court and household into view, reminding us that the apparent confidence of a new dynasty does not make its intimate relationships simple."],
+    "boundary": "His imperial accession and literary activity are historical subjects. The game’s icy personality is an editorial characterization, not a psychological diagnosis.",
+    "related": ["cao-cao", "zhenji", "jia-xu"]
+  },
+  "cao-ren": {
+    "title": "The commander whose job was not to give ground",
+    "perspective": "attested",
+    "themes": ["Defense", "Responsibility"],
+    "paragraphs": ["Campaign histories often favor the officer who advances. Cao Ren’s career opens the other side of the map: the positions that must remain intact while a ruler commits resources elsewhere. His difficult defenses at Jiangling and Fancheng belong to a military world in which holding a place could shape the possibilities of an entire campaign, without producing the same image of triumphant movement as a conquest.", "The game turns that burden into an armored, protective presence. His distinctive narrative is not simply that he is hard to defeat; it is that responsibility can mean staying when movement would be easier. Read his Fancheng record alongside Xu Huang and Guan Yu. The same conflict then appears as a defense under pressure, a relief operation, and an offensive whose momentum must eventually meet resistance."],
+    "boundary": "A reputation for defense does not mean every historical position he held was invulnerable or every game defense reproduces the same events.",
+    "related": ["xu-huang", "guan-yu", "cao-cao"]
+  },
+  "dian-wei": {
+    "title": "When a whole campaign narrows to one doorway",
+    "perspective": "attested",
+    "themes": ["Protection", "Personal loyalty"],
+    "paragraphs": ["Dian Wei’s place in the chronicle is unusually concentrated. The larger ambitions of Cao Cao’s camp become, in his bodyguard’s story, the immediate task of keeping one person alive. The historical last stand at Wancheng is important not because it supplies a general theory of Wei, but because it exposes how a rising political enterprise can suddenly depend on close protection in a moment of danger.", "That narrow focus gives the game’s immense physical strength an emotional purpose. Power is not being accumulated for its own sake; it is being placed between a protected person and a threat. Xu Zhu offers a companion perspective on the same duty, while Cao Cao’s subsequent career shows how much can depend on people whose own stories occupy comparatively little space. Hypothetical survival asks what another future might look like without replacing the historical outcome."],
+    "boundary": "His death at Wancheng is part of the historical account. A survival branch is a deliberate game counterfactual.",
+    "related": ["cao-cao", "xu-zhu", "jia-xu"]
+  },
+  "guo-jia": {
+    "title": "The strategist remembered through the future he missed",
+    "perspective": "attested",
+    "themes": ["Foresight", "Counterfactual history"],
+    "paragraphs": ["Guo Jia’s advice belongs to the campaigns that strengthened Cao Cao’s northern position, but his reputation also gathers around an absence. He died before Red Cliffs. That gap between an adviser’s actual career and the crises that followed creates an especially tempting kind of historical storytelling: imagining that one exceptional mind could have prevented a later failure.", "The game’s relaxed, perceptive strategist fits naturally into that temptation. His distinctive narrative should nevertheless preserve the difference between achievements in the record and possibilities assigned to him after the fact. What makes him compelling is not proof that he could solve any future problem. It is the dependence of ambitious leaders on trusted counsel, and the uncertainty left when that relationship can no longer continue."],
+    "boundary": "Later participation in a hypothetical campaign cannot be used as evidence that Guo Jia survived to advise at Red Cliffs.",
+    "related": ["cao-cao", "jia-xu", "zhou-yu"]
+  },
+  "jia-xu": {
+    "title": "Surviving the rulers whose plans you understand",
+    "perspective": "attested",
+    "themes": ["Pragmatism", "Changing allegiance"],
+    "paragraphs": ["Jia Xu’s service crossed several political households before it reached Cao Cao and, later, Cao Pi. That movement is a reminder that the three familiar faction colors were not permanent homes assigned at birth. In a fractured political landscape, an adviser’s judgment could concern not only how to win a campaign, but which relationships were likely to remain survivable after it.", "His dry, cautious game persona makes an effective contrast with officers who announce their convictions in public. Yet a survival-centered reading should not become an invented explanation for every decision in his life. The useful tension is between strategic usefulness and exposure: knowing how power works may make someone valuable to rulers without making that person secure. Read him across successive patrons rather than flattening his entire career into lifelong Wei loyalty."],
+    "boundary": "His changes of service are historical. Private motives for every change cannot be reconstructed from the game’s pragmatic personality.",
+    "related": ["cao-cao", "cao-pi", "dian-wei"]
+  },
+  "li-dian": {
+    "title": "Winning together without having to be alike",
+    "perspective": "attested",
+    "themes": ["Cooperation", "Military institutions"],
+    "paragraphs": ["Li Dian’s record complicates the picture of an army held together solely by friendship. Accounts of the Hefei defense emphasize setting personal disagreements aside for a shared military purpose. His logistical and administrative responsibilities widen that picture further: a commander’s usefulness could lie in supporting collective action as well as in the striking individual deed that later becomes famous.", "The game’s intuitive, conversational Li Dian sits beside Zhang Liao’s severity and Yue Jin’s modest determination. Together they make an unusually clear small-scale study of cooperation. Their shared story is not three versions of the same heroic temperament. It is the possibility that different officers can recognize an obligation larger than their preferences, while retaining the differences that make working together difficult."],
+    "boundary": "Historical cooperation at Hefei does not validate every invented conversation or intuitive insight attributed to him in the game.",
+    "related": ["zhang-liao", "yue-jin", "sun-quan"]
+  },
+  "pang-de": {
+    "title": "A final allegiance different from his first",
+    "perspective": "attested",
+    "themes": ["Allegiance", "Resolve"],
+    "paragraphs": ["Pang De’s earlier service with the Ma family could make his place in Wei seem puzzling when characters are read only through faction badges. His career instead follows a route that separates from Ma Chao’s. Their former association does not determine a common destination. The later Fancheng conflict places Pang De within Cao Cao’s military effort, facing Guan Yu rather than fighting beside Shu.", "His refusal to surrender gives the historical ending a particular severity, which the game translates into quiet resolve. Read alongside Yu Jin, the same disaster also becomes a warning against judging every commander through a single shared outcome. They encountered the collapse of the same reinforcement effort but made different choices. Pang De’s identity emerges from the allegiance he ultimately defended, not simply from the household in which his military story began."],
+    "boundary": "Former service under Ma Chao does not make Pang De a historical Shu officer. His final capture and execution are story-ending material.",
+    "related": ["ma-chao", "yu-jin", "guan-yu"]
+  },
+  "wang-yi": {
+    "title": "The person on the other side of a hero’s story",
+    "perspective": "attested",
+    "themes": ["Conflicting memories", "Resistance"],
+    "paragraphs": ["Ma Chao’s language of justice changes when the same conflicts are approached through Wang Yi. Historical accounts place her beside Zhao Ang in resistance against him. That perspective matters because a commander celebrated in one tradition may be remembered elsewhere through the danger and loss associated with his campaigns. No faction’s preferred heroism can stand in for everyone’s experience of a war.", "The game compresses this opposition into a fierce personal revenge narrative. MusouDB’s reading keeps the dramatic force without treating that single motive as a complete historical biography. Wang Yi is most distinctive when she is allowed to disrupt the comfortable alignment between playable hero and moral certainty. Read her beside Ma Chao, not merely as an obstacle in his story, but as the center of a different account of what the conflict meant."],
+    "boundary": "She has a historical basis. The game’s concentrated revenge arc should not be substituted for the more specific accounts of her resistance.",
+    "related": ["ma-chao", "pang-de", "ma-dai"]
+  },
+  "xiahou-dun": {
+    "title": "Beyond the eye: the work of making power last",
+    "perspective": "attested",
+    "themes": ["Trust", "Administration"],
+    "paragraphs": ["The missing eye is an unforgettable visual shorthand, but it can consume Xiahou Dun’s entire biography if left unchecked. His historical service also included administration, agriculture, and public works. These responsibilities place him within the less spectacular work of maintaining a power base: a military camp needs more than victories to become a durable political order.", "His blunt loyalty in the game can therefore be read more broadly than a willingness to charge first. The connection to Cao Cao suggests trust extending beyond a single battle, while Xiahou Yuan supplies another version of long service within the same circle. The useful narrative contrast is between the unforgettable wound and the less visible responsibilities. A strong officer page should preserve both, rather than allowing a famous literary embellishment to replace an extensive career."],
+    "boundary": "The loss of an eye has historical grounding; the famous act of consuming it belongs to literary embellishment.",
+    "related": ["cao-cao", "xiahou-yuan", "cao-ren"]
+  },
+  "xiahou-yuan": {
+    "title": "A frontier career with a family story beyond it",
+    "perspective": "attested",
+    "themes": ["Frontier command", "Family legacy"],
+    "paragraphs": ["Xiahou Yuan’s career directs attention away from the court and toward the northwest and Hanzhong. These commands made him part of the military structure supporting Cao Cao’s wider ambitions. Mount Dingjun eventually became the event through which much of that service is remembered, but the ending should not erase the sustained responsibilities that preceded it.", "The game’s approachable veteran offers a warmer image of Wei than its more imposing commanders. Reading onward to Xiahou Ba gives that warmth a second context: family service did not guarantee that the next generation would remain secure under a changing political order. The father’s death and the son’s later defection were separate events, not one continuous battlefield scene. Keeping the interval visible turns a family connection into a story about historical change."],
+    "boundary": "Xiahou Yuan’s death at Dingjun and Xiahou Ba’s later defection must remain distinct events rather than a single immediate chain.",
+    "related": ["xiahou-ba", "huang-zhong", "zhang-he"]
+  },
+  "xu-huang": {
+    "title": "Respect does not dissolve the battle line",
+    "perspective": "attested",
+    "themes": ["Professional duty", "Rivalry"],
+    "paragraphs": ["Xu Huang’s relief of Fancheng places him at the point where another officer’s defense and an enemy’s advance meet. It is a useful corrective to character-centered histories that make every conflict a personal duel. His operation mattered because of the position under threat and the larger campaign, not only because Guan Yu stood on the opposing side.", "The game’s disciplined martial identity invites a reading of respect without political agreement. Admiration for another warrior does not remove the obligation to defeat that warrior’s army. Alongside Cao Ren, Xu Huang shows the interdependence of defense and relief; alongside Guan Yu, he shows how a person can be worthy of regard without becoming an ally. His narrative is strongest when professional responsibility remains as important as the language of honor."],
+    "boundary": "The game’s philosophy of martial perfection is characterization. Campaign service and later literary treatments require separate evidence.",
+    "related": ["cao-ren", "guan-yu", "zhang-liao"]
+  },
+  "xu-zhu": {
+    "title": "Strength measured by what it protects",
+    "perspective": "attested",
+    "themes": ["Close protection", "Ordinary life"],
+    "paragraphs": ["Xu Zhu, usually called Xu Chu in historical English references, belongs to the intimate security of Cao Cao’s world. A bodyguard’s responsibilities are narrower than a ruler’s ambitions but can be decisive for whether those ambitions survive. His place in the record therefore brings the political story down to the distance between a person under protection and the people close enough to endanger him.", "The game gives that role an unusually gentle outward manner. Interest in simple comforts does not make the responsibility trivial, nor should it be used to infer historical incompetence. Beside Dian Wei, he offers another expression of protective strength; beside Cao Cao, he reminds the reader that an elaborate political project depends on practical service. His distinctive appeal lies in the contrast between physical magnitude and a life not presented as a pursuit of rank."],
+    "boundary": "Xu Zhu and Xu Chu are names for the same figure here. The gentle game persona is not evidence about his historical intelligence.",
+    "related": ["dian-wei", "cao-cao", "cao-ren"]
+  },
+  "yu-jin": {
+    "title": "A lifetime of discipline, judged through one disaster",
+    "perspective": "attested",
+    "themes": ["Reputation", "Surrender"],
+    "paragraphs": ["Yu Jin’s historical career was long before the Fancheng disaster made surrender central to his reputation. Flooding overwhelmed the army he commanded, and capture placed his conduct under the judgment of rulers and later readers. A biography built only around that ending risks treating decades of service as nothing more than a prelude to a verdict.", "The game’s severe disciplinarian makes this tension especially sharp. An officer identified with rules and obedience is not thereby protected from circumstances that make those ideals difficult to sustain. Read him beside Pang De to compare different choices within the same crisis, but resist turning the comparison into a simple measure of human worth. Yu Jin’s story is about the instability of reputation as much as the apparent stability of military discipline."],
+    "boundary": "Yu Jin is not Yue Jin. Historical surrender and later judgments of it are distinct from the game’s stern characterization.",
+    "related": ["pang-de", "guan-yu", "yue-jin"]
+  },
+  "yue-jin": {
+    "title": "The advance of a man who does not advertise himself",
+    "perspective": "attested",
+    "themes": ["Frontline service", "Modesty"],
+    "paragraphs": ["Yue Jin’s reputation grew through repeated frontline service, not through a separate political project of his own. His place among Cao Cao’s early followers makes the accumulation of military work important: campaigns depend on people who repeatedly carry out dangerous assignments while the larger chronicle remains focused on the ruler whose position those assignments support.", "His modest game persona gives that service a memorable contrast. The willingness to act is larger than the claims he makes about himself. At Hefei, pairing him with Zhang Liao and Li Dian creates a story about distinct temperaments contributing to one defense. He need not become a smaller copy of either colleague to matter. His narrative rewards attention to dependable action rather than simply to the loudest self-description in the army."],
+    "boundary": "Yue Jin’s Hefei service belongs to his own career. It must not be confused with Yu Jin’s surrender at Fancheng.",
+    "related": ["li-dian", "zhang-liao", "yu-jin"]
+  },
+  "zhang-he": {
+    "title": "Adaptability beneath an unforgettable performance",
+    "perspective": "attested",
+    "themes": ["Adaptation", "Military experience"],
+    "paragraphs": ["Zhang He’s historical path crossed from Yuan Shao’s service into Cao Cao’s and continued into Wei’s later campaigns. It is a career that resists being reduced to one patron or one spectacular appearance. His experience connects the struggle for the north with subsequent contests against Shu, making continuity and adaptation central to his place in the archive.", "The game overlays that career with an elaborate language of beauty and graceful movement. That performance makes him instantly recognizable, but it should not displace the experienced commander underneath. His distinct narrative sits in the relationship between form and effectiveness: the game imagines excellence as something visible, while the historical career must be examined through changing commands and campaigns. Read him alongside both Yuan Shao and Xiahou Yuan to recover the breadth hidden by a memorable stage presence."],
+    "boundary": "His aesthetic philosophy is a game invention. It is not a historical explanation for his changing allegiance or military decisions.",
+    "related": ["yuan-shao", "xiahou-yuan", "zhang-liao"]
+  },
+  "zhang-liao": {
+    "title": "The same warrior on a different side of the chronicle",
+    "perspective": "attested",
+    "themes": ["Changing service", "Military reputation"],
+    "paragraphs": ["Zhang Liao’s passage from Lü Bu’s camp into Cao Cao’s forces is one of the clearest reasons to treat officers as people moving through history rather than permanent faction icons. The fall of one lord did not end his career. His later importance at Hefei belongs to a new political relationship, even though the experienced commander remained the same person.", "The game emphasizes discipline and respect, qualities that can connect these periods without pretending the allegiance never changed. His narrative becomes richer when the reader follows the transition rather than treating early appearances beside Lü Bu as a contradiction. At Hefei, Li Dian and Yue Jin also prevent the story from becoming wholly solitary. A famous reputation can emerge from a shared defense, and recognizing the other participants does not diminish the officer who became its most recognizable face."],
+    "boundary": "The roster’s Wei classification is a navigation choice, not a claim that Zhang Liao always served Cao Cao.",
+    "related": ["lu-bu", "li-dian", "yue-jin"]
+  },
+  "zhenji": {
+    "title": "A life larger than an imperial image",
+    "perspective": "attested",
+    "themes": ["Court politics", "Historical identity"],
+    "paragraphs": ["Lady Zhen’s life crosses two powerful households: an earlier marriage to Yuan Xi and a later place beside Cao Pi, with Cao Rui as her son. Those connections put her inside the transformation of northern power, not outside it as an ornamental companion. The fact that her personal name is not securely recorded also reveals how unevenly the historical archive preserves people who mattered to dynastic succession.", "The game’s refined, assured Zhenji supplies a coherent imperial image where the historical life is more complicated. MusouDB’s narrative should allow that image to be enjoyed without allowing it to settle questions about her circumstances or intentions. Her posthumous imperial honor is particularly important: later recognition is not the same thing as holding the title during life. Read her beside Cao Pi as an individual record, rather than merely a reflection of his status."],
+    "boundary": "Zhenji is not a securely recorded personal name, and posthumous imperial honor must not be presented as a lifetime reign.",
+    "related": ["cao-pi", "yuan-shao", "cai-wenji"]
+  }
+}
